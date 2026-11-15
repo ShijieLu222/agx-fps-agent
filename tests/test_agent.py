@@ -174,6 +174,9 @@ class AgentTests(unittest.TestCase):
             ("shot_ready", False, False),
         ):
             with self.subTest(field=field, value=value):
+                # Independent readiness cases must not inherit the v2 pistol
+                # trigger release from a prior synthetic same-tick request.
+                agent.init({})
                 row = observation(visible=[{
                     "x": 10.0, "y": 0.0, "z": 0.0,
                     "crouch": False, "parts": ["chest"],
