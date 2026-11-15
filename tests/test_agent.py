@@ -117,6 +117,8 @@ class AgentTests(unittest.TestCase):
         for side, cash, kit, armor, expected in (
             ("attack", 2700, False, 0, "ak47"),
             ("defend", 400, False, 0, "defusekit"),
+            ("defend", 800, False, 0, "armor"),
+            ("defend", 2900, False, 0, "m4a1"),
             ("defend", 2900, True, 0, "m4a1"),
             ("attack", 800, False, 0, "armor"),
             ("attack", 0, False, 100, None),
@@ -140,6 +142,71 @@ class AgentTests(unittest.TestCase):
         row["me"]["weapons"][1]["ammo"] = 0
         self.assertIs(self.run_action(row)["reload"], True)
 
+    def test_exhausted_primary_switches_to_usable_secondary(self):
+        row = observation(map=copy.deepcopy(MAP))
+        row["me"]["weapons"][0] = {
+            "id": "ak47", "ammo": 0, "reserve": 0, "reload_until": 0,
+        }
+        row["me"]["active_slot"] = 0
+        self.assertEqual(self.run_action(row)["weapon_slot"], 1)
+        row["me"]["weapons"][0]["reserve"] = 30
+        action = self.run_action(row)
+        self.assertEqual(action["weapon_slot"], 0)
+        self.assertTrue(action["reload"])
+
+    def test_reload_deadline_and_switch_prevent_repeated_reload(self):
+        row = observation()
+        row["me"]["weapons"][1].update(ammo=0, reload_until=603)
+        self.assertNotIn("reload", self.run_action(row))
+        row["match_tick"] = 603
+        self.assertTrue(self.run_action(row)["reload"])
+        row["me"]["switch_until"] = 606
+        self.assertNotIn("reload", self.run_action(row))
+
+    def test_firing_respects_own_clocks_and_bool_readiness(self):
+        for field, value, expected in (
+            ("reload_until", 599, True),
+            ("reload_until", 600, True),
+            ("reload_until", 601, False),
+            ("shot_ready", 599, True),
+            ("shot_ready", 601, False),
+            ("shot_ready", True, True),
+            ("shot_ready", False, False),
+        ):
+            with self.subTest(field=field, value=value):
+                row = observation(visible=[{
+                    "x": 10.0, "y": 0.0, "z": 0.0,
+                    "crouch": False, "parts": ["chest"],
+                }])
+                row["me"]["pitch"] = math.atan2(1.18 - 1.62, 10.0)
+                row["me"]["weapons"][1][field] = value
+                self.assertIs(self.run_action(row)["fire"], expected)
+
+    def test_firing_waits_for_switch_and_active_weapon(self):
+        row = observation(visible=[{
+            "x": 10.0, "y": 0.0, "z": 0.0,
+            "crouch": False, "parts": ["chest"],
+        }])
+        row["me"]["pitch"] = math.atan2(1.18 - 1.62, 10.0)
+        row["me"].update(active_slot=1, switch_until=603)
+        self.assertFalse(self.run_action(row)["fire"])
+        row["me"]["switch_until"] = 600
+        self.assertTrue(self.run_action(row)["fire"])
+        row["me"]["shot_ready"] = False
+        self.assertFalse(self.run_action(row)["fire"])
+        row["me"]["shot_ready"] = True
+        row["me"]["active_slot"] = 2
+        self.assertFalse(self.run_action(row)["fire"])
+
+    def test_missing_optional_weapon_clocks_remain_compatible(self):
+        row = observation(visible=[{
+            "x": 10.0, "y": 0.0, "z": 0.0,
+            "crouch": False, "parts": ["chest"],
+        }])
+        row["me"]["pitch"] = math.atan2(1.18 - 1.62, 10.0)
+        del row["me"]["weapons"][1]["reload_until"]
+        self.assertTrue(self.run_action(row)["fire"])
+
     def test_plant_and_defuse_do_not_request_conflicting_reload(self):
         for side, use in (("attack", "plant"), ("defend", "defuse")):
             with self.subTest(side=side):
@@ -159,6 +226,63 @@ class AgentTests(unittest.TestCase):
         row = observation(side="defend", map=copy.deepcopy(MAP),
                           bomb={"state": "planted", "fuse_end_tick": 3000})
         self.assertNotIn("use", self.run_action(row))
+
+    def test_bomb_can_be_planted_at_other_site_without_switching(self):
+        row = observation(map=copy.deepcopy(MAP))
+        row["me"].update(x=0.0, y=10.0, carrying_bomb=True, active_slot=2)
+        row["me"]["weapons"][0] = {
+            "id": "ak47", "ammo": 0, "reserve": 30, "reload_until": 0,
+        }
+        expected = {"weapon_slot": 2, "use": "plant"}
+        self.assertEqual(self.run_action(row), expected)
+        del row["map"]
+        row["match_tick"] += 3
+        row["visible"] = [{"x": 1.0, "y": 10.0, "z": 0.0,
+                           "crouch": False, "parts": ["chest"]}]
+        self.assertEqual(self.run_action(row), expected)
+
+    def test_known_bomb_can_be_defused_without_map_and_keeps_slot(self):
+        row = observation(side="defend", bomb={
+            "state": "planted", "position": [0.0, 0.0, 0.0],
+            "fuse_end_tick": 3000,
+        })
+        row["me"].update(active_slot=2)
+        row["me"]["weapons"][1]["ammo"] = 0
+        self.assertEqual(self.run_action(row), {"weapon_slot": 2, "use": "defuse"})
+        row["match_tick"] += 3
+        self.assertEqual(self.run_action(row), {"weapon_slot": 2, "use": "defuse"})
+
+    def test_astar_minimizes_distance_instead_of_hop_count(self):
+        p = agent.Player()
+        positions = {"s": [0., 0., 0.], "detour": [100., 0., 0.],
+                     "a": [3., 0., 0.], "b": [6., 0., 0.], "g": [10., 0., 0.]}
+        links = [("s", "detour"), ("detour", "g"),
+                 ("s", "a"), ("a", "b"), ("b", "g")]
+        p.load_map({"sites": [], "nav": {
+            "nodes": [{"id": key, "position": pos} for key, pos in positions.items()],
+            "edges": [{"from": a, "to": b, "kind": "walk"} for a, b in links],
+        }})
+        route = p.route(positions["s"], positions["g"])
+        self.assertNotIn(positions["detour"], route)
+        self.assertEqual(sum(math.dist(a, b) for a, b in zip(route, route[1:])), 10.0)
+
+    def test_astar_ties_accept_mixed_ids_and_preserve_directed_edges(self):
+        p = agent.Player()
+        p.load_map({"nav": {
+            "nodes": [{"id": 0, "position": [0., 0., 0.]},
+                      {"id": "upper", "position": [1., 1., 0.]},
+                      {"id": 2, "position": [1., -1., 0.]},
+                      {"id": "goal", "position": [2., 0., 0.]}],
+            "edges": [{"from": 0, "to": "upper", "kind": "drop"},
+                      {"from": 0, "to": 2, "kind": "drop"},
+                      {"from": "upper", "to": "goal", "kind": "drop"},
+                      {"from": 2, "to": "goal", "kind": "drop"},
+                      {"from": "goal", "to": 0, "kind": "ladder"}],
+        }})
+        route = p.route([0., 0., 0.], [2., 0., 0.])
+        self.assertAlmostEqual(sum(math.dist(a, b) for a, b in zip(route, route[1:])),
+                               2 * math.sqrt(2))
+        self.assertEqual(p.edges["goal"], [])
 
     def test_dead_post_and_finished_are_neutral(self):
         for phase, alive in (("post", True), ("finished", True), ("live", False)):

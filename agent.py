@@ -1,14 +1,15 @@
-"""AGX FPS baseline adapted from the official public starter.
+"""AGX FPS v1 adapted from the official public starter.
 
 Source: https://agx.cool/docs/schema/fps.example.agent.py
 Retrieved: 2026-11-15. Contract: rsi-fps-5.5.
-Local changes: guard absent map data, invalidate map caches by identity,
-and avoid requesting reload during plant/defuse interaction.
-This baseline has not been evaluated in a ranked match.
+Local changes: geometry-weighted routes, objective continuity, usable-weapon
+selection, own-clock checks and a rifle-first defensive buy policy.
+This candidate has not been evaluated in a ranked match.
 """
 import math
 import gc
-from collections import deque
+import heapq
+from itertools import count
 
 
 def clip(value):
@@ -16,11 +17,30 @@ def clip(value):
 
 
 def distance(a, b):
-    return math.sqrt(sum((x - y)**2 for x, y in zip(a, b)))
+    return math.dist(a, b)
 
 
 def angle(value):
     return (value + math.pi) % (2 * math.pi) - math.pi
+
+
+def clock_ready(value, tick, ready_flag=False):
+    """Read a public deadline, or a bool readiness/busy flag if supplied.
+
+    Missing optional clocks preserve compatibility. Numeric clocks are absolute
+    match ticks; do not confuse a past nonzero deadline with an active timer.
+    """
+    if value is None:
+        return True
+    if isinstance(value, bool):
+        return value if ready_flag else not value
+    return (type(value) in (int, float) and math.isfinite(value)
+            and value <= tick)
+
+
+def current_slot(me, fallback):
+    slot = me.get("active_slot")
+    return slot if type(slot) is int and slot in (0, 1, 2) else fallback
 
 
 class Player:
@@ -43,9 +63,11 @@ class Player:
         for edge in nav.get("edges", []):
             if (edge["from"] in self.nodes and edge["to"] in self.nodes
                     and edge["kind"] != "ladder"):
-                self.edges[edge["from"]].append(edge["to"])
+                cost = distance(self.nodes[edge["from"]],
+                                self.nodes[edge["to"]])
+                self.edges[edge["from"]].append((edge["to"], cost))
                 if edge["kind"] == "walk":
-                    self.edges[edge["to"]].append(edge["from"])
+                    self.edges[edge["to"]].append((edge["from"], cost))
 
     def route(self, start, goal):
         if not self.nodes:
@@ -54,13 +76,27 @@ class Player:
                     key=lambda k: distance(start, self.nodes[k]))
         last = min(self.nodes,
                    key=lambda k: distance(goal, self.nodes[k]))
-        queue, parent = deque([first]), {first: None}
-        while queue and last not in parent:
-            here = queue.popleft()
-            for there in self.edges[here]:
-                if there not in parent:
+        # Euclidean distance is admissible for these geometric edge lengths.
+        # A counter keeps heap ties independent of int/string node ID types.
+        order = count()
+        queue = [(distance(self.nodes[first], self.nodes[last]),
+                  next(order), 0.0, first)]
+        parent, best = {first: None}, {first: 0.0}
+        while queue:
+            _, _, cost, here = heapq.heappop(queue)
+            if cost != best[here]:
+                continue
+            if here == last:
+                break
+            for there, length in self.edges[here]:
+                candidate = cost + length
+                if candidate < best.get(there, math.inf):
+                    best[there] = candidate
                     parent[there] = here
-                    queue.append(there)
+                    estimate = candidate + distance(self.nodes[there],
+                                                    self.nodes[last])
+                    heapq.heappush(queue, (estimate, next(order),
+                                          candidate, there))
         if last not in parent:
             return [goal]
         path, cursor = [goal], last
@@ -71,16 +107,24 @@ class Player:
 
     def buy(self, o):
         m = o["me"]
-        if (o["side"] == "defend" and not m["has_kit"]
-                and m["cash"] >= 400):
-            return {"buy": "defusekit"}
         rifle = "ak47" if o["side"] == "attack" else "m4a1"
         price = 2700 if o["side"] == "attack" else 2900
         if m["weapons"][0] is None and m["cash"] >= price:
             return {"buy": rifle}
         if m["armor"] < 50 and m["cash"] >= 650:
             return {"buy": "armor"}
+        if (o["side"] == "defend" and not m["has_kit"]
+                and m["cash"] >= 400):
+            return {"buy": "defusekit"}
         return {}
+
+    def weapon_slot(self, me):
+        # Keep a reloadable primary. Switch when it is completely exhausted.
+        for slot in (0, 1):
+            gun = me["weapons"][slot]
+            if gun and (gun.get("ammo", 0) > 0 or gun.get("reserve", 0) > 0):
+                return slot
+        return 0 if me["weapons"][0] is not None else 1
 
     def combat(self, o, action, gun):
         m = o["me"]
@@ -98,8 +142,13 @@ class Player:
                     - 2 * punch.get("yaw", 0.0))
         pitch = math.atan2(dz, max(0.1, math.hypot(dx, dy)))
         pitch -= m["pitch"] + 2 * punch.get("pitch", 0.0)
-        ready = bool(gun and gun["ammo"]
-                     and not gun["reload_until"])
+        tick = o["match_tick"]
+        ready = bool(gun and gun["ammo"] > 0
+                     and current_slot(m, action["weapon_slot"]) == action["weapon_slot"]
+                     and clock_ready(m.get("switch_until"), tick)
+                     and clock_ready(gun.get("reload_until"), tick)
+                     and clock_ready(gun.get("shot_ready"), tick, ready_flag=True)
+                     and clock_ready(m.get("shot_ready"), tick, ready_flag=True))
         # Release the trigger between pistol shots.
         trigger = (action["weapon_slot"] == 0
                    or (o["match_tick"] // 3) % 4 == 0)
@@ -188,37 +237,42 @@ class Player:
             return {}
         if o["phase"] == "buy":
             return self.buy(o)
-        slot = 0 if m["weapons"][0] is not None else 1
+        slot = self.weapon_slot(m)
         gun = m["weapons"][slot]
+        pos = [m["x"], m["y"], m["z"]]
+        bomb = o["bomb"]
+        planted = bomb["state"] == "planted"
+        # Objective requests are independent of route selection. Preserve the
+        # active slot and sustain use even when an enemy appears or ammo is empty.
+        if (o["side"] == "defend" and planted
+                and bomb.get("position")
+                and distance(pos, bomb["position"]) < 2.0):
+            return {"weapon_slot": current_slot(m, slot), "use": "defuse"}
+        if (o["side"] == "attack" and m["carrying_bomb"] and not planted
+                and any(distance(pos, site["center"]) < site["radius"] * 0.5
+                        for site in self.sites)):
+            return {"weapon_slot": current_slot(m, slot), "use": "plant"}
         action = {"weapon_slot": slot}
-        if gun and gun["ammo"] == 0 and gun["reserve"]:
+        if (gun and gun["ammo"] == 0 and gun["reserve"]
+                and current_slot(m, slot) == slot
+                and clock_ready(m.get("switch_until"), o["match_tick"])
+                and clock_ready(gun.get("reload_until"), o["match_tick"])):
             action["reload"] = True
         if not self.sites:
             # Missing static data cannot justify inventing a navigation target.
             if o["visible"] and not m["blind_ticks"]:
                 return self.combat(o, action, gun)
             return action
-        pos = [m["x"], m["y"], m["z"]]
-        bomb = o["bomb"]
         patrol = 0 if m["carrying_bomb"] else o["round_tick"] // 1800
         index = (o["round_index"] + o["seat"] % 2 + patrol) % len(self.sites)
         site = self.sites[index]
         goal = list(site["center"])
-        planted = bomb["state"] == "planted"
         if planted and bomb.get("position"):
             goal = list(bomb["position"])
         if o["side"] == "attack" and bomb["state"] == "world" and bomb.get("position"):
             goal = list(bomb["position"])
             if distance(pos, goal) < 1.2:
                 return dict(action, use="pickup", pickup_id=bomb["id"])
-        if (o["side"] == "defend" and planted
-                and bomb.get("position")
-                and distance(pos, goal) < 2.0):
-            return {"weapon_slot": slot, "use": "defuse"}
-        radius = site["radius"] * 0.5
-        at_site = distance(pos, site["center"]) < radius
-        if m["carrying_bomb"] and at_site:
-            return {"weapon_slot": slot, "use": "plant"}
         if o["visible"] and not m["blind_ticks"]:
             return self.combat(o, action, gun)
         if (o["side"] == "attack" and planted
