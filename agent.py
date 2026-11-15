@@ -1,4 +1,4 @@
-"""AGX FPS v3 adapted from the official public starter.
+"""AGX FPS v4 adapted from the official public starter.
 
 Source: https://agx.cool/docs/schema/fps.example.agent.py
 Retrieved: 2026-11-15. Contract: rsi-fps-5.5.
@@ -6,8 +6,9 @@ Local changes: geometry-weighted routes, objective continuity, usable-weapon
 selection, own-clock checks and a rifle-first defensive buy policy.
 Duel pacing, contact memory and objective braking adapt ideas from the
 user-supplied AGX_FPS_v3_3_Duel.zip (2026-11-15); no performance gain is proven.
-v3 addresses range/exhausted-ammo stalls and objective/navigation failures in
-the owner's first v2 match. Offline replay does not establish a win-rate gain.
+v3 addressed range/exhausted-ammo stalls and objective/navigation failures.
+v4 targets stopping, unseen-damage response and route failures observed in the
+owner's second match. Offline checks do not establish a win-rate gain.
 """
 import math
 import gc
@@ -59,13 +60,14 @@ def current_slot(me, fallback):
 
 
 def counterstop(me):
-    """Brake observed horizontal velocity in the player's current view basis."""
-    vx, vy = me.get("vx", 0.0), me.get("vy", 0.0)
-    if math.hypot(vx, vy) <= 0.1:
-        return {"move_forward": 0.0, "move_right": 0.0}
-    cosine, sine = math.cos(me["yaw"]), math.sin(me["yaw"])
-    return {"move_forward": clip(-(vx * cosine - vy * sine) * 0.4),
-            "move_right": clip(-(vx * sine + vy * cosine) * 0.4)}
+    """Release both movement axes and let ground friction finish stopping.
+
+    Reversing tiny velocities every 3-tick decision sustained a 0.78105 m/s
+    oscillation in the owner's real match. Neutral input avoids that feedback
+    without guessing engine acceleration. The fire/objective gates still check
+    observed speed and grounding; neutral input alone never authorizes either.
+    """
+    return {"move_forward": 0.0, "move_right": 0.0}
 
 
 class Player:
@@ -79,8 +81,35 @@ class Player:
         self.last_position, self.stuck = None, 0
         self.anchor, self.anchor_tick = None, 0
         self.escape_until, self.escape_yaw, self.escapes = 0, 0.0, 0
+        self.clear_route_history()
         self.reset_navigation()
         self.reset_tactics()
+
+    def clear_route_history(self):
+        self.route_threats = {}
+        self.nav_side, self.nav_round = None, 0
+
+    def remember_threat(self, o):
+        """Cost a traversed approach after own unseen damage, not an enemy map.
+
+        Keep a bounded, side-specific preference for four rounds. Edges remain
+        traversable; a costly detour is not always safer than the short route.
+        """
+        if not self.path_nodes or self.nav_from is None:
+            return
+        there = self.path_nodes[0]
+        edge = (self.nav_from, there)
+        if edge not in self.walk_edges:
+            return
+        key = (o["side"],) + edge
+        length = distance(self.nodes[edge[0]], self.nodes[edge[1]])
+        previous = self.route_threats.get(key, (0, 0.0))
+        old = previous[1] if previous[0] >= o["round_index"] else 0.0
+        self.route_threats[key] = (o["round_index"] + 4,
+                                   min(120.0, old + max(20.0, length)))
+        if len(self.route_threats) > 256:
+            oldest = min(self.route_threats, key=lambda k: self.route_threats[k][0])
+            del self.route_threats[oldest]
 
     def reset_navigation(self):
         self.path_nodes, self.nav_from = [], None
@@ -92,9 +121,43 @@ class Player:
 
     def penalize_leg(self):
         """Remember an observed failed traversal, never an unseen obstacle."""
-        if not self.path_nodes or self.nav_from is None:
+        if not self.path_nodes:
             return
         there = self.path_nodes[0]
+        if self.nav_from is None:
+            # A spawn-to-first-node connector has no reached-node anchor.
+            # Recover only along an explicit walk corridor containing our feet,
+            # never by connecting to an arbitrary nearby or other-floor node.
+            if there not in self.nodes or self.last_position is None:
+                return
+            candidates = []
+            for here, target in self.walk_edges:
+                if target != there:
+                    continue
+                a, b, pos = self.nodes[here], self.nodes[there], self.last_position
+                dx, dy = b[0]-a[0], b[1]-a[1]
+                squared = dx*dx + dy*dy
+                if squared < 0.01:
+                    continue
+                along = ((pos[0]-a[0])*dx + (pos[1]-a[1])*dy) / squared
+                if not 0.0 < along < 1.0:
+                    continue
+                projected = [a[i] + along*(b[i]-a[i]) for i in range(3)]
+                lateral = math.dist(pos[:2], projected[:2])
+                # Do not walk back up a ledge whose expected floor was lost.
+                if lateral <= 0.5 and abs(pos[2]-projected[2]) <= 0.6:
+                    candidates.append((lateral, distance(pos, a), here))
+            if not candidates:
+                return
+            # Key avoids comparing mixed integer/string navigation identifiers.
+            here = min(candidates, key=lambda row: row[:2])[2]
+            key = (here, there)
+            length = distance(self.nodes[here], self.nodes[there])
+            old = self.failed_edges.get(key, (0, 0.0))[1]
+            self.failed_edges[key] = (self.nav_tick + 1800,
+                                     min(500.0, old + max(60.0, 5*length)))
+            self.retry_node = here
+            return
         if there is None or there == self.nav_from:
             return
         key = (self.nav_from, there)
@@ -128,8 +191,96 @@ class Player:
         self.search_site = None
         self.search_arrival = None
         self.searched_sites = set()
+        self.last_hp = None
+        self.last_safety_tick = None
+        self.last_legal_visible = False
+        self.breadcrumbs = []
+        self.retreat_path = []
+        self.retreat_until = 0
+        self.damage_cooldown = 0
+
+    def observe_safety(self, o):
+        """Remember only our own continuous, grounded recent traversal."""
+        m, tick = o["me"], o["match_tick"]
+        hp = m.get("hp")
+        damaged = (isinstance(hp, (int, float)) and self.last_hp is not None
+                   and hp < self.last_hp - 0.5)
+        pos = [m["x"], m["y"], m["z"]]
+        if (not m["grounded"] or self.last_safety_tick is None
+                or tick - self.last_safety_tick > 6
+                or (self.breadcrumbs and
+                    (distance(pos, self.breadcrumbs[-1][1]) > 0.8
+                     or abs(pos[2]-self.breadcrumbs[-1][1][2]) > 0.15))):
+            self.breadcrumbs = []
+            self.retreat_path = []
+        if m["grounded"]:
+            self.breadcrumbs.append((tick, pos))
+            self.breadcrumbs = [(t, p) for t, p in self.breadcrumbs[-64:]
+                                if tick-t <= 120]
+        self.last_hp = hp if isinstance(hp, (int, float)) else None
+        self.last_safety_tick = tick
+        self.last_legal_visible = bool(o["visible"] and not m["blind_ticks"])
+        return damaged
+
+    def unseen_damage_escape(self, o, action, damaged):
+        """Briefly reverse a witnessed walk, never guess a hidden attacker."""
+        m, tick = o["me"], o["match_tick"]
+        pos = [m["x"], m["y"], m["z"]]
+        if self.last_legal_visible:
+            self.retreat_path = []
+            self.retreat_until = 0
+            return None
+        if damaged and tick >= self.damage_cooldown and m["grounded"]:
+            reverse, length, previous = [], 0.0, pos
+            for _, point in reversed(self.breadcrumbs[:-1]):
+                # No reversal over a jump/drop or to a different floor. Use
+                # successive samples, not a straight shortcut around a corner.
+                if abs(point[2]-pos[2]) > 0.35:
+                    break
+                segment = distance(previous, point)
+                if segment > 0.8:
+                    break
+                if segment < 0.12:
+                    continue
+                reverse.append(point)
+                length += segment
+                previous = point
+                if length >= 3.0:
+                    break
+            if length >= 0.3:
+                self.retreat_path = reverse
+                self.retreat_until = tick + 54
+                self.damage_cooldown = tick + 180
+                self.remember_threat(o)
+                self.enemy_memory, self.target_seat = None, None
+                self.contact_until = 0
+                self.escape_until = 0
+                self.path = []
+                self.last_move_tick = None
+        if (not self.retreat_path or tick >= self.retreat_until
+                or not m["grounded"]):
+            self.retreat_path = []
+            return None
+        while self.retreat_path and distance(pos, self.retreat_path[0]) < 0.18:
+            self.retreat_path.pop(0)
+        if not self.retreat_path:
+            return None
+        point = self.retreat_path[0]
+        if abs(point[2]-pos[2]) > 0.35 or distance(pos, point) > 1.0:
+            self.retreat_path = []
+            return None
+        yaw = angle(math.atan2(-(point[1]-pos[1]), point[0]-pos[0])-m["yaw"])
+        self.last_fire, self.burst_start = False, None
+        # Keep watching the current direction while backing along our path.
+        # No stale contact-memory turn or crouch is applied to this action.
+        return {"weapon_slot": current_slot(m, action["weapon_slot"]),
+                "move_forward": 0.85 * math.cos(yaw),
+                "move_right": -0.85 * math.sin(yaw),
+                "yaw_rate": 0.0, "pitch_rate": 0.0, "fire": False,
+                "crouch": False, "walk": False, "jump": False}
 
     def load_map(self, row):
+        self.clear_route_history()
         self.reset_navigation()
         self.sites = row.get("sites") or []
         nav = row.get("nav") or {}
@@ -152,6 +303,8 @@ class Player:
         self.nav_from = None
         self.failed_edges = {key: value for key, value in self.failed_edges.items()
                              if value[0] > self.nav_tick}
+        self.route_threats = {key: value for key, value in self.route_threats.items()
+                             if value[0] >= self.nav_round}
         if not self.nodes:
             self.path_nodes = [None]
             return [goal]
@@ -173,6 +326,8 @@ class Player:
                 break
             for there, length in self.edges[here]:
                 penalty = self.failed_edges.get((here, there), (0, 0.0))[1]
+                penalty += self.route_threats.get(
+                    (self.nav_side, here, there), (0, 0.0))[1]
                 candidate = cost + length + penalty
                 if candidate < best.get(there, math.inf):
                     best[there] = candidate
@@ -390,12 +545,14 @@ class Player:
         return action
 
     def objective_action(self, me, slot, use):
-        # Switching or moving can break objective use. Brake first, then keep
-        # requesting use with the slot already held, irrespective of combat.
+        # Do not counter-steer at the objective: low-speed reversal oscillated
+        # indefinitely in a live match. Neutral controls let ground friction
+        # settle, then keep requesting use with the weapon already held.
         self.last_fire, self.burst_start = False, None
         action = {"weapon_slot": current_slot(me, slot)}
-        if math.hypot(me.get("vx", 0.0), me.get("vy", 0.0)) > 0.1:
-            action.update(counterstop(me))
+        if (not me.get("grounded", False)
+                or math.hypot(me.get("vx", 0.0), me.get("vy", 0.0)) > 0.1):
+            action.update(move_forward=0.0, move_right=0.0)
         else:
             action["use"] = use
         return action
@@ -405,6 +562,7 @@ class Player:
         pos = [m["x"], m["y"], m["z"]]
         tick = o["match_tick"]
         self.nav_tick = tick
+        self.nav_side, self.nav_round = o["side"], o["round_index"]
         # Time spent fighting or using an objective is not failed movement.
         if self.last_move_tick is None or tick - self.last_move_tick > 6:
             self.anchor, self.anchor_tick = pos, tick
@@ -478,6 +636,7 @@ class Player:
         if identity != self.map_identity:
             # Never navigate using geometry from another map or schema revision.
             self.map_identity = identity
+            self.clear_route_history()
             self.nodes, self.edges, self.sites = {}, {}, []
             self.walk_edges = set()
             self.pending_map = None
@@ -504,6 +663,14 @@ class Player:
             self.reset_tactics()
         m = o["me"]
         if not m["alive"] or o["phase"] not in ("buy", "live"):
+            # Record a fatal unseen encounter once, including a 100-to-0 hit.
+            # Do not attribute an attacker or infer a private enemy location.
+            if (not m["alive"] and self.last_hp is not None and self.last_hp > 0
+                    and not self.last_legal_visible
+                    and self.last_safety_tick is not None
+                    and 0 < o["match_tick"]-self.last_safety_tick <= 6
+                    and o["match_tick"] >= self.damage_cooldown):
+                self.remember_threat(o)
             self.reset_tactics()
             return {}
         if o["phase"] == "buy":
@@ -511,6 +678,7 @@ class Player:
             return self.buy(o)
         tick = o["match_tick"]
         visible = bool(o["visible"] and not m["blind_ticks"])
+        damaged = self.observe_safety(o)
         if visible:
             self.contact_until = tick + 90
         slot = self.weapon_slot(m, contact=tick < self.contact_until, tick=tick)
@@ -536,6 +704,9 @@ class Player:
                         for site in self.sites)):
             return self.objective_action(m, slot, "plant")
         action = {"weapon_slot": slot}
+        escape = self.unseen_damage_escape(o, action, damaged)
+        if escape is not None:
+            return escape
         if visible:
             action["fire"] = False
         if (gun and gun["ammo"] == 0 and gun["reserve"]
@@ -573,9 +744,7 @@ class Player:
         if (o["side"] == "attack" and planted
                 and distance(pos, goal) < 8):
             return self.quiet_action(o, dict(action, yaw_rate=0.15, walk=True))
-        # Give each teammate room to leave its spawn before entering a narrow route.
-        if o["round_tick"] < 360 + (o["seat"] % 5) * 90:
-            return self.quiet_action(o, action)
+        # Buy already gates movement; do not delay later seats after live starts.
         return self.quiet_action(o, self.move(o, goal, action))
 
 

@@ -63,18 +63,18 @@ class V2Tests(unittest.TestCase):
             self.assertIn(action['weapon_slot'], (0, 1, 2))
         return action
 
-    def test_countermovement_opposes_observed_world_velocity(self):
+    def test_stopping_releases_both_axes_for_any_view_direction(self):
         row = contact()
         row['me'].update(vx=2.0, vy=-1.0)
         action = self.act(row)
-        self.assertLess(action['move_forward'], 0)
-        self.assertGreater(action['move_right'], 0)
+        self.assertEqual(action['move_forward'], 0)
+        self.assertEqual(action['move_right'], 0)
         self.assertFalse(action['fire'])
         agent.init({})
         row['me'].update(yaw=math.pi / 2, vx=1.0, vy=2.0)
         action = self.act(row)
-        self.assertGreater(action['move_forward'], 0)
-        self.assertLess(action['move_right'], 0)
+        self.assertEqual(action['move_forward'], 0)
+        self.assertEqual(action['move_right'], 0)
 
     def test_firing_requires_grounded_and_slow_but_not_arbitrary_global_tick(self):
         for grounded, velocity, expected in ((False, 0., False), (True, 2., False),
@@ -209,7 +209,8 @@ class V2Tests(unittest.TestCase):
                                    'fuse_end_tick': 3000}
                 action = self.act(row)
                 self.assertEqual(action['weapon_slot'], 2)
-                self.assertLess(action['move_forward'], 0)
+                self.assertEqual(action['move_forward'], 0)
+                self.assertEqual(action['move_right'], 0)
                 self.assertNotIn('use', action)
                 self.assertNotIn('reload', action)
                 row['me']['vx'] = 0
