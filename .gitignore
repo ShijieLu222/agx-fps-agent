@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+.env
+.env.*
+!.env.example
+dist/
+data/private/
+logs/
+training*.jsonl
+*.log
