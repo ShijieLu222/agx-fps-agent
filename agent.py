@@ -1,4 +1,4 @@
-"""AGX FPS v7 candidate adapted from the official public starter.
+"""AGX FPS v8 candidate adapted from the official public starter.
 
 Source: https://agx.cool/docs/schema/fps.example.agent.py
 Retrieved: 2026-11-15. Contract: rsi-fps-5.5.
@@ -15,6 +15,8 @@ v6 addresses false airborne arrivals and repeated box-climbing failures from
 the owner's Dust2 match. Navigation source edges remain unverified candidates.
 v7 confirms brief head-only sightings before firing and bounds lost-sight
 braking, without treating spectator positions as legal target observations.
+v8 separates navigation gaze from movement and searches after unseen damage.
+Public spawn areas are search directions, never enemy positions or fire targets.
 """
 import math
 import gc
@@ -79,6 +81,7 @@ def counterstop(me):
 class Player:
     def __init__(self):
         self.nodes, self.edges, self.sites = {}, {}, []
+        self.spawn_views = {}
         self.walk_edges = set()
         self.source_edges = set()
         self.pending_map = None
@@ -263,6 +266,48 @@ class Player:
         self.lost_hold_used, self.hold_last_tick = 0, None
         self.peek_advance_until = 0
         self.unconfirmed_head_since = None
+        self.damage_watch_start = None
+        self.damage_watch_yaw, self.damage_watch_sign = 0.0, 1.0
+
+    def approach_view(self, o):
+        """A public opposing spawn area to check, not a tracked opponent."""
+        return self.spawn_views.get("CT" if o["side"] == "attack" else "T")
+
+    def watch_navigation(self, o, action, recovering=False):
+        """Turn the view without replacing the world direction of movement.
+
+        The route controller already expresses movement in the CURRENT view
+        basis. Only view controls change here; the next callback recomputes
+        movement from the new observed yaw. Never synthesize visible targets.
+        """
+        m, tick = o["me"], o["match_tick"]
+        if (m["blind_ticks"] or o["visible"] or not m["grounded"]
+                or action.get("use") or action.get("jump")):
+            return action
+        elapsed = (tick - self.damage_watch_start
+                   if self.damage_watch_start is not None else 108)
+        if 0 <= elapsed < 108:
+            # Check one side, then the other. Repeated hits do not restart
+            # the first sector forever. No attacker bearing is invented.
+            offset = self.damage_watch_sign * (math.pi / 2 if elapsed < 36
+                                               else -math.pi / 2)
+            yaw = angle(self.damage_watch_yaw + offset - m["yaw"])
+            return dict(action, yaw_rate=clip(yaw / 0.15),
+                        pitch_rate=clip(-m["pitch"] / 0.1))
+        if (recovering or tick < self.escape_until or self.recovery_trace
+                or self.enemy_memory is not None):
+            return action
+        # Keep the known working defensive behavior for this iteration.
+        # On attack, alternate the published defending approach and the route.
+        point = self.approach_view(o) if o["side"] == "attack" else None
+        moving = math.hypot(action.get("move_forward", 0.0),
+                            action.get("move_right", 0.0)) > 0.1
+        if (point is None or not moving or o["round_tick"] % 120 >= 72
+                or math.dist([m["x"], m["y"]], point[:2]) < 4.0):
+            return action
+        yaw, pitch = self.aim_error(m, point)
+        return dict(action, yaw_rate=clip(yaw / 0.15),
+                    pitch_rate=clip(pitch / 0.1))
 
     @staticmethod
     def head_only(enemy):
@@ -364,7 +409,15 @@ class Player:
         if self.last_legal_visible:
             self.retreat_path = []
             self.retreat_until = 0
+            self.damage_watch_start = None
             return None
+        if (damaged and m["grounded"] and not m["blind_ticks"]
+                and (self.damage_watch_start is None
+                     or tick - self.damage_watch_start >= 108)):
+            self.damage_watch_start, self.damage_watch_yaw = tick, m["yaw"]
+            point = self.approach_view(o)
+            offset = self.aim_error(m, point)[0] if point is not None else 0.0
+            self.damage_watch_sign = (1.0 if offset > 0 else -1.0) if abs(offset) > 0.1 else (1.0 if o["seat"] % 2 else -1.0)
         if damaged and tick >= self.damage_cooldown and m["grounded"]:
             reverse, length, previous = [], 0.0, pos
             for _, point in reversed(self.breadcrumbs[:-1]):
@@ -406,18 +459,28 @@ class Player:
             return None
         yaw = angle(math.atan2(-(point[1]-pos[1]), point[0]-pos[0])-m["yaw"])
         self.last_fire, self.burst_start = False, None
-        # Keep watching the current direction while backing along our path.
-        # No stale contact-memory turn or crouch is applied to this action.
-        return {"weapon_slot": current_slot(m, action["weapon_slot"]),
+        # Backtrack the witnessed corridor while searching, rather than keeping
+        # a direction that has already failed to reveal the attacker.
+        return self.watch_navigation(o, {"weapon_slot": current_slot(m, action["weapon_slot"]),
                 "move_forward": 0.85 * math.cos(yaw),
                 "move_right": -0.85 * math.sin(yaw),
                 "yaw_rate": 0.0, "pitch_rate": 0.0, "fire": False,
-                "crouch": False, "walk": False, "jump": False}
+                "crouch": False, "walk": False, "jump": False}, recovering=True)
 
     def load_map(self, row):
         self.clear_route_history()
         self.reset_navigation()
         self.sites = row.get("sites") or []
+        self.spawn_views = {}
+        for side, pads in (row.get("spawns") or {}).items():
+            positions = [p.get("position") for p in pads if isinstance(p, dict)]
+            positions = [p for p in positions if isinstance(p, (list, tuple))
+                         and len(p) == 3 and all(type(v) in (int, float)
+                                                and math.isfinite(v) for v in p)]
+            if positions:
+                self.spawn_views[side] = [sum(p[i] for p in positions) / len(positions)
+                                         for i in range(3)]
+                self.spawn_views[side][2] += 1.18
         nav = row.get("nav") or {}
         self.nodes = {n["id"]: n["position"]
                       for n in nav.get("nodes", [])}
@@ -657,7 +720,7 @@ class Player:
                 yaw, pitch = self.aim_error(m, self.enemy_memory[0])
                 action.update(yaw_rate=clip(yaw / 0.15),
                               pitch_rate=clip(pitch / 0.1))
-        return action
+        return self.watch_navigation(o, action)
 
     def combat(self, o, action, gun, enemies=None):
         m = o["me"]
@@ -858,6 +921,7 @@ class Player:
             self.map_identity = identity
             self.clear_route_history()
             self.nodes, self.edges, self.sites = {}, {}, []
+            self.spawn_views = {}
             self.walk_edges = set()
             self.source_edges = set()
             self.pending_map = None

@@ -41,7 +41,8 @@ class UnseenDamageTests(unittest.TestCase):
         a = self.step(1.2, hp=74.)
         self.assertLess(a['move_forward'], -.8)
         self.assertAlmostEqual(a['move_right'], 0.)
-        self.assertEqual(a['yaw_rate'], 0.)
+        # v8 searches a side sector while keeping the witnessed backtrack.
+        self.assertGreater(abs(a['yaw_rate']), 0.)
         self.assertFalse(a['fire'])
         self.assertFalse(a['crouch'])
         self.assertFalse(a['walk'])

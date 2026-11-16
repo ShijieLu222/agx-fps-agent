@@ -1,0 +1,192 @@
+{
+  "source": "AGX authenticated own match list and rating history",
+  "items": [
+    {
+      "job_id": "599a5b25-8d2c-4793-9b28-ccf7732da229",
+      "finished_at_shanghai": "2026-11-15T12:22:17.467041+08:00",
+      "version": 2,
+      "own_seat": 5,
+      "own_team": 1,
+      "team_round_wins": [
+        10,
+        13
+      ],
+      "own_score": 1,
+      "rating_change": {
+        "after": 1059.282,
+        "before": 1000,
+        "delta": 59.281999999999925
+      }
+    },
+    {
+      "job_id": "c5ae30fc-5c55-412c-9c59-670bc7cd8ef4",
+      "finished_at_shanghai": "2026-11-15T14:17:58.820784+08:00",
+      "version": 3,
+      "own_seat": 4,
+      "own_team": 0,
+      "team_round_wins": [
+        7,
+        13
+      ],
+      "own_score": 0,
+      "rating_change": {
+        "after": 1049.519,
+        "before": 1059.282,
+        "delta": -9.76299999999992
+      }
+    },
+    {
+      "job_id": "2170ceab-6bba-4afb-91eb-55d59bd4a396",
+      "finished_at_shanghai": "2026-11-15T16:20:19.506094+08:00",
+      "version": 5,
+      "own_seat": 0,
+      "own_team": 0,
+      "team_round_wins": [
+        13,
+        4
+      ],
+      "own_score": 1,
+      "rating_change": {
+        "after": 1118.196,
+        "before": 1049.519,
+        "delta": 68.67699999999991
+      }
+    },
+    {
+      "job_id": "5059ce9c-04f8-4f2a-8a98-d02d0b08f6eb",
+      "finished_at_shanghai": "2026-11-15T18:19:47.013201+08:00",
+      "version": 7,
+      "own_seat": 3,
+      "own_team": 0,
+      "team_round_wins": [
+        12,
+        12
+      ],
+      "own_score": 0.5,
+      "rating_change": {
+        "after": 1116.028,
+        "before": 1118.196,
+        "delta": -2.1679999999998927
+      }
+    },
+    {
+      "job_id": "c01c23ba-1742-41c5-87e6-4607b8ebb8b9",
+      "finished_at_shanghai": "2026-11-15T20:12:02.593819+08:00",
+      "version": 7,
+      "own_seat": 2,
+      "own_team": 0,
+      "team_round_wins": [
+        13,
+        4
+      ],
+      "own_score": 1,
+      "rating_change": {
+        "after": 1162.723,
+        "before": 1116.028,
+        "delta": 46.694999999999936
+      }
+    },
+    {
+      "job_id": "36369ae5-2b3c-40e1-a009-df2462776c2c",
+      "finished_at_shanghai": "2026-11-15T22:19:33.499879+08:00",
+      "version": 7,
+      "own_seat": 3,
+      "own_team": 0,
+      "team_round_wins": [
+        9,
+        13
+      ],
+      "own_score": 0,
+      "rating_change": {
+        "after": 1132.073,
+        "before": 1162.723,
+        "delta": -30.649999999999864
+      }
+    },
+    {
+      "job_id": "9e03eb28-425b-43bd-888c-4f27353353fc",
+      "finished_at_shanghai": "2026-11-16T00:18:40.385771+08:00",
+      "version": 7,
+      "own_seat": 7,
+      "own_team": 1,
+      "team_round_wins": [
+        8,
+        13
+      ],
+      "own_score": 1,
+      "rating_change": {
+        "after": 1171.931,
+        "before": 1132.073,
+        "delta": 39.85799999999995
+      }
+    },
+    {
+      "job_id": "b514cd60-73de-44b0-92cf-82842adf0d8a",
+      "finished_at_shanghai": "2026-11-16T02:20:04.911936+08:00",
+      "version": 7,
+      "own_seat": 6,
+      "own_team": 1,
+      "team_round_wins": [
+        11,
+        13
+      ],
+      "own_score": 1,
+      "rating_change": {
+        "after": 1205.323,
+        "before": 1171.931,
+        "delta": 33.39200000000005
+      }
+    },
+    {
+      "job_id": "c6309922-3a77-45cf-930a-70d5c0823cb4",
+      "finished_at_shanghai": "2026-11-16T04:22:22.812234+08:00",
+      "version": 7,
+      "own_seat": 1,
+      "own_team": 0,
+      "team_round_wins": [
+        13,
+        8
+      ],
+      "own_score": 1,
+      "rating_change": {
+        "after": 1238.602,
+        "before": 1205.323,
+        "delta": 33.278999999999996
+      }
+    },
+    {
+      "job_id": "9e35b0a8-1d78-479a-b4a0-f95787d5aed3",
+      "finished_at_shanghai": "2026-11-16T06:12:46.830176+08:00",
+      "version": 7,
+      "own_seat": 1,
+      "own_team": 0,
+      "team_round_wins": [
+        7,
+        13
+      ],
+      "own_score": 0,
+      "rating_change": {
+        "after": 1191.865,
+        "before": 1238.602,
+        "delta": -46.73700000000008
+      }
+    },
+    {
+      "job_id": "c76a4d00-4dd7-48db-97c9-e5893635f26a",
+      "finished_at_shanghai": "2026-11-16T08:14:14.899759+08:00",
+      "version": 7,
+      "own_seat": 1,
+      "own_team": 0,
+      "team_round_wins": [
+        8,
+        13
+      ],
+      "own_score": 0,
+      "rating_change": {
+        "after": 1157.915,
+        "before": 1191.865,
+        "delta": -33.950000000000045
+      }
+    }
+  ]
+}

@@ -159,7 +159,11 @@ class V2Tests(unittest.TestCase):
         row['me']['x'] = 1.0
         action = self.act(advance(row, 181))
         self.assertFalse(action.get('fire', False))
-        self.assertAlmostEqual(action.get('yaw_rate', 0), 0)
+        # v6 requires reaching the actual ground node. At x=1 the route can
+        # legitimately look back at its first node; memory expiry, not a fixed
+        # forward-facing yaw, is the contract of this test.
+        self.assertIsNone(agent._player.enemy_memory)
+        self.assertLessEqual(action.get('yaw_rate', 0), 0)
 
     def test_loaded_secondary_used_for_empty_reloadable_primary_during_contact(self):
         row = contact()
