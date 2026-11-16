@@ -1,0 +1,286 @@
+{
+  "format": "agx-fps-v10-issue-regressions.v1",
+  "job_id": "385ff542-e882-46e6-91e5-b46e6fdffb79",
+  "baseline_source_sha256": "226c44d649ba11a96c9ddf2370e9864c7654a1bd10b4740970639857e247d86d",
+  "candidate_source_sha256": "e83b4c1fb3bbd4ccd91ddf14747760332d6b33ad8006008dfc7e87249f7cd1b1",
+  "decisions": 41010,
+  "verified_training": {
+    "rows": 41010,
+    "raw_bytes": 135595990,
+    "sha256": "bf4b6785bc62fde06abedc7693b8f4f829ef690d25406e17c32e67d5e4055c11"
+  },
+  "changed_actions": 4421,
+  "attack_changed_actions": 0,
+  "round3_moving_crouch_callbacks": {
+    "v9": 203,
+    "v10": 0
+  },
+  "cases": {
+    "12285": {
+      "round": 3,
+      "position": [
+        117.16046758998861,
+        27.983854928434802,
+        -0.0018900000949948882
+      ],
+      "legal_bomb": {
+        "state": "planted",
+        "fuse_end_tick": 12936
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "fire": false,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -0.39394143762820616,
+        "pitch_rate": -0.03528242849616444,
+        "crouch": true
+      },
+      "v10": {
+        "weapon_slot": 0,
+        "fire": false,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -0.39394143762820616,
+        "pitch_rate": -0.03528242849616444,
+        "crouch": true
+      },
+      "v9_goal": [
+        112.0,
+        90.0,
+        2.4
+      ],
+      "v10_goal": [
+        112.0,
+        90.0,
+        2.4
+      ],
+      "v10_defend_site": 1,
+      "v10_support_until": 11741,
+      "v10_search_site": 0
+    },
+    "12378": {
+      "round": 3,
+      "position": [
+        117.21741629320293,
+        30.583298067063037,
+        -0.0018900000949948583
+      ],
+      "legal_bomb": {
+        "state": "planted",
+        "fuse_end_tick": 12936
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "fire": false,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -0.002077788240851438,
+        "pitch_rate": -0.09769773305206411,
+        "crouch": true
+      },
+      "v10": {
+        "weapon_slot": 0,
+        "fire": false,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -0.002077788240851438,
+        "pitch_rate": -0.09769773305206411,
+        "crouch": true
+      },
+      "v9_goal": [
+        112.0,
+        90.0,
+        2.4
+      ],
+      "v10_goal": [
+        112.0,
+        90.0,
+        2.4
+      ],
+      "v10_defend_site": 1,
+      "v10_support_until": 11741,
+      "v10_search_site": 0
+    },
+    "12849": {
+      "round": 3,
+      "position": [
+        117.491515068976,
+        43.07290157618055,
+        -0.0018900000949949073
+      ],
+      "legal_bomb": {
+        "state": "planted",
+        "fuse_end_tick": 12936
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.7278276599590241,
+        "move_right": -0.1810162904231858,
+        "yaw_rate": -0.0028857955861028017,
+        "pitch_rate": 0.12032445788956979,
+        "walk": false,
+        "crouch": true
+      },
+      "v10": {
+        "weapon_slot": 0,
+        "move_forward": 0.7278276599590241,
+        "move_right": -0.1810162904231858,
+        "yaw_rate": -0.0028857955861028017,
+        "pitch_rate": 0.12032445788956979,
+        "walk": false,
+        "crouch": false
+      },
+      "v9_goal": [
+        112.0,
+        90.0,
+        2.4
+      ],
+      "v10_goal": [
+        112.0,
+        90.0,
+        2.4
+      ],
+      "v10_defend_site": 1,
+      "v10_support_until": 11741,
+      "v10_search_site": 0
+    },
+    "15711": {
+      "round": 4,
+      "position": [
+        98.90696718622935,
+        22.807098138683266,
+        -0.0018900000949949004
+      ],
+      "legal_bomb": {
+        "state": "unknown",
+        "fuse_end_tick": null
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.707235516082913,
+        "move_right": 0.2496355839838057,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "walk": false
+      },
+      "v10": {
+        "weapon_slot": 0,
+        "move_forward": 0.75,
+        "move_right": 1.4421797089880783e-13,
+        "yaw_rate": -1.2819375191005142e-12,
+        "pitch_rate": -0.0,
+        "walk": false
+      },
+      "v9_goal": [
+        118,
+        90,
+        2.4
+      ],
+      "v10_goal": [
+        52,
+        18,
+        0
+      ],
+      "v10_defend_site": 1,
+      "v10_support_until": 17820,
+      "v10_search_site": null
+    },
+    "38961": {
+      "round": 9,
+      "position": [
+        52.06677382317763,
+        27.15325521395177,
+        -0.0018900000949948839
+      ],
+      "legal_bomb": {
+        "state": "unknown",
+        "fuse_end_tick": null
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.75,
+        "move_right": -6.328271240363392e-15,
+        "yaw_rate": 5.6251299914341267e-14,
+        "pitch_rate": 5e-323,
+        "walk": false
+      },
+      "v10": {
+        "weapon_slot": 0,
+        "move_forward": 0.75,
+        "move_right": -6.328271240363392e-15,
+        "yaw_rate": 1.0,
+        "pitch_rate": -0.6389792321133947,
+        "walk": false
+      },
+      "v9_goal": [
+        118,
+        90,
+        2.4
+      ],
+      "v10_goal": [
+        52,
+        22,
+        0
+      ],
+      "v10_defend_site": 1,
+      "v10_support_until": 0,
+      "v10_search_site": null
+    },
+    "47166": {
+      "round": 10,
+      "position": [
+        112.6801107326521,
+        56.34755645713146,
+        -0.0018900000949949142
+      ],
+      "legal_bomb": {
+        "state": "planted",
+        "fuse_end_tick": 49566
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.41250000000000003,
+        "move_right": -7.290834602713404e-13,
+        "yaw_rate": 1.1783167034688329e-11,
+        "pitch_rate": -0.0,
+        "walk": true
+      },
+      "v10": {
+        "weapon_slot": 0,
+        "move_forward": 0.6000000000000001,
+        "move_right": -1.0604850331219495e-12,
+        "yaw_rate": 1.1783167034688329e-11,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "crouch": false
+      },
+      "v9_goal": [
+        112.0,
+        90.0,
+        2.4
+      ],
+      "v10_goal": [
+        52.0,
+        26.0,
+        0
+      ],
+      "v10_defend_site": 1,
+      "v10_support_until": 49685,
+      "v10_search_site": 1,
+      "v10_site_costs": [
+        197.13588955046345,
+        77.0535467097177
+      ]
+    }
+  },
+  "assertions_passed": [
+    "All recorded v9 actions reproduced",
+    "All v10 actions JSON/schema valid",
+    "Round 4 and 9 support expiry does not revert responsibility to A",
+    "Round 10 unknown-bomb search selects B by current graph cost",
+    "Round 3 repeated flicker no longer maintains crouch travel",
+    "Recorded attack-side actions unchanged"
+  ],
+  "limitations": "Fixed historical inputs and simplified unit-test fixtures, not new match outcomes or full collision/physics validation."
+}

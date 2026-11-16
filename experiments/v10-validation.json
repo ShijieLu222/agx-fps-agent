@@ -1,0 +1,153 @@
+{
+  "format": "agx-fps-v10-validation.v1",
+  "date": "2026-11-16",
+  "status": "local_checks_passed_before_publication",
+  "baseline_commit": "e8d9597",
+  "source_sha256": "e83b4c1fb3bbd4ccd91ddf14747760332d6b33ad8006008dfc7e87249f7cd1b1",
+  "bundle_sha256": "4add5462a81b39cded1fd19aa2a07e398b51d91f360cde6fc6398fb5608d4333",
+  "bundle_bytes": 20417,
+  "bundle_contents": [
+    "agent.py"
+  ],
+  "unit_tests": {
+    "command": "python3 -B -m unittest discover -s tests -v",
+    "passed": 155,
+    "failed": 0
+  },
+  "decisions_checked": 169907,
+  "historical_checks": [
+    {
+      "audit": "experiments/v10-385f-audit.json",
+      "seat": 9,
+      "decisions": 41010,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.028634999999999966,
+        "act_seconds": 1.3135229999999578,
+        "json_row_decode_seconds": 2.5704819999999304,
+        "action_encode_seconds": 0.3533919999998818,
+        "local_total_seconds": 4.26603199999977,
+        "local_callback_max_ms_including_json": 2.3050000000002235,
+        "act_max_ms": 2.2020000000000373,
+        "act_p99_ms": 0.11900000000020228,
+        "act_median_ms": 0.03400000000031156,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v10-e2e4-audit.json",
+      "seat": 6,
+      "decisions": 18887,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.008388000000000007,
+        "act_seconds": 0.40896799999999306,
+        "json_row_decode_seconds": 0.33691899999998887,
+        "action_encode_seconds": 0.04383799999998356,
+        "local_total_seconds": 0.7981129999999654,
+        "local_callback_max_ms_including_json": 9.309999999999985,
+        "act_max_ms": 9.26699999999997,
+        "act_p99_ms": 0.31900000000006923,
+        "act_median_ms": 0.012999999999818712,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v10-e144-audit.json",
+      "seat": 3,
+      "decisions": 20435,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.03341799999999995,
+        "act_seconds": 0.571640999999991,
+        "json_row_decode_seconds": 1.2397869999999565,
+        "action_encode_seconds": 0.15641099999999586,
+        "local_total_seconds": 2.001256999999943,
+        "local_callback_max_ms_including_json": 2.450999999999981,
+        "act_max_ms": 2.3360000000001158,
+        "act_p99_ms": 0.09900000000007125,
+        "act_median_ms": 0.032000000000032,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v10-c76-audit.json",
+      "seat": 1,
+      "decisions": 25825,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.033546000000000076,
+        "act_seconds": 0.6246490000000164,
+        "json_row_decode_seconds": 1.4555419999999704,
+        "action_encode_seconds": 0.17783800000001482,
+        "local_total_seconds": 2.2915750000000017,
+        "local_callback_max_ms_including_json": 1.5439999999997678,
+        "act_max_ms": 1.43099999999996,
+        "act_p99_ms": 0.1020000000000465,
+        "act_median_ms": 0.018999999999991246,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v10-9e35-audit.json",
+      "seat": 1,
+      "decisions": 22549,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.03751900000000008,
+        "act_seconds": 0.6235380000000204,
+        "json_row_decode_seconds": 1.313036000000026,
+        "action_encode_seconds": 0.16557099999994107,
+        "local_total_seconds": 2.1396639999999874,
+        "local_callback_max_ms_including_json": 1.666999999999641,
+        "act_max_ms": 1.5289999999998916,
+        "act_p99_ms": 0.10000000000021103,
+        "act_median_ms": 0.03299999999972769,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v10-c630-audit.json",
+      "seat": 1,
+      "decisions": 41201,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.025094999999999867,
+        "act_seconds": 0.9565919999999402,
+        "json_row_decode_seconds": 2.280398000000066,
+        "action_encode_seconds": 0.28988100000011796,
+        "local_total_seconds": 3.551966000000124,
+        "local_callback_max_ms_including_json": 1.6080000000000538,
+        "act_max_ms": 1.5200000000001879,
+        "act_p99_ms": 0.10099999999990672,
+        "act_median_ms": 0.008999999999481645,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    }
+  ],
+  "issue_regressions": "experiments/v10-issue-regressions.json",
+  "timing_note": "Initial six-process parallel audit had one Dust2 callback at 54.049 ms. Isolated profiling located map initialization at about 10 ms and site queries below 3 ms. An isolated full Dust2 rerun passed at 9.31 ms max; the final Dust2 audit is this rerun. This is local timing, not platform admission proof.",
+  "limitations": [
+    "Fixed historical inputs cannot predict new damage, movement, survival or wins.",
+    "Navigation estimates do not prove full collision clearance.",
+    "The 0.3-second slowdown budget and support time margins are heuristics requiring new matches."
+  ]
+}

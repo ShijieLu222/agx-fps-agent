@@ -118,7 +118,7 @@ class InitiativeTests(unittest.TestCase):
         return observation(map=m,side='defend',seat=0,
                            teammates=[{'seat':1,'alive':True,'zone':'B'}])
 
-    def test_teammate_death_support_is_new_bounded_and_not_hidden_enemy_track(self):
+    def test_teammate_death_support_does_not_refresh_on_corpse_or_reverse_on_timeout(self):
         r,p=self.support_row(),agent.Player();p.act(r)
         self.assertEqual(p.goal,[10.,0.,0.])
         r['teammates'][0]['alive']=False
@@ -127,7 +127,7 @@ class InitiativeTests(unittest.TestCase):
         for _ in range(10):p.act(advance(r))
         self.assertEqual(p.support_until,until)
         self.assertIsNone(p.enemy_memory)
-        p.act(advance(r,720));self.assertEqual(p.goal,[10.,0.,0.])
+        p.act(advance(r,720));self.assertEqual(p.goal,[0.,10.,0.])
 
     def test_initial_dead_unknown_zone_and_round_reset_do_not_invent_support(self):
         for zone in ('B','secret'):
