@@ -1,4 +1,4 @@
-"""AGX FPS v10 candidate adapted from the official public starter.
+"""AGX FPS v11 candidate adapted from the official public starter.
 
 Source: https://agx.cool/docs/schema/fps.example.agent.py
 Retrieved: 2026-11-15. Contract: rsi-fps-5.5.
@@ -21,6 +21,8 @@ v9 adds map-derived guard stations, persistent witnessed retreats, sound-aware
 preparation, execution-boundary shot clocks and distance-aware aiming/cadence.
 v10 commits support by region, searches planted sites by navigation cost and
 bounds out-of-sight slowdown during retakes. No win-rate gain is assumed.
+v11 tolerates null optional map hints and builds the graph on the first
+callback, using its larger CPU budget instead of the second-call limit.
 """
 import math
 import gc
@@ -90,7 +92,6 @@ class Player:
         self.pressure_points, self.zone_points = {}, {}
         self.walk_edges = set()
         self.source_edges = set()
-        self.pending_map = None
         self.map_identity = None
         self.path, self.goal = [], None
         self.round = None
@@ -462,10 +463,10 @@ class Player:
         collision clearance or safety. Route failures retire candidates; only
         actually walked ground is ever used for an emergency reverse.
         """
-        hints, boxes = row.get("bot_waypoints", {}), row.get("boxes", [])
+        hints, boxes = row.get("bot_waypoints") or {}, row.get("boxes") or []
         if not self.nodes or not (self.spawn_views or boxes or hints):
             return
-        pads = (row.get("spawns") or {}).get("CT", [])
+        pads = (row.get("spawns") or {}).get("CT") or []
         reachable = set()
         for pad in pads:
             p = pad.get("position")
@@ -481,8 +482,8 @@ class Player:
         for index, site in enumerate(self.sites):
             center = site["center"]
             name = site.get("id", str(index))
-            published = hints.get("hold" + name, [])
-            watch = [list(p) for p in hints.get("watch" + name + "_CT", [])]
+            published = hints.get("hold" + name) or []
+            watch = [list(p) for p in (hints.get("watch" + name + "_CT") or [])]
             if not watch:
                 near = min(self.nodes, key=lambda n: distance(center, self.nodes[n]))
                 approach = self.spawn_views.get("T", center)
@@ -882,11 +883,11 @@ class Player:
         self.spawn_views = {}
         self.guard_plans = {}
         self.pressure_points = {}
-        self.zone_points = {k: list(p) for k, p in row.get("route_landmarks", {}).items()
+        self.zone_points = {k: list(p) for k, p in (row.get("route_landmarks") or {}).items()
                             if isinstance(p, (list, tuple)) and len(p) == 3
                             and all(type(v) in (int, float) and math.isfinite(v) for v in p)}
         for side, pads in (row.get("spawns") or {}).items():
-            positions = [p.get("position") for p in pads if isinstance(p, dict)]
+            positions = [p.get("position") for p in (pads or []) if isinstance(p, dict)]
             positions = [p for p in positions if isinstance(p, (list, tuple))
                          and len(p) == 3 and all(type(v) in (int, float)
                                                 and math.isfinite(v) for v in p)]
@@ -1401,20 +1402,16 @@ class Player:
             self.pressure_points, self.zone_points = {}, {}
             self.walk_edges = set()
             self.source_edges = set()
-            self.pending_map = None
             self.path, self.goal = [], None
             self.last_position, self.stuck = None, 0
             self.anchor, self.anchor_tick = None, 0
             self.escape_until, self.escape_yaw, self.escapes = 0, 0.0, 0
             self.reset_navigation()
             self.reset_tactics()
+        # The first act has a 1-second CPU allowance; later calls have 50 ms.
+        # Decode/build together here and reuse the completed graph afterwards.
         if isinstance(o.get("map"), dict):
-            self.pending_map = o["map"]
-        # The opening observation is large. Build the navigation graph on a
-        # later buy callback so JSON decoding and graph work use separate budgets.
-        if self.pending_map is not None and ("map" not in o or o["phase"] == "live"):
-            self.load_map(self.pending_map)
-            self.pending_map = None
+            self.load_map(o["map"])
         if self.round != o["round_index"]:
             self.round = o["round_index"]
             self.path, self.goal = [], None

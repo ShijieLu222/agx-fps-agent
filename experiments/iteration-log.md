@@ -160,3 +160,15 @@
 - 2026-11-16 14:53:47（北京时间）上传受测 ZIP；平台版本号 10，准入 `passed`，fault_code 为 null。
 - 平台源码与 ZIP 指纹均与受测版本一致；报名有效。重新加载页面后当前版本为 `v10 · 4add5462a81b`，完整回执见 `experiments/platform-v10.json`。
 - 策略及验证提交 `25e28a4` 已同步 GitHub main 和 `codex/fps-v10-retake-support`；实战效果待后续使用 v10 的比赛检验。
+
+## 2026-11-16 / 16:00 Mirage 零统计故障分析
+
+- 本场 `96696aa2-e160-4e60-a7f2-b133ac91775c`，seat 6，12:12、个人 0/0/0、0 伤害，rating -9。完整公开事件校验通过：tick 1 买甲，tick 3 fault，全场 0 开枪/造成伤害/受伤/死亡。
+- 发布 v10 源码加载公开地图副本可复现 `bot_waypoints:null` 引发 AttributeError；但公开地图与本人观察格式可能不同，历史 Nevaio 已证明公开 null / 私有输入缺键的差异，故不能把此复现直接当作本场根因。服务器超时等仍待排除。
+- 网络及浏览器会话不可用，用户确认刚调整 VPN、AGX 也打不开；本场冻结版本与详细 fault code 尚未取得。没有修改/发布策略。报告 `docs/fps-v10-zero-match-analysis-2026-11-16.md`；校验及受控复现 `scripts/analyze_v10_zero_match.py`。
+
+## 2026-11-16 / v11 地图初始化候选
+
+- 用户授权测试并更新代码，随后明确要求提交 AGX。修复可选空值、首调初始化，保留战术逻辑。
+- 163 项测试、五图 70 个开局场景、六场 169,907 次历史输入通过；与 v10 的历史动作差异为 0。Mirage 开局为公开地图的合成输入，不能替代本场私有日志。
+- ZIP `adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de`；提交结果待独立回执核验。

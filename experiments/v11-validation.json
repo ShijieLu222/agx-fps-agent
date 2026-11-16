@@ -1,0 +1,1205 @@
+{
+  "format": "agx-fps-v11-validation.v1",
+  "source_sha256": "e044b26e3de850493d231a753df71d4435277030468ebb43b00fa8c0d97f7163",
+  "unit_tests_passed": 163,
+  "opening_cases": [
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "original",
+      "callback_ms_including_json": [
+        0.7459999999999967,
+        0.03599999999999437,
+        0.07399999999999768,
+        0.04200000000000037
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        0.6929999999999992,
+        0.03300000000000525,
+        0.055999999999993555,
+        0.031000000000003247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        0.7320000000000035,
+        0.028000000000000247,
+        0.04599999999999743,
+        0.030000000000002247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        0.7119999999999973,
+        0.03099999999999631,
+        0.05000000000000143,
+        0.028999999999994308
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        0.22600000000000398,
+        0.023999999999996247,
+        0.04600000000000437,
+        0.02999999999998837
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        0.7159999999999944,
+        0.031000000000003247,
+        0.04799999999999249,
+        0.030000000000002247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        0.668999999999989,
+        0.04499999999998949,
+        0.08199999999999874,
+        0.04300000000000137
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "original",
+      "callback_ms_including_json": [
+        0.6960000000000022,
+        0.03499999999999337,
+        0.054999999999999494,
+        0.031000000000003247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        0.693000000000013,
+        0.03300000000000525,
+        0.051999999999996493,
+        0.031000000000003247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        0.7269999999999915,
+        0.030000000000002247,
+        0.04799999999999249,
+        0.028000000000000247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        0.7129999999999914,
+        0.030000000000002247,
+        0.052999999999997494,
+        0.03099999999998937
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        0.2289999999999931,
+        0.024999999999997247,
+        0.04799999999999249,
+        0.028000000000000247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        0.7129999999999914,
+        0.031000000000003247,
+        0.04800000000000637,
+        0.031000000000003247
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "nevaio-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        0.6330000000000086,
+        0.029000000000001247,
+        0.04900000000000737,
+        0.03099999999998937
+      ],
+      "nodes": 38,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "original",
+      "callback_ms_including_json": [
+        10.615,
+        0.1810000000000006,
+        0.7240000000000024,
+        0.03500000000000725
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        11.025000000000007,
+        0.17500000000000848,
+        0.8650000000000047,
+        0.04000000000001225
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        10.937999999999976,
+        0.23900000000001698,
+        0.7100000000000162,
+        0.03300000000000525
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        10.92600000000002,
+        0.21899999999999697,
+        0.7040000000000102,
+        0.030000000000002247
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        10.766000000000025,
+        0.18999999999996797,
+        0.7059999999999844,
+        0.032999999999949736
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        10.801000000000005,
+        0.26799999999999047,
+        0.6929999999999992,
+        0.031000000000003247
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        7.157000000000025,
+        0.19599999999997397,
+        0.7009999999999517,
+        0.03199999999997649
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "original",
+      "callback_ms_including_json": [
+        10.616000000000014,
+        0.20500000000001073,
+        0.7559999999999789,
+        0.03500000000000725
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        11.050000000000004,
+        0.22800000000000598,
+        0.7709999999999662,
+        0.032000000000032
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        11.313999999999991,
+        0.19999999999997797,
+        0.8250000000000202,
+        0.03700000000000925
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        11.06600000000002,
+        0.19700000000000273,
+        0.8070000000000022,
+        0.03300000000000525
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        10.697000000000067,
+        0.18899999999999473,
+        0.8850000000000247,
+        0.04399999999993298
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        10.90599999999997,
+        0.21499999999996522,
+        0.7599999999999829,
+        0.03900000000001125
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "dust2-cs2-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        7.229000000000041,
+        0.21100000000007224,
+        0.7770000000000277,
+        0.036000000000036
+      ],
+      "nodes": 2242,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "original",
+      "callback_ms_including_json": [
+        0.5180000000000184,
+        0.031000000000003247,
+        0.068000000000068,
+        0.03700000000006476
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        0.49799999999999844,
+        0.028999999999945736,
+        0.05299999999996974,
+        0.032000000000032
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        0.5060000000000064,
+        0.028000000000028002,
+        0.05299999999996974,
+        0.03799999999998249
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        0.49200000000004795,
+        0.028000000000028002,
+        0.052000000000052005,
+        0.032000000000032
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        0.19999999999997797,
+        0.024999999999941735,
+        0.05500000000002725,
+        0.031000000000003247
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        0.48000000000003595,
+        0.03500000000000725,
+        0.0660000000000105,
+        0.036000000000036
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        0.4610000000000447,
+        0.030000000000085514,
+        0.053999999999998494,
+        0.032000000000032
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "original",
+      "callback_ms_including_json": [
+        0.49399999999999444,
+        0.026999999999999247,
+        0.05499999999991623,
+        0.03399999999997849
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        0.5140000000000144,
+        0.03500000000000725,
+        0.06700000000003925,
+        0.03799999999998249
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        0.4930000000000767,
+        0.031000000000003247,
+        0.06100000000008876,
+        0.02999999999997449
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        0.48999999999999044,
+        0.029000000000056758,
+        0.05299999999996974,
+        0.032000000000032
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        0.19099999999994122,
+        0.024999999999941735,
+        0.05300000000008076,
+        0.032000000000032
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        0.4870000000000152,
+        0.02999999999997449,
+        0.05100000000002325,
+        0.03199999999992098
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "molo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        0.4549999999999832,
+        0.028000000000028002,
+        0.052000000000052005,
+        0.03300000000006076
+      ],
+      "nodes": 29,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "original",
+      "callback_ms_including_json": [
+        0.5999999999999339,
+        0.031000000000003247,
+        0.06899999999998574,
+        0.032999999999949736
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        0.5789999999999962,
+        0.028999999999945736,
+        0.053999999999998494,
+        0.03199999999992098
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        0.5809999999999427,
+        0.029000000000056758,
+        0.05299999999996974,
+        0.031000000000003247
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        0.5880000000000329,
+        0.04300000000001525,
+        0.06899999999998574,
+        0.028999999999945736
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        0.21599999999999397,
+        0.025000000000052758,
+        0.052000000000052005,
+        0.02999999999997449
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        0.5720000000000169,
+        0.028000000000028002,
+        0.052000000000052005,
+        0.031000000000003247
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "attack",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        0.4750000000000032,
+        0.028000000000028002,
+        0.04999999999999449,
+        0.028999999999945736
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "original",
+      "callback_ms_including_json": [
+        0.5939999999999834,
+        0.028999999999945736,
+        0.05299999999996974,
+        0.03799999999998249
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        0.5800000000000249,
+        0.028000000000028002,
+        0.05099999999991223,
+        0.03399999999997849
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        0.5749999999999922,
+        0.028000000000028002,
+        0.052000000000052005,
+        0.030000000000085514
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        0.5760000000000209,
+        0.028000000000028002,
+        0.05100000000002325,
+        0.032000000000032
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        0.21099999999996122,
+        0.025000000000052758,
+        0.04899999999996574,
+        0.02999999999997449
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        0.5709999999999882,
+        0.026999999999999247,
+        0.05100000000002325,
+        0.031000000000003247
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "borgo-r3-v54",
+      "map_input_origin": "recorded_own_opening",
+      "side": "defend",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        0.46599999999996644,
+        0.034000000000089514,
+        0.05899999999992023,
+        0.032999999999949736
+      ],
+      "nodes": 33,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "attack",
+      "variant": "original",
+      "callback_ms_including_json": [
+        12.239999999999917,
+        0.22199999999994446,
+        1.442999999999972,
+        0.03300000000006076
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "attack",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        11.978999999999962,
+        0.21799999999994046,
+        1.4399999999999968,
+        0.03799999999998249
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "attack",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        12.399999999999967,
+        0.22100000000002673,
+        1.4770000000000616,
+        0.03700000000006476
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "attack",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        12.003000000000096,
+        0.19400000000002748,
+        1.515000000000044,
+        0.04300000000001525
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "attack",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        12.436000000000003,
+        0.21099999999996122,
+        1.4490000000000336,
+        0.032999999999949736
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "attack",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        12.110999999999983,
+        0.21300000000001873,
+        1.5169999999999906,
+        0.04499999999996174
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "attack",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        8.085000000000008,
+        0.17199999999994997,
+        1.475000000000004,
+        0.04499999999996174
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "defend",
+      "variant": "original",
+      "callback_ms_including_json": [
+        12.14599999999999,
+        0.22900000000003473,
+        1.3070000000000581,
+        0.03599999999992498
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "defend",
+      "variant": "missing_hints",
+      "callback_ms_including_json": [
+        12.079000000000061,
+        0.20399999999998197,
+        1.314999999999955,
+        0.036000000000036
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "defend",
+      "variant": "null_hints",
+      "callback_ms_including_json": [
+        12.059000000000042,
+        0.21399999999993646,
+        1.2900000000000134,
+        0.034999999999896225
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "defend",
+      "variant": "null_hint_lists",
+      "callback_ms_including_json": [
+        12.025999999999982,
+        0.21199999999998997,
+        1.3050000000000006,
+        0.03500000000000725
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "defend",
+      "variant": "null_boxes",
+      "callback_ms_including_json": [
+        12.461999999999973,
+        0.2220000000000555,
+        1.3260000000000494,
+        0.03399999999997849
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "defend",
+      "variant": "null_landmarks",
+      "callback_ms_including_json": [
+        12.002999999999986,
+        0.21000000000004349,
+        1.3020000000000254,
+        0.03799999999998249
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    },
+    {
+      "map_id": "mirage-cs2-v54",
+      "map_input_origin": "public_replay_map_in_synthetic_opening",
+      "side": "defend",
+      "variant": "null_spawn_group",
+      "callback_ms_including_json": [
+        8.115000000000094,
+        0.1849999999998797,
+        1.2920000000000709,
+        0.034000000000089514
+      ],
+      "nodes": 2544,
+      "guard_plans": 2,
+      "passed": true
+    }
+  ],
+  "historical_checks": [
+    {
+      "prefix": "385f",
+      "seat": 9,
+      "decisions": 41010,
+      "action_changes_vs_v10": 0,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.007759999999999989,
+        "act_seconds": 0.38486399999993126,
+        "json_row_decode_seconds": 0.7693679999999579,
+        "action_encode_seconds": 0.10144600000000947,
+        "local_total_seconds": 1.2634379999998986,
+        "local_callback_max_ms_including_json": 0.7919999999999039,
+        "act_max_ms": 0.6139999999998924,
+        "act_p99_ms": 0.02300000000010627,
+        "act_median_ms": 0.011999999999900979,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "prefix": "e2e4",
+      "seat": 6,
+      "decisions": 18887,
+      "action_changes_vs_v10": 0,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.007540000000000546,
+        "act_seconds": 0.40481699999986276,
+        "json_row_decode_seconds": 0.32497800000013566,
+        "action_encode_seconds": 0.043141000000158414,
+        "local_total_seconds": 0.7804760000001574,
+        "local_callback_max_ms_including_json": 10.79899999999867,
+        "act_max_ms": 8.930999999999578,
+        "act_p99_ms": 0.3150000000005093,
+        "act_median_ms": 0.011999999999900979,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "prefix": "e144",
+      "seat": 3,
+      "decisions": 20435,
+      "action_changes_vs_v10": 0,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.007433000000000689,
+        "act_seconds": 0.17775500000005628,
+        "json_row_decode_seconds": 0.37488900000004044,
+        "action_encode_seconds": 0.04766199999999188,
+        "local_total_seconds": 0.6077390000000893,
+        "local_callback_max_ms_including_json": 0.8169999999996236,
+        "act_max_ms": 0.636000000000081,
+        "act_p99_ms": 0.023000000000550358,
+        "act_median_ms": 0.01100000000064938,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "prefix": "c76",
+      "seat": 1,
+      "decisions": 25825,
+      "action_changes_vs_v10": 0,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.007521999999999807,
+        "act_seconds": 0.19157900000020156,
+        "json_row_decode_seconds": 0.443648000000076,
+        "action_encode_seconds": 0.05433299999988783,
+        "local_total_seconds": 0.6970820000001652,
+        "local_callback_max_ms_including_json": 0.5930000000002877,
+        "act_max_ms": 0.43199999999998795,
+        "act_p99_ms": 0.023999999999801958,
+        "act_median_ms": 0.004999999999810711,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "prefix": "9e35",
+      "seat": 1,
+      "decisions": 22549,
+      "action_changes_vs_v10": 0,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.007580000000000808,
+        "act_seconds": 0.1979799999995535,
+        "json_row_decode_seconds": 0.40806799999949916,
+        "action_encode_seconds": 0.05178300000007141,
+        "local_total_seconds": 0.6654109999991249,
+        "local_callback_max_ms_including_json": 0.580999999996834,
+        "act_max_ms": 0.43399999999849115,
+        "act_p99_ms": 0.025000000000829914,
+        "act_median_ms": 0.011999999998124622,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "prefix": "c630",
+      "seat": 1,
+      "decisions": 41201,
+      "action_changes_vs_v10": 0,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.00772399999999962,
+        "act_seconds": 0.288177999999931,
+        "json_row_decode_seconds": 0.6819399999999369,
+        "action_encode_seconds": 0.08707500000004842,
+        "local_total_seconds": 1.064916999999916,
+        "local_callback_max_ms_including_json": 0.680999999996601,
+        "act_max_ms": 0.512000000000512,
+        "act_p99_ms": 0.021000000000270802,
+        "act_median_ms": 0.0020000000020559128,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    }
+  ],
+  "limitations": [
+    "Mirage opening uses a public replay map in a synthetic observation, not actual policy input.",
+    "No new simulated damage, wins or server CPU/admission results.",
+    "Original 9669 fault code and frozen version remain unverified due AGX network failure."
+  ],
+  "total_decisions": 169907,
+  "status": "local_checks_passed_not_published",
+  "opening_max_first_ms": 12.461999999999973,
+  "opening_max_later_ms": 1.5169999999999906,
+  "bundle_sha256": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+  "bundle_bytes": 20447,
+  "bundle_contents": [
+    "agent.py"
+  ]
+}

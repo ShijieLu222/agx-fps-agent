@@ -1,0 +1,294 @@
+{
+  "format": "agx-fps-historical-observation-audit.v1",
+  "python_version": "3.13.3",
+  "rules_version": "rsi-fps-5.5",
+  "recorded_bundle_sha256": "1abc777347a92c602519c68c1b4942e77a64f346ea57f180cbf6e6274c8792db",
+  "expected_recorded_bundle_verified": true,
+  "candidate_source_sha256": "e044b26e3de850493d231a753df71d4435277030468ebb43b00fa8c0d97f7163",
+  "export_integrity": {
+    "complete": true,
+    "rows": 41010,
+    "raw_bytes": 135595990,
+    "decision_sha256": "bf4b6785bc62fde06abedc7693b8f4f829ef690d25406e17c32e67d5e4055c11",
+    "rows_bytes_sha256_seats_verified": true
+  },
+  "decisions_checked": 41010,
+  "errors": [],
+  "cpu": {
+    "import_and_init_seconds": 0.007759999999999989,
+    "act_seconds": 0.38486399999993126,
+    "json_row_decode_seconds": 0.7693679999999579,
+    "action_encode_seconds": 0.10144600000000947,
+    "local_total_seconds": 1.2634379999998986,
+    "local_callback_max_ms_including_json": 0.7919999999999039,
+    "act_max_ms": 0.6139999999998924,
+    "act_p99_ms": 0.02300000000010627,
+    "act_median_ms": 0.011999999999900979,
+    "callbacks_over_local_budget_including_json": 0,
+    "local_total_over_64_seconds": false,
+    "import_and_init_over_2_seconds": false
+  },
+  "requested_behavior": {
+    "recorded_faults": 0,
+    "changed_actions_vs_recorded": 4421,
+    "alive_live_calls": 27039,
+    "movement_requests": 24725,
+    "fire_requests": 202,
+    "plant_requests": 120,
+    "defuse_requests": 0,
+    "visible_calls": 1358,
+    "recorded_fire_requests": 202,
+    "recorded_fire_replaced_by_movement_without_fire": 0,
+    "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+  },
+  "by_historical_round": {
+    "1": {
+      "alive_live_calls": 512,
+      "movement_requests": 391,
+      "fire_requests": 17,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 113,
+      "recorded_fire_requests": 17,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "2": {
+      "alive_live_calls": 1509,
+      "movement_requests": 1393,
+      "fire_requests": 20,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 72,
+      "recorded_fire_requests": 20,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "3": {
+      "alive_live_calls": 1731,
+      "movement_requests": 1641,
+      "fire_requests": 10,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 64,
+      "recorded_fire_requests": 10,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "4": {
+      "alive_live_calls": 1018,
+      "movement_requests": 1018,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "5": {
+      "alive_live_calls": 538,
+      "movement_requests": 525,
+      "fire_requests": 1,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 7,
+      "recorded_fire_requests": 1,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "6": {
+      "alive_live_calls": 1233,
+      "movement_requests": 1147,
+      "fire_requests": 11,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 53,
+      "recorded_fire_requests": 11,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "7": {
+      "alive_live_calls": 556,
+      "movement_requests": 546,
+      "fire_requests": 2,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 10,
+      "recorded_fire_requests": 2,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "8": {
+      "alive_live_calls": 531,
+      "movement_requests": 516,
+      "fire_requests": 4,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 15,
+      "recorded_fire_requests": 4,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "9": {
+      "alive_live_calls": 2118,
+      "movement_requests": 1757,
+      "fire_requests": 6,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 23,
+      "recorded_fire_requests": 6,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "10": {
+      "alive_live_calls": 1888,
+      "movement_requests": 1888,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "11": {
+      "alive_live_calls": 750,
+      "movement_requests": 615,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 2
+    },
+    "12": {
+      "alive_live_calls": 1377,
+      "movement_requests": 1270,
+      "fire_requests": 8,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 86,
+      "recorded_fire_requests": 8,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "13": {
+      "alive_live_calls": 1486,
+      "movement_requests": 1108,
+      "fire_requests": 34,
+      "plant_requests": 60,
+      "defuse_requests": 0,
+      "visible_calls": 215,
+      "recorded_fire_requests": 34,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "14": {
+      "alive_live_calls": 505,
+      "movement_requests": 461,
+      "fire_requests": 8,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 38,
+      "recorded_fire_requests": 8,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "15": {
+      "alive_live_calls": 1138,
+      "movement_requests": 1092,
+      "fire_requests": 10,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 46,
+      "recorded_fire_requests": 10,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "16": {
+      "alive_live_calls": 1064,
+      "movement_requests": 1061,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 3
+    },
+    "17": {
+      "alive_live_calls": 973,
+      "movement_requests": 901,
+      "fire_requests": 9,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 60,
+      "recorded_fire_requests": 9,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "18": {
+      "alive_live_calls": 1185,
+      "movement_requests": 1185,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "19": {
+      "alive_live_calls": 2038,
+      "movement_requests": 1753,
+      "fire_requests": 21,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 240,
+      "recorded_fire_requests": 21,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "20": {
+      "alive_live_calls": 668,
+      "movement_requests": 612,
+      "fire_requests": 6,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 45,
+      "recorded_fire_requests": 6,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "21": {
+      "alive_live_calls": 1501,
+      "movement_requests": 1305,
+      "fire_requests": 13,
+      "plant_requests": 60,
+      "defuse_requests": 0,
+      "visible_calls": 73,
+      "recorded_fire_requests": 13,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "22": {
+      "alive_live_calls": 584,
+      "movement_requests": 513,
+      "fire_requests": 8,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 93,
+      "recorded_fire_requests": 8,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "23": {
+      "alive_live_calls": 1105,
+      "movement_requests": 1039,
+      "fire_requests": 7,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 60,
+      "recorded_fire_requests": 7,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "24": {
+      "alive_live_calls": 1031,
+      "movement_requests": 988,
+      "fire_requests": 7,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 40,
+      "recorded_fire_requests": 7,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    }
+  },
+  "warnings": [],
+  "limitations": "Historical legal observations only; no physics or future observation changes. Controls requested are not successful movement, new damage, wins or ranking. CPU includes local row decoding, policy and action encoding, but excludes server IPC, validation and scheduling; this is not platform budget/admission proof. Init uses public policy seed 0, never the metadata's hidden match seed."
+}

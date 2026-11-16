@@ -87,7 +87,7 @@ class AgentTests(unittest.TestCase):
     def test_first_map_is_cached_when_later_observations_omit_it(self):
         first = observation(phase="buy", match_tick=0, round_tick=0, map=copy.deepcopy(MAP))
         self.run_action(first)
-        self.assertEqual(agent._player.nodes, {})  # Graph work is deferred.
+        self.assertEqual(len(agent._player.nodes), 3)  # Use the first-call budget.
         self.run_action(observation(phase="buy", match_tick=3, round_tick=3))
         self.assertEqual(len(agent._player.nodes), 3)
         self.assertIn("move_forward", self.run_action(observation()))
