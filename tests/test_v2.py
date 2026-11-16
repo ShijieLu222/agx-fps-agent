@@ -94,6 +94,10 @@ class V2Tests(unittest.TestCase):
 
     def test_rifle_burst_recovers_before_next_requested_burst(self):
         row = contact()
+        # Mid-range still uses paced bursts; close controlled fire has no
+        # mandatory idle window in v9.
+        row['visible'] = [enemy(5, 50., 0.)]
+        row['me']['pitch'] = math.atan2(1.18-1.62, 50.)
         self.assertTrue(self.act(row)['fire'])
         advance(row, 21)
         self.assertTrue(self.act(row)['fire'])

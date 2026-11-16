@@ -1,0 +1,183 @@
+{
+  "id": "385ff542-e882-46e6-91e5-b46e6fdffb79",
+  "game_id": "fps",
+  "competition_id": "2a97f94f-816a-52b7-b4b8-5925db160245",
+  "mode": "ranked",
+  "status": "succeeded",
+  "trigger": "auto",
+  "rated": true,
+  "test_period": false,
+  "runtime_id": "python-agent-v1",
+  "is_canary": false,
+  "participants": [
+    {
+      "seat": 0,
+      "team": 0,
+      "role": 0,
+      "display_name": "QiuQiu-xuan",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1152.693,
+        "after": 1184.352,
+        "delta": 31.659000000000106
+      }
+    },
+    {
+      "seat": 1,
+      "team": 0,
+      "role": 0,
+      "display_name": "King",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1186.51,
+        "after": 1229.208,
+        "delta": 42.69800000000009
+      }
+    },
+    {
+      "seat": 2,
+      "team": 0,
+      "role": 0,
+      "display_name": "2658406",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1208.345,
+        "after": 1239.033,
+        "delta": 30.687999999999874
+      }
+    },
+    {
+      "seat": 3,
+      "team": 0,
+      "role": 0,
+      "display_name": "Yook Yuan",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1183.156,
+        "after": 1212.421,
+        "delta": 29.2650000000001
+      }
+    },
+    {
+      "seat": 4,
+      "team": 0,
+      "role": 0,
+      "display_name": "XiZhou",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1172.699,
+        "after": 1200.121,
+        "delta": 27.422000000000025
+      }
+    },
+    {
+      "seat": 5,
+      "team": 1,
+      "role": 0,
+      "display_name": "123",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1215.144,
+        "after": 1176.628,
+        "delta": -38.516000000000076
+      }
+    },
+    {
+      "seat": 6,
+      "team": 1,
+      "role": 0,
+      "display_name": "你这么打我这么打你不炸了吗",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1212.472,
+        "after": 1181.496,
+        "delta": -30.975999999999885
+      }
+    },
+    {
+      "seat": 7,
+      "team": 1,
+      "role": 0,
+      "display_name": "羊宫妃那",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1164.098,
+        "after": 1129.719,
+        "delta": -34.378999999999905
+      }
+    },
+    {
+      "seat": 8,
+      "team": 1,
+      "role": 0,
+      "display_name": "月之亮面",
+      "is_mine": false,
+      "rating_change": {
+        "before": 1152.726,
+        "after": 1124.084,
+        "delta": -28.642000000000053
+      }
+    },
+    {
+      "seat": 9,
+      "team": 1,
+      "role": 0,
+      "display_name": "zkdw66",
+      "is_mine": true,
+      "rating_change": {
+        "before": 1151.265,
+        "after": 1129.818,
+        "delta": -21.447000000000116
+      }
+    }
+  ],
+  "replay_state": "available",
+  "replay_availability": "available",
+  "created_at": "2026-11-16T06:00:02.617423+00:00",
+  "started_at": null,
+  "finished_at": "2026-11-16T06:22:11.334606+00:00",
+  "error": null,
+  "result": {
+    "winner": 0,
+    "ranks": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "teams": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "scores": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "round_wins": [
+      13,
+      11
+    ]
+  }
+}

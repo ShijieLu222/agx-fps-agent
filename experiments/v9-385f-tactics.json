@@ -1,0 +1,2819 @@
+{
+  "format": "agx-fps-v9-postmatch.v1",
+  "job_id": "385ff542-e882-46e6-91e5-b46e6fdffb79",
+  "seat": 9,
+  "source_sha256": "226c44d649ba11a96c9ddf2370e9864c7654a1bd10b4740970639857e247d86d",
+  "bundle_sha256": "1abc777347a92c602519c68c1b4942e77a64f346ea57f180cbf6e6274c8792db",
+  "verified_training": {
+    "rows": 41010,
+    "raw_bytes": 135595990,
+    "sha256": "bf4b6785bc62fde06abedc7693b8f4f829ef690d25406e17c32e67d5e4055c11"
+  },
+  "verified_events": {
+    "chunks": 2,
+    "rows": 6009,
+    "raw_bytes": 2006998,
+    "sha256": "0a51f6c81fab0d1eb63301f1d4be64781921ecf64b73b54f2cb5b4239517dbfd"
+  },
+  "decisions": 41010,
+  "mismatches": 0,
+  "faults": 0,
+  "plans": {
+    "guard": {
+      "0": {
+        "stations": [
+          [
+            118,
+            90,
+            2.4
+          ],
+          [
+            96,
+            90,
+            2.4
+          ]
+        ],
+        "watch": [
+          [
+            96,
+            90,
+            3.58
+          ],
+          [
+            118,
+            90,
+            3.58
+          ],
+          [
+            112,
+            66,
+            3.58
+          ]
+        ]
+      },
+      "1": {
+        "stations": [
+          [
+            52,
+            22,
+            0
+          ],
+          [
+            52,
+            34,
+            0
+          ],
+          [
+            52,
+            18,
+            0
+          ]
+        ],
+        "watch": [
+          [
+            52,
+            34,
+            1.18
+          ],
+          [
+            28,
+            26,
+            1.18
+          ],
+          [
+            52,
+            22,
+            1.18
+          ]
+        ]
+      }
+    },
+    "pressure": {
+      "('defend', 0)": [
+        [
+          96,
+          90,
+          2.4
+        ]
+      ],
+      "('defend', 1)": [
+        [
+          52,
+          34,
+          0
+        ],
+        [
+          28,
+          26,
+          0
+        ]
+      ],
+      "('attack', 0)": [
+        [
+          112,
+          66,
+          2.4
+        ]
+      ],
+      "('attack', 1)": []
+    },
+    "sites": [
+      {
+        "id": "A",
+        "center": [
+          112.0,
+          90.0,
+          2.4
+        ],
+        "radius": 4.0
+      },
+      {
+        "id": "B",
+        "center": [
+          52.0,
+          26.0,
+          0
+        ],
+        "radius": 4.0
+      }
+    ]
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 512,
+        "move": 360,
+        "visible_calls": 113,
+        "fire_requests": 17,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 63,
+        "requested_move_calls": 390,
+        "requested_move_but_delta_under_1cm": 15,
+        "combat": 103,
+        "lost_contact_hold": 16,
+        "guard_action": 30,
+        "unseen_damage_escape": 3
+      },
+      "start": 360,
+      "support_events": [
+        {
+          "tick": 1707,
+          "zone": "B",
+          "position": [
+            118.0248117248615,
+            89.15226575774433,
+            2.400110095367432
+          ],
+          "until": 2427,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 1191,
+        "fire": 1317,
+        "received": 1695
+      },
+      "distance_walked_m": 74.95917316936148,
+      "stationary_max_seconds": 1.75,
+      "last": {
+        "tick": 1893,
+        "pos": [
+          115.68297472526044,
+          89.4116651412671,
+          2.400110095367432
+        ],
+        "hp": 31.06361965996996,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          4
+        ],
+        "action": {
+          "weapon_slot": 1,
+          "fire": true,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": 2.960594732333751e-15,
+          "pitch_rate": 0.06481412177903344,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 2
+        },
+        "goal": [
+          52,
+          34,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [
+          2
+        ],
+        "escapes": 0
+      },
+      "end_tick": 1894,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 3,
+      "deaths": 0,
+      "damage": 387.5745783962971,
+      "shots": 17,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 2,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 1509,
+        "move": 1331,
+        "visible_calls": 72,
+        "fire_requests": 20,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 145,
+        "support_calls": 240,
+        "requested_move_calls": 1392,
+        "requested_move_but_delta_under_1cm": 20,
+        "combat": 72,
+        "lost_contact_hold": 15,
+        "guard_action": 91
+      },
+      "start": 2556,
+      "support_events": [
+        {
+          "tick": 5631,
+          "zone": "A",
+          "position": [
+            116.99409446232583,
+            27.360698032611413,
+            -0.001890000094994939
+          ],
+          "until": 6351,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 4338,
+        "fire": 4368,
+        "received": 6675
+      },
+      "distance_walked_m": 220.2843584491317,
+      "stationary_max_seconds": 2.4,
+      "last": {
+        "tick": 7080,
+        "pos": [
+          101.70383933383432,
+          89.9876840801953,
+          2.400110095367432
+        ],
+        "hp": 66.89379596620998,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          4
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": true,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -0.024602665683861602,
+          "pitch_rate": 0.025213330397562544,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 2
+        },
+        "goal": [
+          96,
+          90,
+          2.4
+        ],
+        "pressure_index": 0,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 7081,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 3,
+      "deaths": 0,
+      "damage": 418.16209798722787,
+      "shots": 20,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 3,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 1731,
+        "move": 1664,
+        "visible_calls": 64,
+        "fire_requests": 10,
+        "carrying_calls": 0,
+        "planted_calls": 800,
+        "pressure_calls": 0,
+        "support_calls": 588,
+        "requested_move_calls": 1640,
+        "requested_move_but_delta_under_1cm": 28,
+        "combat": 64,
+        "lost_contact_hold": 3
+      },
+      "start": 7743,
+      "support_events": [
+        {
+          "tick": 8682,
+          "zone": "A",
+          "position": [
+            118.28376110168168,
+            60.022993418663866,
+            -0.0018900000949949507
+          ],
+          "until": 9402,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 8889,
+          "zone": "B",
+          "position": [
+            115.67253325207407,
+            51.752145995878095,
+            -0.0018900000949949316
+          ],
+          "until": 9609,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 9018,
+          "zone": "B",
+          "position": [
+            116.39477647854933,
+            42.565053318721134,
+            -0.0018900000949948722
+          ],
+          "until": 9738,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 9726,
+          "zone": "A",
+          "position": [
+            100.34099630797803,
+            22.852596581643414,
+            -0.0018900000949948843
+          ],
+          "until": 10446,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 9690,
+        "fire": 9708,
+        "planted_seen": 10536
+      },
+      "distance_walked_m": 246.73758576065094,
+      "stationary_max_seconds": 2.25,
+      "last": {
+        "tick": 12933,
+        "pos": [
+          117.53872681766292,
+          45.22316362740486,
+          -0.0018900000949949125
+        ],
+        "hp": 100.0,
+        "bomb": {
+          "state": "planted",
+          "fuse_end_tick": 12936
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          1
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": 0.7260275860253131,
+          "move_right": -0.1881062049222632,
+          "yaw_rate": -0.002384003888297552,
+          "pitch_rate": 0.0007901119024519843,
+          "walk": false,
+          "crouch": true
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            112.0,
+            90.0,
+            2.4
+          ]
+        },
+        "goal": [
+          112.0,
+          90.0,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 12936,
+      "won": false,
+      "end_reason": "bomb_explode",
+      "kills": 2,
+      "deaths": 0,
+      "damage": 133.83500206519577,
+      "shots": 10,
+      "last_alive_seconds_before_end": 0.05
+    },
+    {
+      "round": 4,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 1018,
+        "move": 1012,
+        "visible_calls": 0,
+        "fire_requests": 0,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 431,
+        "requested_move_calls": 1017,
+        "requested_move_but_delta_under_1cm": 11,
+        "unseen_damage_escape": 6
+      },
+      "start": 13596,
+      "support_events": [
+        {
+          "tick": 14607,
+          "zone": "B",
+          "position": [
+            117.99420658280178,
+            70.67596075435937,
+            -0.0018900000949948704
+          ],
+          "until": 15327,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 14679,
+          "zone": "B",
+          "position": [
+            117.80847052091795,
+            66.50837307804179,
+            -0.0018900000949949316
+          ],
+          "until": 15399,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 14991,
+          "zone": "B",
+          "position": [
+            117.9128063138955,
+            44.22011377097521,
+            -0.001890000094994935
+          ],
+          "until": 15711,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 16461,
+          "zone": "A",
+          "position": [
+            114.17651371743806,
+            18.09952917553768,
+            -0.0018900000949948596
+          ],
+          "until": 17181,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "received": 16632
+      },
+      "distance_walked_m": 163.69804904512745,
+      "stationary_max_seconds": 0.5,
+      "last": {
+        "tick": 16647,
+        "pos": [
+          117.02562569914322,
+          18.054863774344344,
+          -0.0018900000949949108
+        ],
+        "hp": 27.265540493044814,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          5,
+          1
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": -0.42179097270786964,
+          "move_right": 0.7379650231156956,
+          "yaw_rate": -1.0,
+          "pitch_rate": -0.0,
+          "fire": false,
+          "crouch": false,
+          "walk": false,
+          "jump": false
+        },
+        "mode": {
+          "method": "unseen_damage_escape"
+        },
+        "goal": [
+          118,
+          90,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [
+          0
+        ],
+        "escapes": 0
+      },
+      "end_tick": 16648,
+      "won": false,
+      "end_reason": "elimination",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 0,
+      "shots": 0,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 5,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 538,
+        "move": 525,
+        "visible_calls": 7,
+        "fire_requests": 1,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 152,
+        "requested_move_calls": 524,
+        "requested_move_but_delta_under_1cm": 62,
+        "combat": 7,
+        "lost_contact_hold": 6
+      },
+      "start": 17310,
+      "support_events": [
+        {
+          "tick": 18468,
+          "zone": "A",
+          "position": [
+            118.1925158343987,
+            55.74659290017993,
+            -0.001890000094994939
+          ],
+          "until": 19188,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 18810,
+          "zone": "A",
+          "position": [
+            117.98498174502305,
+            76.71069817069478,
+            1.0801100429153443
+          ],
+          "until": 19530,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 18747,
+        "fire": 18918
+      },
+      "distance_walked_m": 64.97381746058444,
+      "stationary_max_seconds": 2.0,
+      "last": {
+        "tick": 18921,
+        "pos": [
+          117.98588116918538,
+          79.21407978541447,
+          1.5601099427795413
+        ],
+        "hp": 100.0,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          4,
+          3
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -0.00988715183582715,
+          "pitch_rate": -0.07326106353744859,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 1
+        },
+        "goal": [
+          118,
+          90,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 22260,
+      "won": false,
+      "end_reason": "bomb_explode",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 21.654003589049722,
+      "shots": 1,
+      "last_alive_seconds_before_end": 55.65
+    },
+    {
+      "round": 6,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 1233,
+        "move": 1171,
+        "visible_calls": 53,
+        "fire_requests": 11,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 660,
+        "requested_move_calls": 1170,
+        "requested_move_but_delta_under_1cm": 27,
+        "combat": 53,
+        "lost_contact_hold": 9
+      },
+      "start": 22920,
+      "support_events": [
+        {
+          "tick": 23781,
+          "zone": "B",
+          "position": [
+            83.01056719992108,
+            17.970457127683428,
+            -0.0018900000949949247
+          ],
+          "until": 24501,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 23952,
+          "zone": "B",
+          "position": [
+            81.71890102188337,
+            17.63351155545658,
+            -0.0018900000949949234
+          ],
+          "until": 24672,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 24321,
+          "zone": "A",
+          "position": [
+            60.607858742474235,
+            17.853110327063256,
+            -0.0018900000949949264
+          ],
+          "until": 25041,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 25836,
+          "zone": "B",
+          "position": [
+            113.70795921121257,
+            21.925678047351177,
+            -0.0018900000949948973
+          ],
+          "until": 26556,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 24231,
+        "fire": 24249,
+        "received": 24321
+      },
+      "distance_walked_m": 178.30331289292008,
+      "stationary_max_seconds": 1.6,
+      "last": {
+        "tick": 26616,
+        "pos": [
+          82.63291204902063,
+          20.170083869025817,
+          -0.0018900000949948505
+        ],
+        "hp": 25.266112393479176,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          2,
+          1
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": 0.7499951139691703,
+          "move_right": -0.0027072167204123883,
+          "yaw_rate": 0.02406420088298944,
+          "pitch_rate": -5e-323,
+          "walk": false
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            118,
+            90,
+            2.4
+          ]
+        },
+        "goal": [
+          118,
+          90,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 26617,
+      "won": false,
+      "end_reason": "elimination",
+      "kills": 2,
+      "deaths": 1,
+      "damage": 218.7959972203945,
+      "shots": 11,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 7,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 556,
+        "move": 546,
+        "visible_calls": 10,
+        "fire_requests": 2,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 97,
+        "requested_move_calls": 545,
+        "requested_move_but_delta_under_1cm": 36,
+        "combat": 10
+      },
+      "start": 27279,
+      "support_events": [
+        {
+          "tick": 28656,
+          "zone": "A",
+          "position": [
+            76.67870670458244,
+            18.001472966550477,
+            -0.0018900000949949541
+          ],
+          "until": 29376,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 28836,
+          "zone": "B",
+          "position": [
+            64.51207955227875,
+            18.00559676285959,
+            -0.0018900000949949177
+          ],
+          "until": 29556,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 28884,
+          "zone": "B",
+          "position": [
+            63.25136974224943,
+            17.94645336651854,
+            -0.0018900000949949524
+          ],
+          "until": 29604,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 28917,
+        "fire": 28935,
+        "received": 28938
+      },
+      "distance_walked_m": 76.13103910363715,
+      "stationary_max_seconds": 0.85,
+      "last": {
+        "tick": 28944,
+        "pos": [
+          60.800729231135556,
+          17.855824976052816,
+          -0.0018900000949949403
+        ],
+        "hp": 73.54388862770742,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          4,
+          2
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -0.002104383808401167,
+          "pitch_rate": -0.07998400984616781,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 1
+        },
+        "goal": [
+          52,
+          18,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 2
+      },
+      "end_tick": 29374,
+      "won": false,
+      "end_reason": "elimination",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 45.20910433528488,
+      "shots": 2,
+      "last_alive_seconds_before_end": 7.166666666666667
+    },
+    {
+      "round": 8,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 531,
+        "move": 511,
+        "visible_calls": 15,
+        "fire_requests": 4,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 20,
+        "requested_move_calls": 515,
+        "requested_move_but_delta_under_1cm": 44,
+        "guard_action": 5,
+        "combat": 15
+      },
+      "start": 30036,
+      "support_events": [
+        {
+          "tick": 31569,
+          "zone": "B",
+          "position": [
+            54.77486113963176,
+            17.959456266267374,
+            -0.0018900000949948648
+          ],
+          "until": 32289,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 31584,
+        "received": 31599,
+        "fire": 31602
+      },
+      "distance_walked_m": 66.8238380294643,
+      "stationary_max_seconds": 0.8,
+      "last": {
+        "tick": 31626,
+        "pos": [
+          53.45356226984803,
+          18.08950574754425,
+          -0.0018900000949948644
+        ],
+        "hp": 24.811720224647758,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r7:bomb",
+          "carrier": 0,
+          "position": [
+            15.851973562747977,
+            74.17793312560282,
+            -0.0018900000949948956
+          ],
+          "site": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          5,
+          4
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -0.0033886422829946623,
+          "pitch_rate": -0.040589566044288046,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 0
+        },
+        "goal": [
+          52,
+          18,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 36228,
+      "won": true,
+      "end_reason": "defuse",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 78.07914550657735,
+      "shots": 4,
+      "last_alive_seconds_before_end": 76.7
+    },
+    {
+      "round": 9,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 2118,
+        "move": 1940,
+        "visible_calls": 23,
+        "fire_requests": 6,
+        "carrying_calls": 0,
+        "planted_calls": 800,
+        "pressure_calls": 148,
+        "support_calls": 323,
+        "requested_move_calls": 2049,
+        "requested_move_but_delta_under_1cm": 56,
+        "guard_action": 140,
+        "combat": 23,
+        "unseen_damage_escape": 15
+      },
+      "start": 36888,
+      "support_events": [
+        {
+          "tick": 37992,
+          "zone": "A",
+          "position": [
+            67.42050750716675,
+            22.122831152397676,
+            -0.0018900000949948913
+          ],
+          "until": 38712,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 38124,
+          "zone": "B",
+          "position": [
+            57.991056643548006,
+            22.047721411974575,
+            -0.0018900000949949312
+          ],
+          "until": 38844,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 38241,
+          "zone": "B",
+          "position": [
+            55.071895399692856,
+            22.02446900348839,
+            -0.0018900000949949186
+          ],
+          "until": 38961,
+          "bomb_state": "held"
+        }
+      ],
+      "first": {
+        "visible": 38226,
+        "fire": 38244,
+        "received": 38268,
+        "planted_seen": 40842
+      },
+      "distance_walked_m": 343.45805726559104,
+      "stationary_max_seconds": 1.5,
+      "last": {
+        "tick": 43239,
+        "pos": [
+          88.80700061580107,
+          22.477477079272123,
+          -0.0018900000949949212
+        ],
+        "hp": 25.518707958189673,
+        "bomb": {
+          "state": "planted",
+          "fuse_end_tick": 43242,
+          "id": "r8:bomb",
+          "carrier": null,
+          "position": [
+            50.631573041569965,
+            28.376754007252963,
+            -0.0018900000949948774
+          ],
+          "site": "B"
+        },
+        "carrying": false,
+        "alive_by_team": [
+          2,
+          2
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": 0.75,
+          "move_right": 3.3306690738754696e-16,
+          "yaw_rate": -2.960594732333751e-15,
+          "pitch_rate": 5e-323,
+          "walk": false
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            50.631573041569965,
+            28.376754007252963,
+            -0.0018900000949948774
+          ]
+        },
+        "goal": [
+          50.631573041569965,
+          28.376754007252963,
+          -0.0018900000949948774
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 2
+      },
+      "end_tick": 43242,
+      "won": false,
+      "end_reason": "bomb_explode",
+      "kills": 1,
+      "deaths": 0,
+      "damage": 59.68044816406041,
+      "shots": 6,
+      "last_alive_seconds_before_end": 0.05
+    },
+    {
+      "round": 10,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 1888,
+        "move": 1872,
+        "visible_calls": 0,
+        "fire_requests": 0,
+        "carrying_calls": 0,
+        "planted_calls": 800,
+        "pressure_calls": 0,
+        "support_calls": 293,
+        "requested_move_calls": 1887,
+        "requested_move_but_delta_under_1cm": 99,
+        "unseen_damage_escape": 16
+      },
+      "start": 43902,
+      "support_events": [
+        {
+          "tick": 45876,
+          "zone": "B",
+          "position": [
+            116.12639350004702,
+            88.54758722655427,
+            2.400110095367432
+          ],
+          "until": 46596,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 45909,
+          "zone": "B",
+          "position": [
+            116.58752980980465,
+            88.90505837463913,
+            2.400110095367432
+          ],
+          "until": 46629,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 47040,
+          "zone": "A",
+          "position": [
+            113.5849119868429,
+            54.313367165212284,
+            -0.001890000094994851
+          ],
+          "until": 47760,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "received": 46932,
+        "planted_seen": 47166
+      },
+      "distance_walked_m": 273.5607214159751,
+      "stationary_max_seconds": 3.55,
+      "last": {
+        "tick": 49563,
+        "pos": [
+          77.93941327654468,
+          83.85106928048685,
+          1.2001100476837159
+        ],
+        "hp": 75.41236952833526,
+        "bomb": {
+          "state": "planted",
+          "fuse_end_tick": 49566
+        },
+        "carrying": false,
+        "alive_by_team": [
+          3,
+          2
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": 0.41250000000000003,
+          "move_right": 9.708900350346994e-15,
+          "yaw_rate": -1.569115208136888e-13,
+          "pitch_rate": -0.0,
+          "walk": true
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            112.0,
+            90.0,
+            2.4
+          ]
+        },
+        "goal": [
+          112.0,
+          90.0,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [
+          0
+        ],
+        "escapes": 3
+      },
+      "end_tick": 49566,
+      "won": false,
+      "end_reason": "bomb_explode",
+      "kills": 0,
+      "deaths": 0,
+      "damage": 0,
+      "shots": 0,
+      "last_alive_seconds_before_end": 0.05
+    },
+    {
+      "round": 11,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 750,
+        "move": 738,
+        "visible_calls": 2,
+        "fire_requests": 0,
+        "carrying_calls": 0,
+        "planted_calls": 33,
+        "pressure_calls": 0,
+        "support_calls": 302,
+        "requested_move_calls": 741,
+        "requested_move_but_delta_under_1cm": 89,
+        "combat": 2,
+        "lost_contact_hold": 6,
+        "unseen_damage_escape": 4
+      },
+      "start": 50226,
+      "support_events": [
+        {
+          "tick": 51345,
+          "zone": "A",
+          "position": [
+            118.00938408226446,
+            66.38352722785241,
+            -0.0018900000949949034
+          ],
+          "until": 52065,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 51411,
+          "zone": "A",
+          "position": [
+            118.00509552989274,
+            71.09840106649727,
+            0.12010999731779104
+          ],
+          "until": 52131,
+          "bomb_state": "unknown"
+        },
+        {
+          "tick": 51531,
+          "zone": "B",
+          "position": [
+            117.98622769428691,
+            76.8249381013803,
+            1.0801100429153443
+          ],
+          "until": 52251,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 51465,
+        "planted_seen": 52377,
+        "received": 52464
+      },
+      "distance_walked_m": 113.1676867146721,
+      "stationary_max_seconds": 2.9,
+      "last": {
+        "tick": 52473,
+        "pos": [
+          118.03412553665869,
+          24.09519823204205,
+          -0.0018900000949949025
+        ],
+        "hp": 49.79290043622731,
+        "bomb": {
+          "state": "planted",
+          "fuse_end_tick": 54777
+        },
+        "carrying": false,
+        "alive_by_team": [
+          4,
+          2
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": -0.7346139836727901,
+          "move_right": -0.4276006255753066,
+          "yaw_rate": 1.0,
+          "pitch_rate": -5e-323,
+          "fire": false,
+          "crouch": false,
+          "walk": false,
+          "jump": false
+        },
+        "mode": {
+          "method": "unseen_damage_escape"
+        },
+        "goal": [
+          112.0,
+          90.0,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [
+          0
+        ],
+        "escapes": 2
+      },
+      "end_tick": 53212,
+      "won": false,
+      "end_reason": "elimination",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 0,
+      "shots": 0,
+      "last_alive_seconds_before_end": 12.316666666666666
+    },
+    {
+      "round": 12,
+      "side": "defend",
+      "counts": {
+        "alive_calls": 1377,
+        "move": 1270,
+        "visible_calls": 86,
+        "fire_requests": 8,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 240,
+        "requested_move_calls": 1269,
+        "requested_move_but_delta_under_1cm": 23,
+        "combat": 86,
+        "lost_contact_hold": 21
+      },
+      "start": 53874,
+      "support_events": [
+        {
+          "tick": 56187,
+          "zone": "A",
+          "position": [
+            95.71073331448727,
+            21.60282771937731,
+            -0.001890000094994938
+          ],
+          "until": 56907,
+          "bomb_state": "unknown"
+        }
+      ],
+      "first": {
+        "visible": 57252,
+        "fire": 57351
+      },
+      "distance_walked_m": 192.15182861601417,
+      "stationary_max_seconds": 2.85,
+      "last": {
+        "tick": 58002,
+        "pos": [
+          117.9868013759491,
+          77.83619827910992,
+          1.3201100524520875
+        ],
+        "hp": 100.0,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          4
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": true,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -2.960594732333751e-15,
+          "pitch_rate": 5.534349139177386e-06,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 1
+        },
+        "goal": [
+          118,
+          90,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 58003,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 3,
+      "deaths": 0,
+      "damage": 498.4945187332663,
+      "shots": 8,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 13,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 1486,
+        "move": 1107,
+        "visible_calls": 215,
+        "fire_requests": 34,
+        "carrying_calls": 1273,
+        "planted_calls": 213,
+        "pressure_calls": 0,
+        "support_calls": 734,
+        "requested_move_calls": 1107,
+        "requested_move_but_delta_under_1cm": 112,
+        "combat": 159,
+        "unseen_damage_escape": 1,
+        "objective_action": 66,
+        "guard_action": 152,
+        "lost_contact_hold": 1
+      },
+      "start": 58665,
+      "support_events": [
+        {
+          "tick": 59643,
+          "zone": "A",
+          "position": [
+            19.530815593242416,
+            120.14595173863117,
+            -0.0018900000949949056
+          ],
+          "until": 60363,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 60525,
+          "zone": "B",
+          "position": [
+            61.58615013039671,
+            121.8530450607614,
+            -0.0018900000949949047
+          ],
+          "until": 61245,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 61191,
+          "zone": "B",
+          "position": [
+            78.30658582790153,
+            108.65830313355276,
+            1.2001100476837159
+          ],
+          "until": 61911,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 61287,
+          "zone": "B",
+          "position": [
+            85.61447274853782,
+            108.40890171024043,
+            1.2001100476837159
+          ],
+          "until": 62007,
+          "bomb_state": "held"
+        }
+      ],
+      "first": {
+        "visible": 59817,
+        "fire": 59841,
+        "received": 59847,
+        "plant_request": 62304,
+        "planted_seen": 62484
+      },
+      "distance_walked_m": 151.8394145754699,
+      "stationary_max_seconds": 13.6,
+      "last": {
+        "tick": 63120,
+        "pos": [
+          110.70531881406453,
+          90.00037145871622,
+          2.400110095367432
+        ],
+        "hp": 15.044910797269932,
+        "bomb": {
+          "state": "planted",
+          "fuse_end_tick": 64884,
+          "id": "r12:bomb",
+          "carrier": null,
+          "position": [
+            110.70531881406453,
+            90.00037145871622,
+            2.400110095367432
+          ],
+          "site": "A",
+          "plant_progress": 180
+        },
+        "carrying": false,
+        "alive_by_team": [
+          2,
+          1
+        ],
+        "action": {
+          "weapon_slot": 1,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -0.005683677228421521,
+          "pitch_rate": -0.11071940292327216,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 4
+        },
+        "goal": [
+          112.0,
+          90.0,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 4
+      },
+      "end_tick": 64884,
+      "won": true,
+      "end_reason": "bomb_explode",
+      "kills": 2,
+      "deaths": 1,
+      "damage": 144.5390630711058,
+      "shots": 34,
+      "last_alive_seconds_before_end": 29.4
+    },
+    {
+      "round": 14,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 505,
+        "move": 461,
+        "visible_calls": 38,
+        "fire_requests": 8,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 120,
+        "requested_move_calls": 460,
+        "requested_move_but_delta_under_1cm": 71,
+        "combat": 38,
+        "lost_contact_hold": 6
+      },
+      "start": 65544,
+      "support_events": [
+        {
+          "tick": 66699,
+          "zone": "B",
+          "position": [
+            16.318381325757066,
+            72.11033077697455,
+            -0.001890000094994876
+          ],
+          "until": 67419,
+          "bomb_state": "world"
+        },
+        {
+          "tick": 66903,
+          "zone": "B",
+          "position": [
+            16.111313970483295,
+            65.33572655385123,
+            -0.001890000094994857
+          ],
+          "until": 67623,
+          "bomb_state": "world"
+        }
+      ],
+      "first": {
+        "visible": 66852,
+        "fire": 66870,
+        "received": 67023
+      },
+      "distance_walked_m": 56.16668046149068,
+      "stationary_max_seconds": 2.05,
+      "last": {
+        "tick": 67056,
+        "pos": [
+          16.07883346463399,
+          64.35481852370373,
+          -0.001890000094994926
+        ],
+        "hp": 17.09645347545153,
+        "bomb": {
+          "state": "world",
+          "fuse_end_tick": null,
+          "id": "r13:bomb",
+          "carrier": null,
+          "position": [
+            27.93287494992171,
+            46.77391471940351,
+            -0.001999998094994903
+          ],
+          "site": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          2,
+          3
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": 0.00297816537864352,
+          "pitch_rate": -0.06221974933950613,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 2
+        },
+        "goal": [
+          27.93287494992171,
+          46.77391471940351,
+          -0.001999998094994903
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 3
+      },
+      "end_tick": 72444,
+      "won": false,
+      "end_reason": "timeout",
+      "kills": 1,
+      "deaths": 1,
+      "damage": 272.01636193459,
+      "shots": 8,
+      "last_alive_seconds_before_end": 89.8
+    },
+    {
+      "round": 15,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 1138,
+        "move": 1092,
+        "visible_calls": 46,
+        "fire_requests": 10,
+        "carrying_calls": 1138,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 493,
+        "requested_move_calls": 1091,
+        "requested_move_but_delta_under_1cm": 128,
+        "combat": 46
+      },
+      "start": 73104,
+      "support_events": [
+        {
+          "tick": 74316,
+          "zone": "B",
+          "position": [
+            20.059761719519702,
+            121.02742888444158,
+            -0.0018900000949948663
+          ],
+          "until": 75036,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 74526,
+          "zone": "B",
+          "position": [
+            20.683777623851043,
+            119.28080869194537,
+            -0.0018900000949949407
+          ],
+          "until": 75246,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 75969,
+          "zone": "B",
+          "position": [
+            41.56002059141118,
+            93.2900295653063,
+            -0.0018900000949948778
+          ],
+          "until": 76689,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 76425,
+          "zone": "B",
+          "position": [
+            57.07514912257004,
+            84.31631711975875,
+            1.080110042915344
+          ],
+          "until": 77145,
+          "bomb_state": "held"
+        }
+      ],
+      "first": {
+        "visible": 74355,
+        "fire": 74418
+      },
+      "distance_walked_m": 125.11201609747249,
+      "stationary_max_seconds": 1.55,
+      "last": {
+        "tick": 76515,
+        "pos": [
+          58.34203567203054,
+          84.34095870926014,
+          1.0801100429153443
+        ],
+        "hp": 100.0,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r14:bomb",
+          "carrier": 9,
+          "position": [
+            58.34203567203054,
+            84.34095870926014,
+            1.0801100429153443
+          ],
+          "site": null
+        },
+        "carrying": true,
+        "alive_by_team": [
+          4,
+          1
+        ],
+        "action": {
+          "weapon_slot": 1,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -0.005031589705382089,
+          "pitch_rate": -0.025190422860989103,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 1
+        },
+        "goal": [
+          112.0,
+          90.0,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 5
+      },
+      "end_tick": 76516,
+      "won": false,
+      "end_reason": "elimination",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 35.07580216542882,
+      "shots": 10,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 16,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 1064,
+        "move": 1061,
+        "visible_calls": 3,
+        "fire_requests": 0,
+        "carrying_calls": 1064,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 438,
+        "requested_move_calls": 1060,
+        "requested_move_but_delta_under_1cm": 150,
+        "combat": 3
+      },
+      "start": 77178,
+      "support_events": [
+        {
+          "tick": 78438,
+          "zone": "B",
+          "position": [
+            18.408824793683063,
+            119.05664796028499,
+            -0.0018900000949949043
+          ],
+          "until": 79158,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 79776,
+          "zone": "A",
+          "position": [
+            65.74889073502203,
+            112.24822996999544,
+            1.2001100476837159
+          ],
+          "until": 80496,
+          "bomb_state": "held"
+        }
+      ],
+      "first": {
+        "visible": 79089
+      },
+      "distance_walked_m": 120.38499155206503,
+      "stationary_max_seconds": 2.7,
+      "last": {
+        "tick": 80367,
+        "pos": [
+          91.76244906949285,
+          108.05255398183375,
+          1.2001100476837159
+        ],
+        "hp": 100.0,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r15:bomb",
+          "carrier": 9,
+          "position": [
+            91.76244906949285,
+            108.05255398183375,
+            1.2001100476837159
+          ],
+          "site": null
+        },
+        "carrying": true,
+        "alive_by_team": [
+          1,
+          3
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": 0.12049343826845746,
+          "move_right": 0.394509291822443,
+          "yaw_rate": 0.0034417725746601255,
+          "pitch_rate": -2.7869859440081413e-05,
+          "walk": true
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            52.0,
+            26.0,
+            0
+          ]
+        },
+        "goal": [
+          52.0,
+          26.0,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 7
+      },
+      "end_tick": 80368,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 0,
+      "deaths": 0,
+      "damage": 0,
+      "shots": 0,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 17,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 973,
+        "move": 898,
+        "visible_calls": 60,
+        "fire_requests": 9,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 308,
+        "requested_move_calls": 900,
+        "requested_move_but_delta_under_1cm": 89,
+        "combat": 60,
+        "lost_contact_hold": 12,
+        "unseen_damage_escape": 3
+      },
+      "start": 81030,
+      "support_events": [
+        {
+          "tick": 82056,
+          "zone": "A",
+          "position": [
+            16.01484858571791,
+            70.32137407824904,
+            -0.0018900000949948852
+          ],
+          "until": 82776,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 82260,
+          "zone": "B",
+          "position": [
+            15.938979748267737,
+            65.24972628646643,
+            -0.0018900000949948661
+          ],
+          "until": 82980,
+          "bomb_state": "held"
+        }
+      ],
+      "first": {
+        "visible": 82158,
+        "fire": 82167,
+        "received": 82179
+      },
+      "distance_walked_m": 104.57661112613918,
+      "stationary_max_seconds": 1.8,
+      "last": {
+        "tick": 83946,
+        "pos": [
+          34.94536010738764,
+          29.3847289373502,
+          -0.0018900000949948492
+        ],
+        "hp": 18.433952910682557,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r16:bomb",
+          "carrier": 8,
+          "position": [
+            74.45282311072704,
+            34.141786597326096,
+            -0.0018900000949949138
+          ],
+          "site": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          3
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": 1.0,
+          "pitch_rate": 2.168404344971009e-17,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 2
+        },
+        "goal": [
+          52.0,
+          26.0,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 3
+      },
+      "end_tick": 86922,
+      "won": true,
+      "end_reason": "bomb_explode",
+      "kills": 3,
+      "deaths": 1,
+      "damage": 327.4574096578647,
+      "shots": 9,
+      "last_alive_seconds_before_end": 49.6
+    },
+    {
+      "round": 18,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 1185,
+        "move": 1169,
+        "visible_calls": 0,
+        "fire_requests": 0,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 518,
+        "requested_move_calls": 1184,
+        "requested_move_but_delta_under_1cm": 100,
+        "unseen_damage_escape": 16
+      },
+      "start": 87582,
+      "support_events": [
+        {
+          "tick": 88530,
+          "zone": "B",
+          "position": [
+            31.7591313136059,
+            110.32582496859759,
+            -0.0018900000949949316
+          ],
+          "until": 89250,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 88644,
+          "zone": "B",
+          "position": [
+            37.947713360220604,
+            110.08601129420282,
+            -0.0018900000949949307
+          ],
+          "until": 89364,
+          "bomb_state": "world"
+        },
+        {
+          "tick": 90120,
+          "zone": "A",
+          "position": [
+            63.59429715193911,
+            64.81412779899367,
+            1.2001100476837159
+          ],
+          "until": 90840,
+          "bomb_state": "world"
+        }
+      ],
+      "first": {
+        "received": 91044
+      },
+      "distance_walked_m": 144.98763190668225,
+      "stationary_max_seconds": 2.3,
+      "last": {
+        "tick": 91134,
+        "pos": [
+          75.85642451921873,
+          38.79128966588483,
+          -0.0018900000949949407
+        ],
+        "hp": 12.585146833392564,
+        "bomb": {
+          "state": "world",
+          "fuse_end_tick": null,
+          "id": "r17:bomb",
+          "carrier": null,
+          "position": [
+            16.679322993921264,
+            66.4182673317658,
+            -0.001999998094994903
+          ],
+          "site": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          3,
+          2
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": -0.17010143061515842,
+          "move_right": 0.3757948287332817,
+          "yaw_rate": -1.0,
+          "pitch_rate": -5e-323,
+          "walk": true
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            16.679322993921264,
+            66.4182673317658,
+            -0.001999998094994903
+          ]
+        },
+        "goal": [
+          16.679322993921264,
+          66.4182673317658,
+          -0.001999998094994903
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 4
+      },
+      "end_tick": 94482,
+      "won": false,
+      "end_reason": "timeout",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 0,
+      "shots": 0,
+      "last_alive_seconds_before_end": 55.8
+    },
+    {
+      "round": 19,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 2038,
+        "move": 1730,
+        "visible_calls": 240,
+        "fire_requests": 21,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 127,
+        "support_calls": 338,
+        "requested_move_calls": 1752,
+        "requested_move_but_delta_under_1cm": 51,
+        "combat": 240,
+        "lost_contact_hold": 19,
+        "guard_action": 49
+      },
+      "start": 95142,
+      "support_events": [
+        {
+          "tick": 96402,
+          "zone": "A",
+          "position": [
+            56.49130679179603,
+            121.77515513659205,
+            -0.0018900000949949411
+          ],
+          "until": 97122,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 96585,
+          "zone": "A",
+          "position": [
+            62.050274097224246,
+            121.94672016560025,
+            -0.001890000094994893
+          ],
+          "until": 97305,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 96696,
+          "zone": "B",
+          "position": [
+            62.367581515514765,
+            121.95094307345303,
+            -0.0018900000949949038
+          ],
+          "until": 97416,
+          "bomb_state": "world"
+        }
+      ],
+      "first": {
+        "visible": 96504,
+        "fire": 96516,
+        "received": 96597
+      },
+      "distance_walked_m": 252.84368449945998,
+      "stationary_max_seconds": 6.1,
+      "last": {
+        "tick": 101253,
+        "pos": [
+          111.98800335071756,
+          66.69548457916626,
+          2.400110095367432
+        ],
+        "hp": 12.96543428922869,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r18:bomb",
+          "carrier": 8,
+          "position": [
+            48.36635084002053,
+            74.3001096824311,
+            -0.0018900000949949433
+          ],
+          "site": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          2
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": true,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": 0.007964835463205588,
+          "pitch_rate": 0.02572410929362126,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 3
+        },
+        "goal": [
+          112,
+          66,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 2
+      },
+      "end_tick": 101254,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 4,
+      "deaths": 1,
+      "damage": 499.4188544783955,
+      "shots": 21,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 20,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 668,
+        "move": 612,
+        "visible_calls": 45,
+        "fire_requests": 6,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 240,
+        "requested_move_calls": 611,
+        "requested_move_but_delta_under_1cm": 30,
+        "combat": 45,
+        "lost_contact_hold": 11
+      },
+      "start": 101916,
+      "support_events": [
+        {
+          "tick": 102906,
+          "zone": "B",
+          "position": [
+            41.94571904876126,
+            86.76444652961192,
+            -0.0018900000949949125
+          ],
+          "until": 103626,
+          "bomb_state": "world"
+        }
+      ],
+      "first": {
+        "visible": 103008,
+        "fire": 103065
+      },
+      "distance_walked_m": 74.86359224417546,
+      "stationary_max_seconds": 1.7,
+      "last": {
+        "tick": 103917,
+        "pos": [
+          63.17057536135231,
+          77.09456864141173,
+          1.2001100476837159
+        ],
+        "hp": 100.0,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r19:bomb",
+          "carrier": 8,
+          "position": [
+            48.46731585690476,
+            29.676491862537205,
+            -0.0018900000949948683
+          ],
+          "site": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          4
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "move_forward": 0.7251531860617573,
+          "move_right": -0.1914493581720303,
+          "yaw_rate": 1.0,
+          "pitch_rate": 2.1382117680737565e-49,
+          "walk": false
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            52.0,
+            26.0,
+            0
+          ]
+        },
+        "goal": [
+          52.0,
+          26.0,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 103918,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 1,
+      "deaths": 0,
+      "damage": 100.01086078931813,
+      "shots": 6,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 21,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 1501,
+        "move": 1305,
+        "visible_calls": 73,
+        "fire_requests": 13,
+        "carrying_calls": 1385,
+        "planted_calls": 116,
+        "pressure_calls": 0,
+        "support_calls": 350,
+        "requested_move_calls": 1304,
+        "requested_move_but_delta_under_1cm": 92,
+        "combat": 73,
+        "objective_action": 66,
+        "guard_action": 53,
+        "lost_contact_hold": 4
+      },
+      "start": 104580,
+      "support_events": [
+        {
+          "tick": 105765,
+          "zone": "A",
+          "position": [
+            29.76206076120176,
+            121.68797789190234,
+            -0.0018900000949948566
+          ],
+          "until": 106485,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 106077,
+          "zone": "B",
+          "position": [
+            26.972143353913566,
+            122.28152282671108,
+            -0.0018900000949948774
+          ],
+          "until": 106797,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 106095,
+          "zone": "A",
+          "position": [
+            28.2017000037327,
+            122.27669290619114,
+            -0.0018900000949949182
+          ],
+          "until": 106815,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 109032,
+          "zone": "A",
+          "position": [
+            110.58205860251147,
+            90.17080291669639,
+            2.4001100953674315
+          ],
+          "until": 109752,
+          "bomb_state": "planted"
+        }
+      ],
+      "first": {
+        "visible": 105492,
+        "fire": 106230,
+        "plant_request": 108555,
+        "planted_seen": 108735,
+        "received": 109038
+      },
+      "distance_walked_m": 165.12917683447645,
+      "stationary_max_seconds": 8.8,
+      "last": {
+        "tick": 109080,
+        "pos": [
+          110.58205860251147,
+          90.17080291669639,
+          2.4001100953674315
+        ],
+        "hp": 80.81046350215877,
+        "bomb": {
+          "state": "planted",
+          "fuse_end_tick": 111135,
+          "id": "r20:bomb",
+          "carrier": null,
+          "position": [
+            110.58205860251147,
+            90.17080291669639,
+            2.400110095367432
+          ],
+          "site": "A",
+          "plant_progress": 180
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          1
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": true,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": -0.0025407691718755863,
+          "pitch_rate": 0.009709311575686053,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 2
+        },
+        "goal": [
+          112.0,
+          90.0,
+          2.4
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 3
+      },
+      "end_tick": 109081,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 4,
+      "deaths": 0,
+      "damage": 327.2968969138343,
+      "shots": 13,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 22,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 584,
+        "move": 513,
+        "visible_calls": 93,
+        "fire_requests": 8,
+        "carrying_calls": 584,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 269,
+        "requested_move_calls": 512,
+        "requested_move_but_delta_under_1cm": 56,
+        "combat": 71
+      },
+      "start": 109743,
+      "support_events": [
+        {
+          "tick": 110688,
+          "zone": "B",
+          "position": [
+            41.13058863749395,
+            108.56992597735231,
+            -0.0018900000949949281
+          ],
+          "until": 111408,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 110754,
+          "zone": "A",
+          "position": [
+            41.18180219440845,
+            104.06314918115973,
+            -0.0018900000949948926
+          ],
+          "until": 111474,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 110850,
+          "zone": "B",
+          "position": [
+            41.45197809157991,
+            97.51377640801547,
+            -0.001890000094994851
+          ],
+          "until": 111570,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 111384,
+          "zone": "A",
+          "position": [
+            41.94789632031153,
+            85.58469066801628,
+            -0.001890000094994876
+          ],
+          "until": 112104,
+          "bomb_state": "held"
+        }
+      ],
+      "first": {
+        "visible": 110958,
+        "fire": 111186,
+        "received": 111231
+      },
+      "distance_walked_m": 52.35649216528316,
+      "stationary_max_seconds": 1.95,
+      "last": {
+        "tick": 111492,
+        "pos": [
+          44.82380892171277,
+          84.35972768072278,
+          -0.0018900000949948986
+        ],
+        "hp": 6.768639184172759,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r21:bomb",
+          "carrier": 9,
+          "position": [
+            44.82380892171277,
+            84.35972768072278,
+            -0.0018900000949948986
+          ],
+          "site": null
+        },
+        "carrying": true,
+        "alive_by_team": [
+          4,
+          1
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": false,
+          "move_forward": 0.7499999967571731,
+          "move_right": 6.974410523048526e-05,
+          "yaw_rate": -0.0006199476029422613,
+          "pitch_rate": -5e-323,
+          "walk": false
+        },
+        "mode": {
+          "method": "move",
+          "goal": [
+            52.0,
+            26.0,
+            0
+          ]
+        },
+        "goal": [
+          52.0,
+          26.0,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 2
+      },
+      "end_tick": 111493,
+      "won": false,
+      "end_reason": "elimination",
+      "kills": 0,
+      "deaths": 1,
+      "damage": 88.25445616088257,
+      "shots": 8,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 23,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 1105,
+        "move": 1039,
+        "visible_calls": 60,
+        "fire_requests": 7,
+        "carrying_calls": 0,
+        "planted_calls": 500,
+        "pressure_calls": 0,
+        "support_calls": 252,
+        "requested_move_calls": 1038,
+        "requested_move_but_delta_under_1cm": 32,
+        "combat": 60,
+        "lost_contact_hold": 6
+      },
+      "start": 112155,
+      "support_events": [
+        {
+          "tick": 113214,
+          "zone": "A",
+          "position": [
+            41.63315383311019,
+            93.4865601515577,
+            -0.0018900000949949038
+          ],
+          "until": 113934,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 113274,
+          "zone": "A",
+          "position": [
+            41.68507562292179,
+            90.9427562793464,
+            -0.0018900000949948917
+          ],
+          "until": 113994,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 114126,
+          "zone": "B",
+          "position": [
+            63.171094706056344,
+            82.35080109438587,
+            1.2001100476837159
+          ],
+          "until": 114846,
+          "bomb_state": "planted"
+        },
+        {
+          "tick": 114384,
+          "zone": "B",
+          "position": [
+            63.68974274131386,
+            64.7766795419985,
+            1.2001100476837159
+          ],
+          "until": 115104,
+          "bomb_state": "planted"
+        }
+      ],
+      "first": {
+        "visible": 113409,
+        "fire": 113424,
+        "planted_seen": 113970
+      },
+      "distance_walked_m": 124.23889575305196,
+      "stationary_max_seconds": 1.45,
+      "last": {
+        "tick": 115467,
+        "pos": [
+          75.83826942577478,
+          37.24103484299903,
+          -0.001890000094994853
+        ],
+        "hp": 100.0,
+        "bomb": {
+          "state": "planted",
+          "fuse_end_tick": 116370,
+          "id": "r22:bomb",
+          "carrier": null,
+          "position": [
+            49.91035673103544,
+            28.153037410582627,
+            -0.0018900000949948735
+          ],
+          "site": "B"
+        },
+        "carrying": false,
+        "alive_by_team": [
+          1,
+          1
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": true,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": 0.0004607596360865311,
+          "pitch_rate": 5.6828178954942965e-05,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 2
+        },
+        "goal": [
+          49.91035673103544,
+          28.153037410582627,
+          -0.0018900000949948735
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 1
+      },
+      "end_tick": 115468,
+      "won": true,
+      "end_reason": "elimination",
+      "kills": 3,
+      "deaths": 0,
+      "damage": 383.8461838920051,
+      "shots": 7,
+      "last_alive_seconds_before_end": 0.016666666666666666
+    },
+    {
+      "round": 24,
+      "side": "attack",
+      "counts": {
+        "alive_calls": 1031,
+        "move": 988,
+        "visible_calls": 40,
+        "fire_requests": 7,
+        "carrying_calls": 0,
+        "planted_calls": 0,
+        "pressure_calls": 0,
+        "support_calls": 410,
+        "requested_move_calls": 987,
+        "requested_move_but_delta_under_1cm": 169,
+        "combat": 40,
+        "lost_contact_hold": 3
+      },
+      "start": 116130,
+      "support_events": [
+        {
+          "tick": 117126,
+          "zone": "B",
+          "position": [
+            25.03494400418635,
+            111.96134137392863,
+            -0.0018900000949949082
+          ],
+          "until": 117846,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 117390,
+          "zone": "B",
+          "position": [
+            17.552615537160623,
+            110.06338808234416,
+            -0.001890000094994877
+          ],
+          "until": 118110,
+          "bomb_state": "held"
+        },
+        {
+          "tick": 117636,
+          "zone": "B",
+          "position": [
+            16.76367184725066,
+            95.93098000811294,
+            -0.001890000094994916
+          ],
+          "until": 118356,
+          "bomb_state": "held"
+        }
+      ],
+      "first": {
+        "visible": 118269,
+        "fire": 118287,
+        "received": 119175
+      },
+      "distance_walked_m": 117.58433673879124,
+      "stationary_max_seconds": 2.35,
+      "last": {
+        "tick": 119220,
+        "pos": [
+          27.93657356171156,
+          31.688631125002903,
+          -0.0018900000949949507
+        ],
+        "hp": 6.296952841489244,
+        "bomb": {
+          "state": "held",
+          "fuse_end_tick": null,
+          "id": "r23:bomb",
+          "carrier": 8,
+          "position": [
+            43.442526612521426,
+            75.38252587875475,
+            -0.0018900000949948826
+          ],
+          "site": null
+        },
+        "carrying": false,
+        "alive_by_team": [
+          4,
+          2
+        ],
+        "action": {
+          "weapon_slot": 0,
+          "fire": false,
+          "move_forward": 0.0,
+          "move_right": 0.0,
+          "yaw_rate": 0.0015236796727909527,
+          "pitch_rate": 0.009826286925270402,
+          "crouch": true
+        },
+        "mode": {
+          "method": "combat",
+          "selected_target": 3
+        },
+        "goal": [
+          52.0,
+          26.0,
+          0
+        ],
+        "pressure_index": -1,
+        "guard_bad": [],
+        "escapes": 5
+      },
+      "end_tick": 123028,
+      "won": false,
+      "end_reason": "timeout",
+      "kills": 1,
+      "deaths": 1,
+      "damage": 151.75608336448468,
+      "shots": 7,
+      "last_alive_seconds_before_end": 63.46666666666667
+    }
+  ],
+  "limitations": "Exact recorded-policy reproduction and observed movement, not counterfactual new outcomes. Teammate and enemy positions are limited to own observation; public events only label retrospective results."
+}

@@ -1,0 +1,367 @@
+{
+  "format": "agx-fps-v9-balance-findings.v1",
+  "job_id": "385ff542-e882-46e6-91e5-b46e6fdffb79",
+  "recorded_version": 9,
+  "recorded_source_sha256": "226c44d649ba11a96c9ddf2370e9864c7654a1bd10b4740970639857e247d86d",
+  "decisions_reproduced": 41010,
+  "action_mismatches": 0,
+  "faults": 0,
+  "damage_rank": 1,
+  "kill_rank": 1,
+  "own_team_damage_share": 0.3879311221404164,
+  "own_head_damage_share": 0.40703659160887085,
+  "by_side": {
+    "attack": {
+      "rounds": 12,
+      "damage": 2329.6719724279096,
+      "shots": 123,
+      "hit_events": 74,
+      "kills": 19,
+      "deaths": 8
+    },
+    "defend": {
+      "rounds": 12,
+      "damage": 1861.484895997354,
+      "shots": 79,
+      "hit_events": 66,
+      "kills": 14,
+      "deaths": 6
+    }
+  },
+  "survived_bomb_loss_rounds": [
+    3,
+    9,
+    10
+  ],
+  "support_expiry_cases": [
+    {
+      "round": 4,
+      "tick": 15711,
+      "previous": {
+        "pos": [
+          99.12124796872061,
+          22.81078513084355,
+          -0.001890000094994912
+        ],
+        "goal": [
+          52,
+          18,
+          0
+        ],
+        "support_zone": "B",
+        "support_until": 15711,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        }
+      },
+      "next": {
+        "pos": [
+          98.90696718622935,
+          22.807098138683266,
+          -0.0018900000949949004
+        ],
+        "goal": [
+          118,
+          90,
+          2.4
+        ],
+        "support_zone": "B",
+        "support_until": 15711,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        }
+      }
+    },
+    {
+      "round": 9,
+      "tick": 38961,
+      "previous": {
+        "pos": [
+          52.06983985575555,
+          27.20620886986638,
+          -0.0018900000949948956
+        ],
+        "goal": [
+          28,
+          26,
+          0
+        ],
+        "support_zone": "B",
+        "support_until": 38961,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        }
+      },
+      "next": {
+        "pos": [
+          52.06677382317763,
+          27.15325521395177,
+          -0.0018900000949948839
+        ],
+        "goal": [
+          118,
+          90,
+          2.4
+        ],
+        "support_zone": "B",
+        "support_until": 38961,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        }
+      }
+    },
+    {
+      "round": 10,
+      "tick": 46629,
+      "previous": {
+        "pos": [
+          117.99235873316205,
+          41.90410686764809,
+          -0.0018900000949949125
+        ],
+        "goal": [
+          52,
+          18,
+          0
+        ],
+        "support_zone": "B",
+        "support_until": 46629,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        }
+      },
+      "next": {
+        "pos": [
+          117.99244100858833,
+          41.68979438344104,
+          -0.0018900000949949008
+        ],
+        "goal": [
+          118,
+          90,
+          2.4
+        ],
+        "support_zone": "B",
+        "support_until": 46629,
+        "bomb": {
+          "state": "unknown",
+          "fuse_end_tick": null
+        }
+      }
+    }
+  ],
+  "unknown_bomb_search_cases": [
+    {
+      "round": 3,
+      "tick": 10536,
+      "position": [
+        54.02876205641609,
+        18.00460396835858,
+        -0.0018900000949949424
+      ],
+      "legal_bomb": {
+        "state": "planted",
+        "fuse_end_tick": 12936
+      },
+      "kit": true,
+      "routes": {
+        "A": {
+          "euclidean_m": 92.46496933453808,
+          "unpenalized_navigation_m": 146.1484696514662,
+          "nodes": [
+            "warm_gate",
+            "rear_door",
+            "rear_corner",
+            "equipment",
+            "equipment_n",
+            "A",
+            null
+          ]
+        },
+        "B": {
+          "euclidean_m": 8.248771833215013,
+          "unpenalized_navigation_m": 10.028768160776055,
+          "nodes": [
+            "warm_gate",
+            "rear_door",
+            "B",
+            null
+          ]
+        }
+      },
+      "limitation": "Fresh v9 route graph without carried failure/threat penalties; path length is not collision validation or an exact travel-time prediction."
+    },
+    {
+      "round": 9,
+      "tick": 40842,
+      "position": [
+        117.93819048179013,
+        63.597980140516796,
+        -0.0018900000949948696
+      ],
+      "legal_bomb": {
+        "state": "planted",
+        "fuse_end_tick": 43242
+      },
+      "kit": true,
+      "routes": {
+        "A": {
+          "euclidean_m": 27.167956022327566,
+          "unpenalized_navigation_m": 32.52251721271158,
+          "nodes": [
+            "equipment",
+            "equipment_n",
+            "A",
+            null
+          ]
+        },
+        "B": {
+          "euclidean_m": 75.90423623376783,
+          "unpenalized_navigation_m": 116.40281572202144,
+          "nodes": [
+            "equipment",
+            "rear_corner",
+            "rear_door",
+            "B",
+            null
+          ]
+        }
+      },
+      "limitation": "Fresh v9 route graph without carried failure/threat penalties; path length is not collision validation or an exact travel-time prediction."
+    },
+    {
+      "round": 10,
+      "tick": 47166,
+      "position": [
+        112.6801107326521,
+        56.34755645713146,
+        -0.0018900000949949142
+      ],
+      "legal_bomb": {
+        "state": "planted",
+        "fuse_end_tick": 49566
+      },
+      "kit": true,
+      "routes": {
+        "A": {
+          "euclidean_m": 33.74490454257027,
+          "unpenalized_navigation_m": 197.13588955046345,
+          "nodes": [
+            "front_drop",
+            "drill_e",
+            "maintenance_e",
+            "maintenance",
+            "mid",
+            "clean",
+            "clean_s",
+            "clean_e",
+            "A",
+            null
+          ]
+        },
+        "B": {
+          "euclidean_m": 67.84578118805769,
+          "unpenalized_navigation_m": 77.0535467097177,
+          "nodes": [
+            "front_drop",
+            "drill_e",
+            "drill_entry",
+            "B",
+            null
+          ]
+        }
+      },
+      "limitation": "Fresh v9 route graph without carried failure/threat penalties; path length is not collision validation or an exact travel-time prediction."
+    }
+  ],
+  "movement": {
+    "defend": {
+      "alive_observation_seconds": 688.0500000000001,
+      "movement_requested_seconds": 657.5500000000001,
+      "walk_while_moving_seconds": 199.9,
+      "crouch_while_moving_seconds": 34.25,
+      "pressure_state_seconds": 14.65,
+      "measured_path_m": 2014.24946792313
+    },
+    "attack": {
+      "alive_observation_seconds": 663.9000000000001,
+      "movement_requested_seconds": 600.9,
+      "walk_while_moving_seconds": 256.40000000000003,
+      "crouch_while_moving_seconds": 33.95,
+      "pressure_state_seconds": 6.3500000000000005,
+      "measured_path_m": 1490.083523954558
+    }
+  },
+  "round3_flicker": {
+    "start_tick": 12285,
+    "end_tick": 12933,
+    "callbacks": 217,
+    "visible_callbacks": 7,
+    "fire_requests": 0,
+    "moving_crouch_callbacks": 203
+  },
+  "attack_timeout_rounds": [
+    {
+      "round": 14,
+      "own_deaths": 1,
+      "last_alive_seconds_before_end": 89.8,
+      "last_alive_bomb": {
+        "state": "world",
+        "fuse_end_tick": null,
+        "id": "r13:bomb",
+        "carrier": null,
+        "position": [
+          27.93287494992171,
+          46.77391471940351,
+          -0.001999998094994903
+        ],
+        "site": null
+      }
+    },
+    {
+      "round": 18,
+      "own_deaths": 1,
+      "last_alive_seconds_before_end": 55.8,
+      "last_alive_bomb": {
+        "state": "world",
+        "fuse_end_tick": null,
+        "id": "r17:bomb",
+        "carrier": null,
+        "position": [
+          16.679322993921264,
+          66.4182673317658,
+          -0.001999998094994903
+        ],
+        "site": null
+      }
+    },
+    {
+      "round": 24,
+      "own_deaths": 1,
+      "last_alive_seconds_before_end": 63.46666666666667,
+      "last_alive_bomb": {
+        "state": "held",
+        "fuse_end_tick": null,
+        "id": "r23:bomb",
+        "carrier": 8,
+        "position": [
+          43.442526612521426,
+          75.38252587875475,
+          -0.0018900000949948826
+        ],
+        "site": null
+      }
+    }
+  ],
+  "limitations": [
+    "A single observed v9 match, not a controlled v8/v9 comparison.",
+    "Reported damage is sum of public hp_damage; killing blows can exceed remaining HP.",
+    "Movement/request durations use 20Hz callbacks; action requests are not proof of successful traversal.",
+    "Public actual planted sites are labels only; they are not used as legal policy information."
+  ]
+}

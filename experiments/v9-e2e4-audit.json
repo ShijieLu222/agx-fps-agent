@@ -1,0 +1,171 @@
+{
+  "format": "agx-fps-historical-observation-audit.v1",
+  "python_version": "3.13.3",
+  "rules_version": "rsi-fps-5.5",
+  "recorded_bundle_sha256": "d948b68705b72dc4c3931d1e4fd36b3bffeb683ebd6b9f85abf75dfbe5fc5fa0",
+  "expected_recorded_bundle_verified": true,
+  "candidate_source_sha256": "226c44d649ba11a96c9ddf2370e9864c7654a1bd10b4740970639857e247d86d",
+  "export_integrity": {
+    "complete": true,
+    "rows": 18887,
+    "raw_bytes": 58434550,
+    "decision_sha256": "7dffb222e3fc299d8f763c0735275265dbc43423c342ba0dcbec0805fe87596f",
+    "rows_bytes_sha256_seats_verified": true
+  },
+  "decisions_checked": 18887,
+  "errors": [],
+  "cpu": {
+    "import_and_init_seconds": 0.010089000000000015,
+    "act_seconds": 0.48675300000000243,
+    "json_row_decode_seconds": 0.47741799999999657,
+    "action_encode_seconds": 0.06311600000000162,
+    "local_total_seconds": 1.0373760000000005,
+    "local_callback_max_ms_including_json": 10.89999999999991,
+    "act_max_ms": 10.859999999999982,
+    "act_p99_ms": 0.46199999999996244,
+    "act_median_ms": 0.013000000000040757,
+    "callbacks_over_local_budget_including_json": 0,
+    "local_total_over_64_seconds": false,
+    "import_and_init_over_2_seconds": false
+  },
+  "requested_behavior": {
+    "recorded_faults": 0,
+    "changed_actions_vs_recorded": 9358,
+    "alive_live_calls": 11859,
+    "movement_requests": 11390,
+    "fire_requests": 14,
+    "plant_requests": 0,
+    "defuse_requests": 0,
+    "visible_calls": 175,
+    "recorded_fire_requests": 29,
+    "recorded_fire_replaced_by_movement_without_fire": 0,
+    "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+  },
+  "by_historical_round": {
+    "1": {
+      "alive_live_calls": 465,
+      "movement_requests": 438,
+      "fire_requests": 2,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 27,
+      "recorded_fire_requests": 2,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "2": {
+      "alive_live_calls": 801,
+      "movement_requests": 771,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "3": {
+      "alive_live_calls": 990,
+      "movement_requests": 930,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "4": {
+      "alive_live_calls": 649,
+      "movement_requests": 646,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 3
+    },
+    "5": {
+      "alive_live_calls": 667,
+      "movement_requests": 606,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 5
+    },
+    "6": {
+      "alive_live_calls": 781,
+      "movement_requests": 769,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 12,
+      "recorded_fire_requests": 3,
+      "recorded_fire_replaced_by_movement_without_fire": 0
+    },
+    "7": {
+      "alive_live_calls": 670,
+      "movement_requests": 629,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "8": {
+      "alive_live_calls": 801,
+      "movement_requests": 793,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 3
+    },
+    "9": {
+      "alive_live_calls": 660,
+      "movement_requests": 624,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "10": {
+      "alive_live_calls": 2300,
+      "movement_requests": 2270,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0
+    },
+    "11": {
+      "alive_live_calls": 656,
+      "movement_requests": 639,
+      "fire_requests": 1,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 17,
+      "recorded_fire_requests": 3,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "12": {
+      "alive_live_calls": 1208,
+      "movement_requests": 1115,
+      "fire_requests": 0,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 57,
+      "recorded_fire_requests": 11,
+      "recorded_fire_replaced_by_movement_without_fire": 0
+    },
+    "13": {
+      "alive_live_calls": 716,
+      "movement_requests": 683,
+      "fire_requests": 7,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 33,
+      "recorded_fire_requests": 7,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    },
+    "14": {
+      "alive_live_calls": 495,
+      "movement_requests": 477,
+      "fire_requests": 4,
+      "plant_requests": 0,
+      "defuse_requests": 0,
+      "visible_calls": 18,
+      "recorded_fire_requests": 3,
+      "recorded_fire_replaced_by_movement_without_fire": 0,
+      "fire_requests_with_every_visible_enemy_beyond_catalogue_range": 0
+    }
+  },
+  "warnings": [],
+  "limitations": "Historical legal observations only; no physics or future observation changes. Controls requested are not successful movement, new damage, wins or ranking. CPU includes local row decoding, policy and action encoding, but excludes server IPC, validation and scheduling; this is not platform budget/admission proof. Init uses public policy seed 0, never the metadata's hidden match seed."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "ba17363d-0b01-453b-ab6d-295c4927beea",
+  "agent_id": "d2fc92ce-2b46-47ec-8dbe-ba59723d4c44",
+  "runtime_id": "python-agent-v1",
+  "bundle_sha256": "1abc777347a92c602519c68c1b4942e77a64f346ea57f180cbf6e6274c8792db",
+  "profile_digest": "5d8ea6fe791a7ec221aa8f67a3fe18c98e8a6ec19a56b3ed8d593f6a608bca21",
+  "contract_id": "rsi-fps-5.5",
+  "game_id": "fps",
+  "rules_version": "rsi-fps-5.5",
+  "compressed_bytes": 18628,
+  "expanded_bytes": 72501,
+  "tensor_bytes": 0,
+  "files": {
+    "agent.py": {
+      "bytes": 72501,
+      "sha256": "226c44d649ba11a96c9ddf2370e9864c7654a1bd10b4740970639857e247d86d"
+    }
+  },
+  "admission": "passed",
+  "fault_code": null,
+  "created_at": "2026-11-16T04:53:05.284389+00:00",
+  "version_id": "122b783c-f783-4af3-b657-dddffb082fb0",
+  "number": 9,
+  "publication_verification": {
+    "verified_at": "2026-11-16T04:53:51.151327+00:00",
+    "competition_id": "2a97f94f-816a-52b7-b4b8-5925db160245",
+    "registered": true,
+    "current_version_ui_after_reload": "v9 · 1abc777347a9",
+    "source_matches_tested_candidate": true
+  }
+}

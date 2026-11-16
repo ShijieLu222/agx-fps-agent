@@ -76,7 +76,7 @@ class AgentTests(unittest.TestCase):
                 self.assertIs(type(value), int)
                 self.assertIn(value, (0, 1, 2))
             elif key == "buy":
-                self.assertIn(value, ("ak47", "m4a1", "armor", "defusekit"))
+                self.assertIn(value, ("ak47", "m4a1", "galilar", "mp9", "armor", "helmet", "defusekit"))
             elif key == "use":
                 self.assertIn(value, ("plant", "defuse", "pickup"))
             elif key == "pickup_id":
@@ -169,7 +169,8 @@ class AgentTests(unittest.TestCase):
             ("reload_until", 600, True),
             ("reload_until", 601, False),
             ("shot_ready", 599, True),
-            ("shot_ready", 601, False),
+            ("shot_ready", 601, True),  # Request executes at the next physical tick.
+            ("shot_ready", 602, False),
             ("shot_ready", True, True),
             ("shot_ready", False, False),
         ):

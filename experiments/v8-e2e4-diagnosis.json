@@ -1,0 +1,488 @@
+{
+  "format": "agx-fps-match-diagnosis.v1",
+  "job_id": "e2e40a26-1715-4a31-946a-3787284c5a52",
+  "map_id": "dust2-cs2-v54",
+  "seat": 6,
+  "rules_version": "rsi-fps-5.5",
+  "recorded_bundle_sha256": "d948b68705b72dc4c3931d1e4fd36b3bffeb683ebd6b9f85abf75dfbe5fc5fa0",
+  "baseline_source_sha256": "e3d3d100cd1902f233a8d046e1f0b3e4f2c785ff22363fac5831d72c28dec671",
+  "candidate_source_sha256": "e3d3d100cd1902f233a8d046e1f0b3e4f2c785ff22363fac5831d72c28dec671",
+  "verified_training": {
+    "rows": 18887,
+    "raw_bytes": 58434550,
+    "sha256": "7dffb222e3fc299d8f763c0735275265dbc43423c342ba0dcbec0805fe87596f"
+  },
+  "verified_events": {
+    "chunks": 1,
+    "rows": 2681,
+    "raw_bytes": 824394,
+    "sha256": "b101c8b10f38abac2e174c27169a8d6d4747b6df9b6562c5e3bc37e688425de5"
+  },
+  "result": [
+    13,
+    1
+  ],
+  "counts": {
+    "decisions": 18887,
+    "recorded_faults": 0,
+    "baseline_action_mismatches": 0,
+    "changed_actions": 0
+  },
+  "changed_fields": {},
+  "by_side": {
+    "defend": {
+      "alive_live_calls": 10648,
+      "visible_calls": 124,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 19,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 124,
+      "reachable_speed_blocked_calls": 21,
+      "shot_events": 19,
+      "hit_events": 19,
+      "hp_damage": 454.2068301357408,
+      "deaths": 11,
+      "team_won": 1,
+      "ended": 12,
+      "deaths_without_any_sighting": 4,
+      "deaths_without_final_sighting": 4,
+      "kills": 2
+    },
+    "attack": {
+      "alive_live_calls": 1211,
+      "visible_calls": 51,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 10,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 51,
+      "reachable_speed_blocked_calls": 12,
+      "shot_events": 10,
+      "hit_events": 9,
+      "hp_damage": 101.92817175786763,
+      "deaths": 2,
+      "team_won": 0,
+      "ended": 2,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0
+    }
+  },
+  "rounds": [
+    {
+      "alive_live_calls": 465,
+      "visible_calls": 27,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 2,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 27,
+      "reachable_speed_blocked_calls": 21,
+      "shot_events": 2,
+      "hit_events": 2,
+      "hp_damage": 37.41929758478251,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 1,
+      "side": "defend",
+      "first_damage": {
+        "tick": 1659,
+        "visible": 0,
+        "baseline_yaw_rate": 1.0,
+        "candidate_yaw_rate": 1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 1657,
+        "bearing_offset_deg": 89.96,
+        "horizontal_distance_m": 21.91,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 801,
+      "visible_calls": 0,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 0,
+      "reachable_speed_blocked_calls": 0,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 1,
+      "deaths_without_final_sighting": 1,
+      "round": 2,
+      "side": "defend",
+      "first_damage": {
+        "tick": 5184,
+        "visible": 0,
+        "baseline_yaw_rate": -1.0,
+        "candidate_yaw_rate": -1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 5182,
+        "bearing_offset_deg": -126.78,
+        "horizontal_distance_m": 16.6,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 990,
+      "visible_calls": 0,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 0,
+      "reachable_speed_blocked_calls": 0,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 1,
+      "deaths_without_final_sighting": 1,
+      "round": 3,
+      "side": "defend",
+      "first_damage": {
+        "tick": 8931,
+        "visible": 0,
+        "baseline_yaw_rate": -1.0,
+        "candidate_yaw_rate": -1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 8929,
+        "bearing_offset_deg": -160.31,
+        "horizontal_distance_m": 18.58,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 649,
+      "visible_calls": 3,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 3,
+      "reachable_speed_blocked_calls": 0,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 4,
+      "side": "defend",
+      "first_damage": {
+        "tick": 13005,
+        "visible": 0,
+        "baseline_yaw_rate": -1.0,
+        "candidate_yaw_rate": -1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 13003,
+        "bearing_offset_deg": -86.87,
+        "horizontal_distance_m": 19.17,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 667,
+      "visible_calls": 5,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 5,
+      "reachable_speed_blocked_calls": 0,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 5,
+      "side": "defend",
+      "first_damage": {
+        "tick": 15945,
+        "visible": 0,
+        "baseline_yaw_rate": 1.0,
+        "candidate_yaw_rate": 1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 15943,
+        "bearing_offset_deg": 68.01,
+        "horizontal_distance_m": 17.49,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 781,
+      "visible_calls": 12,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 3,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 12,
+      "reachable_speed_blocked_calls": 0,
+      "shot_events": 3,
+      "hit_events": 3,
+      "hp_damage": 72.92818899713978,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 6,
+      "side": "defend",
+      "first_damage": {
+        "tick": 19548,
+        "visible": 1,
+        "baseline_yaw_rate": 0.0017419993167807255,
+        "candidate_yaw_rate": 0.0017419993167807255
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 19546,
+        "bearing_offset_deg": 0.09,
+        "horizontal_distance_m": 18.75,
+        "own_visible_count_before_hit": 1
+      }
+    },
+    {
+      "alive_live_calls": 670,
+      "visible_calls": 0,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 0,
+      "reachable_speed_blocked_calls": 0,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 1,
+      "deaths_without_final_sighting": 1,
+      "round": 7,
+      "side": "defend",
+      "first_damage": {
+        "tick": 22302,
+        "visible": 0,
+        "baseline_yaw_rate": -1.0,
+        "candidate_yaw_rate": -1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 22300,
+        "bearing_offset_deg": -135.74,
+        "horizontal_distance_m": 18.12,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 801,
+      "visible_calls": 3,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 3,
+      "reachable_speed_blocked_calls": 0,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 8,
+      "side": "defend",
+      "first_damage": {
+        "tick": 25473,
+        "visible": 0,
+        "baseline_yaw_rate": -1.0,
+        "candidate_yaw_rate": -1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 25471,
+        "bearing_offset_deg": -90.86,
+        "horizontal_distance_m": 18.67,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 660,
+      "visible_calls": 0,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 0,
+      "reachable_speed_blocked_calls": 0,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 1,
+      "deaths_without_final_sighting": 1,
+      "round": 9,
+      "side": "defend",
+      "first_damage": {
+        "tick": 28125,
+        "visible": 0,
+        "baseline_yaw_rate": 1.0,
+        "candidate_yaw_rate": 1.0
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 28123,
+        "bearing_offset_deg": 102.09,
+        "horizontal_distance_m": 18.91,
+        "own_visible_count_before_hit": 0
+      }
+    },
+    {
+      "alive_live_calls": 2300,
+      "visible_calls": 0,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 0,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 0,
+      "reachable_speed_blocked_calls": 0,
+      "team_won": 1,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 10,
+      "side": "defend",
+      "first_damage": null,
+      "retrospective_first_hit_geometry": null
+    },
+    {
+      "alive_live_calls": 656,
+      "visible_calls": 17,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 3,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 17,
+      "reachable_speed_blocked_calls": 0,
+      "shot_events": 3,
+      "hit_events": 3,
+      "hp_damage": 73.02243311216309,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 11,
+      "side": "defend",
+      "first_damage": {
+        "tick": 38694,
+        "visible": 1,
+        "baseline_yaw_rate": -0.0011112030109187525,
+        "candidate_yaw_rate": -0.0011112030109187525
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 38692,
+        "bearing_offset_deg": 0.04,
+        "horizontal_distance_m": 18.5,
+        "own_visible_count_before_hit": 1
+      }
+    },
+    {
+      "alive_live_calls": 1208,
+      "visible_calls": 57,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 11,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 57,
+      "reachable_speed_blocked_calls": 0,
+      "shot_events": 11,
+      "hit_events": 11,
+      "hp_damage": 270.83691044165545,
+      "kills": 2,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 12,
+      "side": "defend",
+      "first_damage": {
+        "tick": 44961,
+        "visible": 1,
+        "baseline_yaw_rate": 0.25063001543887076,
+        "candidate_yaw_rate": 0.25063001543887076
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 44959,
+        "bearing_offset_deg": 10.75,
+        "horizontal_distance_m": 18.31,
+        "own_visible_count_before_hit": 1
+      }
+    },
+    {
+      "alive_live_calls": 716,
+      "visible_calls": 33,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 7,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 33,
+      "reachable_speed_blocked_calls": 6,
+      "shot_events": 7,
+      "hit_events": 6,
+      "hp_damage": 66.2212267765233,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 13,
+      "side": "attack",
+      "first_damage": {
+        "tick": 47703,
+        "visible": 1,
+        "baseline_yaw_rate": 0.013397572873291946,
+        "candidate_yaw_rate": 0.013397572873291946
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 47701,
+        "bearing_offset_deg": 0.2,
+        "horizontal_distance_m": 19.53,
+        "own_visible_count_before_hit": 1
+      }
+    },
+    {
+      "alive_live_calls": 495,
+      "visible_calls": 18,
+      "carrying_calls": 0,
+      "recorded_fire_requests": 3,
+      "recorded_plant_requests": 0,
+      "recorded_defuse_requests": 0,
+      "reachable_calls": 18,
+      "reachable_speed_blocked_calls": 6,
+      "shot_events": 3,
+      "hit_events": 3,
+      "hp_damage": 35.70694498134433,
+      "deaths": 1,
+      "team_won": 0,
+      "ended": 1,
+      "deaths_without_any_sighting": 0,
+      "deaths_without_final_sighting": 0,
+      "round": 14,
+      "side": "attack",
+      "first_damage": {
+        "tick": 51222,
+        "visible": 1,
+        "baseline_yaw_rate": -0.0005703300134030087,
+        "candidate_yaw_rate": -0.0005703300134030087
+      },
+      "retrospective_first_hit_geometry": {
+        "tick": 51220,
+        "bearing_offset_deg": -0.03,
+        "horizontal_distance_m": 13.46,
+        "own_visible_count_before_hit": 1
+      }
+    }
+  ],
+  "limitations": "Fixed historical observations; no counterfactual physics or win-rate estimate. Public events are retrospective reporting only. Shot/hit events can differ from requested fire; penetration can create multiple hit events per shot."
+}

@@ -1,0 +1,387 @@
+{
+  "format": "agx-fps-v9-issue-regressions.v1",
+  "job_id": "e2e40a26-1715-4a31-946a-3787284c5a52",
+  "baseline_source_sha256": "e3d3d100cd1902f233a8d046e1f0b3e4f2c785ff22363fac5831d72c28dec671",
+  "candidate_source_sha256": "226c44d649ba11a96c9ddf2370e9864c7654a1bd10b4740970639857e247d86d",
+  "decisions": 18887,
+  "verified_training": {
+    "rows": 18887,
+    "raw_bytes": 58434550,
+    "sha256": "7dffb222e3fc299d8f763c0735275265dbc43423c342ba0dcbec0805fe87596f"
+  },
+  "guard_plans": {
+    "0": {
+      "stations": [
+        [
+          166.64960000000002,
+          126.3906,
+          22.5231
+        ],
+        [
+          162.9126,
+          123.8823,
+          22.5273
+        ],
+        [
+          162.7221,
+          121.6344,
+          22.5019
+        ],
+        [
+          171.447,
+          130.145,
+          23.0226
+        ]
+      ],
+      "watch": [
+        [
+          140.0,
+          139.0,
+          21.6
+        ],
+        [
+          153.0,
+          108.0,
+          24.0
+        ],
+        [
+          159.0,
+          115.0,
+          22.0
+        ]
+      ]
+    },
+    "1": {
+      "stations": [
+        [
+          164.62709999999998,
+          57.0359,
+          20.2794
+        ],
+        [
+          168.3006,
+          61.8492,
+          20.3048
+        ],
+        [
+          170.2373,
+          64.9512,
+          20.4699
+        ],
+        [
+          169.3039,
+          54.0927,
+          20.9144
+        ]
+      ],
+      "watch": [
+        [
+          157.0,
+          57.0,
+          21.5
+        ],
+        [
+          166.0,
+          70.0,
+          23.0
+        ],
+        [
+          156.0,
+          72.0,
+          21.0
+        ]
+      ]
+    }
+  },
+  "cases": [
+    {
+      "tick": 5184,
+      "round": 2,
+      "hp": 72.81506256337192,
+      "visible_count": 0,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 1,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 1,
+        "move_forward": -0.14446175040511688,
+        "move_right": 0.8376340505673643,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "fire": false,
+        "crouch": false,
+        "walk": false,
+        "jump": false
+      },
+      "retained_points": 64,
+      "retreat_points": 14,
+      "guard_choice": 3,
+      "head_selected": []
+    },
+    {
+      "tick": 8931,
+      "round": 3,
+      "hp": 65.02685817015826,
+      "visible_count": 0,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 0,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": -0.4991630505650511,
+        "move_right": 0.6879943669468466,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "fire": false,
+        "crouch": false,
+        "walk": false,
+        "jump": false
+      },
+      "retained_points": 64,
+      "retreat_points": 15,
+      "guard_choice": 3,
+      "head_selected": []
+    },
+    {
+      "tick": 12999,
+      "round": 4,
+      "hp": 100.0,
+      "visible_count": 0,
+      "sounds": [
+        {
+          "type": "footstep",
+          "direction": "right",
+          "distance_band": "mid"
+        }
+      ],
+      "v8": {
+        "weapon_slot": 0,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": 0.15,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.1644915600026221,
+        "move_right": 0.3782839894681029,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "walk": true
+      },
+      "retained_points": 64,
+      "retreat_points": 0,
+      "guard_choice": 0,
+      "head_selected": []
+    },
+    {
+      "tick": 13005,
+      "round": 4,
+      "hp": 65.06269505849681,
+      "visible_count": 0,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 0,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.5649703641398202,
+        "move_right": 0.6350657348997181,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "fire": false,
+        "crouch": false,
+        "walk": false,
+        "jump": false
+      },
+      "retained_points": 64,
+      "retreat_points": 14,
+      "guard_choice": 0,
+      "head_selected": []
+    },
+    {
+      "tick": 15945,
+      "round": 5,
+      "hp": 72.84926523600683,
+      "visible_count": 0,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 0,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": 1.0,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.40244172444997095,
+        "move_right": 0.7486926328085068,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "fire": false,
+        "crouch": false,
+        "walk": false,
+        "jump": false
+      },
+      "retained_points": 64,
+      "retreat_points": 16,
+      "guard_choice": 3,
+      "head_selected": []
+    },
+    {
+      "tick": 19545,
+      "round": 6,
+      "hp": 100.0,
+      "visible_count": 1,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 0,
+        "fire": false,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": 0.002178520028944438,
+        "pitch_rate": 0.016037399842558156,
+        "crouch": true
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "fire": false,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": 0.002178520028944438,
+        "pitch_rate": 0.16322158056967745,
+        "crouch": true
+      },
+      "retained_points": 64,
+      "retreat_points": 0,
+      "guard_choice": 2,
+      "head_selected": [
+        0
+      ]
+    },
+    {
+      "tick": 22302,
+      "round": 7,
+      "hp": 65.00621980924703,
+      "visible_count": 0,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 0,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": -0.39615626308702784,
+        "move_right": -0.7520373762100668,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "fire": false,
+        "crouch": false,
+        "walk": false,
+        "jump": false
+      },
+      "retained_points": 21,
+      "retreat_points": 16,
+      "guard_choice": 3,
+      "head_selected": []
+    },
+    {
+      "tick": 25473,
+      "round": 8,
+      "hp": 72.90096455024222,
+      "visible_count": 0,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 0,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.5505020800299648,
+        "move_right": 0.6476476355879655,
+        "yaw_rate": -1.0,
+        "pitch_rate": -0.0,
+        "fire": false,
+        "crouch": false,
+        "walk": false,
+        "jump": false
+      },
+      "retained_points": 64,
+      "retreat_points": 14,
+      "guard_choice": 0,
+      "head_selected": []
+    },
+    {
+      "tick": 28125,
+      "round": 9,
+      "hp": 65.05279178923101,
+      "visible_count": 0,
+      "sounds": [],
+      "v8": {
+        "weapon_slot": 0,
+        "move_forward": 0.0,
+        "move_right": 0.0,
+        "yaw_rate": 1.0,
+        "pitch_rate": -0.0,
+        "walk": false,
+        "jump": false
+      },
+      "v9": {
+        "weapon_slot": 0,
+        "move_forward": 0.7314454309264105,
+        "move_right": 0.4329983620949134,
+        "yaw_rate": 1.0,
+        "pitch_rate": -0.0,
+        "fire": false,
+        "crouch": false,
+        "walk": false,
+        "jump": false
+      },
+      "retained_points": 64,
+      "retreat_points": 15,
+      "guard_choice": 3,
+      "head_selected": []
+    }
+  ],
+  "assertions_passed": [
+    "All recorded v8 actions reproduced",
+    "All v9 actions JSON/schema valid",
+    "Round 2 first unseen hit requests witnessed retreat after long stop",
+    "Round 4 right-side footsteps turn the view right before the first hit"
+  ],
+  "limitations": "Fixed historical observations are not new damage, survival or match outcomes. New navigation and head aiming change subsequent observations in a real match."
+}

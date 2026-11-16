@@ -1,0 +1,4201 @@
+{
+  "format": "agx-fps-player-comparison.v1",
+  "matches": [
+    {
+      "prefix": "e2e4",
+      "job_id": "e2e40a26-1715-4a31-946a-3787284c5a52",
+      "created_at": "2026-11-16T04:00:02.067285+00:00",
+      "result": [
+        13,
+        1
+      ],
+      "verified_events": {
+        "chunks": 1,
+        "rows": 2681,
+        "raw_bytes": 824394,
+        "sha256": "b101c8b10f38abac2e174c27169a8d6d4747b6df9b6562c5e3bc37e688425de5"
+      },
+      "players": [
+        {
+          "seat": 4,
+          "name": "你这么打我这么打你不炸了吗",
+          "is_mine": false,
+          "team": 0,
+          "damage": 2303.34150084518,
+          "kills": 19,
+          "deaths": 4,
+          "fire_events": 77,
+          "hit_events": 72,
+          "fire_events_with_bullet_hit": 71,
+          "head_hit_events": 6,
+          "damage_by_part": {
+            "head": 751.264928354717,
+            "lower": 50.38557342503064,
+            "upper": 1501.690999065432
+          },
+          "weapons_fired": {
+            "pistol": 10,
+            "ak47": 48,
+            "usp": 8,
+            "m4a1": 11
+          },
+          "purchases": {
+            "armor": 6,
+            "ak47": 5,
+            "helmet": 5,
+            "m4a1": 1,
+            "defusekit": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 27,
+            "ak47:21": 1,
+            "ak47:24": 1,
+            "ak47:33": 1,
+            "ak47:42": 3,
+            "m4a1:9": 9,
+            "pistol:12": 9,
+            "usp:12": 7
+          },
+          "rounds_fired": 12,
+          "rounds_damaged": 12,
+          "death_rounds_without_shot": 0,
+          "rounds_received_before_first_shot": 0,
+          "alive_live_seconds": 709.95,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1952.9050081757553,
+              "shots": 58,
+              "hit_events": 55,
+              "kills": 16,
+              "deaths": 4
+            },
+            "defend": {
+              "rounds": 2,
+              "damage": 350.4364926694243,
+              "shots": 19,
+              "hit_events": 17,
+              "kills": 3,
+              "deaths": 0
+            }
+          }
+        },
+        {
+          "seat": 1,
+          "name": "2658406",
+          "is_mine": false,
+          "team": 0,
+          "damage": 2018.1744733348226,
+          "kills": 18,
+          "deaths": 3,
+          "fire_events": 66,
+          "hit_events": 54,
+          "fire_events_with_bullet_hit": 54,
+          "head_hit_events": 5,
+          "damage_by_part": {
+            "head": 645.2104923893666,
+            "upper": 1372.963980945456
+          },
+          "weapons_fired": {
+            "pistol": 10,
+            "ak47": 45,
+            "usp": 5,
+            "m4a1": 6
+          },
+          "purchases": {
+            "armor": 4,
+            "ak47": 3,
+            "defusekit": 2,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 31,
+            "ak47:9": 1,
+            "ak47:18": 1,
+            "m4a1:6": 4,
+            "m4a1:9": 1,
+            "pistol:12": 9,
+            "usp:12": 3
+          },
+          "rounds_fired": 9,
+          "rounds_damaged": 9,
+          "death_rounds_without_shot": 0,
+          "rounds_received_before_first_shot": 4,
+          "alive_live_seconds": 715.9166666666666,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1746.3267855834606,
+              "shots": 55,
+              "hit_events": 46,
+              "kills": 16,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 2,
+              "damage": 271.8476877513619,
+              "shots": 11,
+              "hit_events": 8,
+              "kills": 2,
+              "deaths": 1
+            }
+          }
+        },
+        {
+          "seat": 2,
+          "name": "疯狂水世界三分钟一局巨爽巨解压",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1313.8384160172068,
+          "kills": 9,
+          "deaths": 4,
+          "fire_events": 61,
+          "hit_events": 52,
+          "fire_events_with_bullet_hit": 52,
+          "head_hit_events": 1,
+          "damage_by_part": {
+            "head": 88.13648564402196,
+            "lower": 84.64975335686623,
+            "upper": 1141.0521770163186
+          },
+          "weapons_fired": {
+            "pistol": 26,
+            "ak47": 35
+          },
+          "purchases": {
+            "armor": 5,
+            "ak47": 4,
+            "helmet": 4,
+            "hegrenade": 5,
+            "m4a1": 1,
+            "defusekit": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 18,
+            "ak47:15": 3,
+            "ak47:18": 2,
+            "ak47:24": 1,
+            "ak47:42": 1,
+            "pistol:12": 22,
+            "pistol:21": 1
+          },
+          "rounds_fired": 7,
+          "rounds_damaged": 7,
+          "death_rounds_without_shot": 0,
+          "rounds_received_before_first_shot": 2,
+          "alive_live_seconds": 700.05,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1313.8384160172068,
+              "shots": 61,
+              "hit_events": 52,
+              "kills": 9,
+              "deaths": 4
+            },
+            "defend": {
+              "rounds": 2,
+              "damage": 0,
+              "shots": 0,
+              "hit_events": 0,
+              "kills": 0,
+              "deaths": 0
+            }
+          }
+        },
+        {
+          "seat": 0,
+          "name": "northwind",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1270.4536452510513,
+          "kills": 11,
+          "deaths": 3,
+          "fire_events": 37,
+          "hit_events": 32,
+          "fire_events_with_bullet_hit": 32,
+          "head_hit_events": 4,
+          "damage_by_part": {
+            "head": 553.3019184241887,
+            "upper": 717.1517268268626
+          },
+          "weapons_fired": {
+            "ak47": 27,
+            "usp": 5,
+            "m4a1": 5
+          },
+          "purchases": {
+            "armor": 3,
+            "ak47": 2,
+            "defusekit": 1,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 18,
+            "ak47:30": 1,
+            "m4a1:6": 4,
+            "usp:12": 4
+          },
+          "rounds_fired": 7,
+          "rounds_damaged": 7,
+          "death_rounds_without_shot": 2,
+          "rounds_received_before_first_shot": 5,
+          "alive_live_seconds": 693.6666666666666,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1062.484354575402,
+              "shots": 27,
+              "hit_events": 22,
+              "kills": 9,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 2,
+              "damage": 207.96929067564923,
+              "shots": 10,
+              "hit_events": 10,
+              "kills": 2,
+              "deaths": 1
+            }
+          }
+        },
+        {
+          "seat": 5,
+          "name": "murmur",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1098.8098419763412,
+          "kills": 7,
+          "deaths": 12,
+          "fire_events": 49,
+          "hit_events": 40,
+          "fire_events_with_bullet_hit": 40,
+          "head_hit_events": 3,
+          "damage_by_part": {
+            "head": 251.23044534125034,
+            "lower": 22.9773317093174,
+            "upper": 824.6020649257734
+          },
+          "weapons_fired": {
+            "m4a1": 40,
+            "pistol": 5,
+            "ak47": 4
+          },
+          "purchases": {
+            "defusekit": 11,
+            "armor": 6,
+            "m4a1": 9,
+            "ak47": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 2,
+            "ak47:21": 1,
+            "m4a1:6": 30,
+            "m4a1:27": 1,
+            "pistol:12": 3
+          },
+          "rounds_fired": 8,
+          "rounds_damaged": 8,
+          "death_rounds_without_shot": 5,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 647.7166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 2,
+              "damage": 252.5855315941168,
+              "shots": 9,
+              "hit_events": 8,
+              "kills": 2,
+              "deaths": 1
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 846.2243103822244,
+              "shots": 40,
+              "hit_events": 32,
+              "kills": 5,
+              "deaths": 11
+            }
+          }
+        },
+        {
+          "seat": 6,
+          "name": "zkdw66",
+          "is_mine": true,
+          "team": 1,
+          "damage": 556.1350018936084,
+          "kills": 2,
+          "deaths": 13,
+          "fire_events": 29,
+          "hit_events": 28,
+          "fire_events_with_bullet_hit": 28,
+          "head_hit_events": 0,
+          "damage_by_part": {
+            "lower": 22.35700494243049,
+            "upper": 533.777996951178
+          },
+          "weapons_fired": {
+            "usp": 2,
+            "m4a1": 17,
+            "pistol": 10
+          },
+          "purchases": {
+            "armor": 9,
+            "defusekit": 6,
+            "m4a1": 9
+          },
+          "short_same_weapon_shot_gaps": {
+            "m4a1:9": 10,
+            "m4a1:24": 2,
+            "pistol:12": 8,
+            "usp:12": 1
+          },
+          "rounds_fired": 6,
+          "rounds_damaged": 6,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 592.8833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 2,
+              "damage": 101.92817175786763,
+              "shots": 10,
+              "hit_events": 9,
+              "kills": 0,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 454.2068301357408,
+              "shots": 19,
+              "hit_events": 19,
+              "kills": 2,
+              "deaths": 11
+            }
+          }
+        },
+        {
+          "seat": 8,
+          "name": "浅度求索",
+          "is_mine": false,
+          "team": 1,
+          "damage": 509.9586514751366,
+          "kills": 3,
+          "deaths": 13,
+          "fire_events": 28,
+          "hit_events": 18,
+          "fire_events_with_bullet_hit": 17,
+          "head_hit_events": 3,
+          "damage_by_part": {
+            "head": 211.92118666127124,
+            "lower": 22.82062233030196,
+            "upper": 275.2168424835634
+          },
+          "weapons_fired": {
+            "mp9": 10,
+            "m4a4": 13,
+            "pistol": 2,
+            "ak47": 3
+          },
+          "purchases": {
+            "armor": 11,
+            "mp9": 2,
+            "helmet": 4,
+            "m4a4": 8,
+            "defusekit": 1,
+            "ak47": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 1,
+            "ak47:12": 1,
+            "m4a4:9": 2,
+            "m4a4:15": 2,
+            "m4a4:18": 2,
+            "mp9:6": 9,
+            "pistol:12": 1
+          },
+          "rounds_fired": 9,
+          "rounds_damaged": 8,
+          "death_rounds_without_shot": 4,
+          "rounds_received_before_first_shot": 7,
+          "alive_live_seconds": 662.3333333333334,
+          "by_side": {
+            "attack": {
+              "rounds": 2,
+              "damage": 130.81876429050834,
+              "shots": 5,
+              "hit_events": 3,
+              "kills": 1,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 379.13988718462826,
+              "shots": 23,
+              "hit_events": 15,
+              "kills": 2,
+              "deaths": 11
+            }
+          }
+        },
+        {
+          "seat": 3,
+          "name": "PyZ",
+          "is_mine": false,
+          "team": 0,
+          "damage": 423.08590944286277,
+          "kills": 5,
+          "deaths": 2,
+          "fire_events": 16,
+          "hit_events": 13,
+          "fire_events_with_bullet_hit": 13,
+          "head_hit_events": 1,
+          "damage_by_part": {
+            "head": 106.64936861857173,
+            "upper": 316.43654082429106
+          },
+          "weapons_fired": {
+            "ak47": 14,
+            "m4a1": 2
+          },
+          "purchases": {
+            "armor": 2,
+            "ak47": 1,
+            "defusekit": 2,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 9,
+            "m4a1:6": 1
+          },
+          "rounds_fired": 4,
+          "rounds_damaged": 4,
+          "death_rounds_without_shot": 1,
+          "rounds_received_before_first_shot": 2,
+          "alive_live_seconds": 745.8166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 404.03178634793346,
+              "shots": 14,
+              "hit_events": 12,
+              "kills": 5,
+              "deaths": 1
+            },
+            "defend": {
+              "rounds": 2,
+              "damage": 19.0541230949293,
+              "shots": 2,
+              "hit_events": 1,
+              "kills": 0,
+              "deaths": 1
+            }
+          }
+        },
+        {
+          "seat": 9,
+          "name": "Niko",
+          "is_mine": false,
+          "team": 1,
+          "damage": 326.02544426912715,
+          "kills": 3,
+          "deaths": 12,
+          "fire_events": 17,
+          "hit_events": 15,
+          "fire_events_with_bullet_hit": 15,
+          "head_hit_events": 0,
+          "damage_by_part": {
+            "upper": 326.02544426912715
+          },
+          "weapons_fired": {
+            "m4a1": 13,
+            "pistol": 4
+          },
+          "purchases": {
+            "defusekit": 11,
+            "armor": 6,
+            "m4a1": 9
+          },
+          "short_same_weapon_shot_gaps": {
+            "m4a1:6": 10,
+            "pistol:12": 2
+          },
+          "rounds_fired": 4,
+          "rounds_damaged": 4,
+          "death_rounds_without_shot": 8,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 561.3166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 2,
+              "damage": 32.75826547647553,
+              "shots": 4,
+              "hit_events": 3,
+              "kills": 0,
+              "deaths": 1
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 293.26717879265163,
+              "shots": 13,
+              "hit_events": 12,
+              "kills": 3,
+              "deaths": 11
+            }
+          }
+        },
+        {
+          "seat": 7,
+          "name": "zzp13553046106",
+          "is_mine": false,
+          "team": 1,
+          "damage": 274.77542399728577,
+          "kills": 1,
+          "deaths": 12,
+          "fire_events": 24,
+          "hit_events": 15,
+          "fire_events_with_bullet_hit": 15,
+          "head_hit_events": 0,
+          "damage_by_part": {
+            "lower": 9.758514061616454,
+            "upper": 265.01690993566933
+          },
+          "weapons_fired": {
+            "usp": 12,
+            "m4a4": 6,
+            "galilar": 6
+          },
+          "purchases": {
+            "armor": 9,
+            "mp9": 2,
+            "helmet": 6,
+            "m4a4": 8,
+            "defusekit": 1,
+            "galilar": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "galilar:9": 5,
+            "m4a4:15": 2,
+            "m4a4:18": 2,
+            "usp:12": 10,
+            "usp:15": 1
+          },
+          "rounds_fired": 4,
+          "rounds_damaged": 4,
+          "death_rounds_without_shot": 8,
+          "rounds_received_before_first_shot": 8,
+          "alive_live_seconds": 661.2166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 2,
+              "damage": 66.7436283720815,
+              "shots": 6,
+              "hit_events": 3,
+              "kills": 0,
+              "deaths": 1
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 208.03179562520427,
+              "shots": 18,
+              "hit_events": 12,
+              "kills": 1,
+              "deaths": 11
+            }
+          }
+        }
+      ]
+    },
+    {
+      "prefix": "e144",
+      "job_id": "e144283c-bc52-4c66-b44c-537241f571fb",
+      "created_at": "2026-11-16T02:00:04.424938+00:00",
+      "result": [
+        13,
+        2
+      ],
+      "verified_events": {
+        "chunks": 2,
+        "rows": 3923,
+        "raw_bytes": 1464286,
+        "sha256": "fdaeb608d29735754f59bcda257be688b070be06743e626d533110cb5c7b05c0"
+      },
+      "players": [
+        {
+          "seat": 1,
+          "name": "123",
+          "is_mine": false,
+          "team": 0,
+          "damage": 2535.3745771106464,
+          "kills": 18,
+          "deaths": 8,
+          "fire_events": 130,
+          "hit_events": 98,
+          "fire_events_with_bullet_hit": 95,
+          "head_hit_events": 6,
+          "damage_by_part": {
+            "head": 468.7728755772004,
+            "lower": 93.7260936041941,
+            "upper": 1972.875607929252
+          },
+          "weapons_fired": {
+            "pistol": 20,
+            "ak47": 93,
+            "usp": 3,
+            "mp9": 9,
+            "m4a1": 5
+          },
+          "purchases": {
+            "armor": 8,
+            "ak47": 7,
+            "mp9": 1,
+            "defusekit": 1,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 27,
+            "ak47:12": 3,
+            "ak47:15": 14,
+            "ak47:18": 14,
+            "ak47:21": 6,
+            "ak47:24": 2,
+            "ak47:27": 1,
+            "ak47:36": 1,
+            "ak47:42": 1,
+            "m4a1:9": 3,
+            "mp9:6": 8,
+            "pistol:12": 11,
+            "pistol:15": 6,
+            "pistol:33": 1
+          },
+          "rounds_fired": 15,
+          "rounds_damaged": 15,
+          "death_rounds_without_shot": 0,
+          "rounds_received_before_first_shot": 3,
+          "alive_live_seconds": 551.9666666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 2291.2312194802803,
+              "shots": 113,
+              "hit_events": 82,
+              "kills": 17,
+              "deaths": 6
+            },
+            "defend": {
+              "rounds": 3,
+              "damage": 244.14335763036598,
+              "shots": 17,
+              "hit_events": 16,
+              "kills": 1,
+              "deaths": 2
+            }
+          }
+        },
+        {
+          "seat": 0,
+          "name": "solstice",
+          "is_mine": false,
+          "team": 0,
+          "damage": 2529.531894032052,
+          "kills": 17,
+          "deaths": 6,
+          "fire_events": 183,
+          "hit_events": 76,
+          "fire_events_with_bullet_hit": 76,
+          "head_hit_events": 8,
+          "damage_by_part": {
+            "head": 974.0543298916508,
+            "lower": 275.2110394337084,
+            "upper": 1280.266524706693
+          },
+          "weapons_fired": {
+            "pistol": 32,
+            "ak47": 132,
+            "usp": 17,
+            "m4a1": 2
+          },
+          "purchases": {
+            "armor": 6,
+            "ak47": 4,
+            "defusekit": 3,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 110,
+            "ak47:9": 1,
+            "m4a1:6": 1,
+            "pistol:12": 26,
+            "pistol:24": 1,
+            "usp:12": 14,
+            "usp:24": 1
+          },
+          "rounds_fired": 14,
+          "rounds_damaged": 14,
+          "death_rounds_without_shot": 0,
+          "rounds_received_before_first_shot": 1,
+          "alive_live_seconds": 634.4166666666666,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 2413.1211881731424,
+              "shots": 164,
+              "hit_events": 68,
+              "kills": 16,
+              "deaths": 4
+            },
+            "defend": {
+              "rounds": 3,
+              "damage": 116.41070585890962,
+              "shots": 19,
+              "hit_events": 8,
+              "kills": 1,
+              "deaths": 2
+            }
+          }
+        },
+        {
+          "seat": 6,
+          "name": "XiZhou",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1357.6830567034551,
+          "kills": 9,
+          "deaths": 12,
+          "fire_events": 107,
+          "hit_events": 45,
+          "fire_events_with_bullet_hit": 45,
+          "head_hit_events": 6,
+          "damage_by_part": {
+            "head": 621.3018926626219,
+            "lower": 70.76417104186093,
+            "upper": 665.6169929989724
+          },
+          "weapons_fired": {
+            "usp": 5,
+            "m4a1": 41,
+            "pistol": 33,
+            "ak47": 28
+          },
+          "purchases": {
+            "defusekit": 12,
+            "armor": 7,
+            "m4a1": 10,
+            "ak47": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 25,
+            "m4a1:6": 32,
+            "m4a1:42": 1,
+            "pistol:12": 30,
+            "usp:12": 3
+          },
+          "rounds_fired": 12,
+          "rounds_damaged": 12,
+          "death_rounds_without_shot": 3,
+          "rounds_received_before_first_shot": 7,
+          "alive_live_seconds": 509.25,
+          "by_side": {
+            "attack": {
+              "rounds": 3,
+              "damage": 529.3589943786926,
+              "shots": 61,
+              "hit_events": 15,
+              "kills": 4,
+              "deaths": 0
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 828.3240623247625,
+              "shots": 46,
+              "hit_events": 30,
+              "kills": 5,
+              "deaths": 12
+            }
+          }
+        },
+        {
+          "seat": 2,
+          "name": "PyZ",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1334.8850133301542,
+          "kills": 12,
+          "deaths": 5,
+          "fire_events": 133,
+          "hit_events": 44,
+          "fire_events_with_bullet_hit": 43,
+          "head_hit_events": 5,
+          "damage_by_part": {
+            "head": 460.342958500104,
+            "lower": 141.51775292383627,
+            "upper": 733.0243019062139
+          },
+          "weapons_fired": {
+            "pistol": 16,
+            "ak47": 92,
+            "usp": 13,
+            "m4a1": 12
+          },
+          "purchases": {
+            "armor": 6,
+            "ak47": 4,
+            "defusekit": 3,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 69,
+            "ak47:12": 8,
+            "ak47:30": 1,
+            "m4a1:6": 11,
+            "pistol:12": 14,
+            "usp:12": 10,
+            "usp:24": 1
+          },
+          "rounds_fired": 13,
+          "rounds_damaged": 10,
+          "death_rounds_without_shot": 0,
+          "rounds_received_before_first_shot": 4,
+          "alive_live_seconds": 687.4666666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1034.3971462793158,
+              "shots": 108,
+              "hit_events": 32,
+              "kills": 10,
+              "deaths": 3
+            },
+            "defend": {
+              "rounds": 3,
+              "damage": 300.4878670508384,
+              "shots": 25,
+              "hit_events": 12,
+              "kills": 2,
+              "deaths": 2
+            }
+          }
+        },
+        {
+          "seat": 4,
+          "name": "Yook Yuan",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1251.31115733025,
+          "kills": 11,
+          "deaths": 5,
+          "fire_events": 64,
+          "hit_events": 40,
+          "fire_events_with_bullet_hit": 40,
+          "head_hit_events": 4,
+          "damage_by_part": {
+            "head": 502.95483688033534,
+            "lower": 74.30258124877005,
+            "upper": 674.0537392011445
+          },
+          "weapons_fired": {
+            "pistol": 12,
+            "ak47": 40,
+            "usp": 12
+          },
+          "purchases": {
+            "armor": 5,
+            "ak47": 3,
+            "defusekit": 3,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 16,
+            "ak47:9": 8,
+            "ak47:21": 1,
+            "ak47:24": 2,
+            "pistol:12": 9,
+            "usp:12": 6,
+            "usp:24": 3
+          },
+          "rounds_fired": 11,
+          "rounds_damaged": 10,
+          "death_rounds_without_shot": 1,
+          "rounds_received_before_first_shot": 3,
+          "alive_live_seconds": 623.2833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1126.7982704730605,
+              "shots": 52,
+              "hit_events": 30,
+              "kills": 10,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 3,
+              "damage": 124.5128868571893,
+              "shots": 12,
+              "hit_events": 10,
+              "kills": 1,
+              "deaths": 3
+            }
+          }
+        },
+        {
+          "seat": 8,
+          "name": "2658406",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1190.4140219711437,
+          "kills": 5,
+          "deaths": 13,
+          "fire_events": 110,
+          "hit_events": 55,
+          "fire_events_with_bullet_hit": 53,
+          "head_hit_events": 3,
+          "damage_by_part": {
+            "head": 276.56049688635653,
+            "lower": 65.0993122666473,
+            "upper": 848.7542128181399
+          },
+          "weapons_fired": {
+            "usp": 14,
+            "m4a1": 56,
+            "pistol": 25,
+            "ak47": 15
+          },
+          "purchases": {
+            "defusekit": 12,
+            "armor": 7,
+            "m4a1": 10,
+            "ak47": 2
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 12,
+            "m4a1:6": 48,
+            "pistol:12": 20,
+            "usp:12": 12
+          },
+          "rounds_fired": 13,
+          "rounds_damaged": 11,
+          "death_rounds_without_shot": 2,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 531.75,
+          "by_side": {
+            "attack": {
+              "rounds": 3,
+              "damage": 451.69992751702034,
+              "shots": 40,
+              "hit_events": 19,
+              "kills": 2,
+              "deaths": 1
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 738.7140944541235,
+              "shots": 70,
+              "hit_events": 36,
+              "kills": 3,
+              "deaths": 12
+            }
+          }
+        },
+        {
+          "seat": 9,
+          "name": "ossas",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1141.3858789774843,
+          "kills": 9,
+          "deaths": 14,
+          "fire_events": 84,
+          "hit_events": 45,
+          "fire_events_with_bullet_hit": 45,
+          "head_hit_events": 3,
+          "damage_by_part": {
+            "head": 315.166667422266,
+            "lower": 113.9451519734528,
+            "upper": 712.2740595817654
+          },
+          "weapons_fired": {
+            "usp": 15,
+            "m4a1": 66,
+            "ak47": 3
+          },
+          "purchases": {
+            "defusekit": 12,
+            "armor": 12,
+            "m4a1": 9,
+            "smokegrenade": 5,
+            "ak47": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 2,
+            "m4a1:6": 56,
+            "usp:12": 11
+          },
+          "rounds_fired": 9,
+          "rounds_damaged": 9,
+          "death_rounds_without_shot": 5,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 671.3833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 3,
+              "damage": 78.1631758307694,
+              "shots": 3,
+              "hit_events": 3,
+              "kills": 0,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1063.2227031467148,
+              "shots": 81,
+              "hit_events": 42,
+              "kills": 9,
+              "deaths": 12
+            }
+          }
+        },
+        {
+          "seat": 3,
+          "name": "zkdw66",
+          "is_mine": true,
+          "team": 0,
+          "damage": 1084.2857451105813,
+          "kills": 9,
+          "deaths": 8,
+          "fire_events": 98,
+          "hit_events": 50,
+          "fire_events_with_bullet_hit": 47,
+          "head_hit_events": 1,
+          "damage_by_part": {
+            "head": 30.6496374109738,
+            "lower": 58.10234383400413,
+            "upper": 995.5337638656032
+          },
+          "weapons_fired": {
+            "pistol": 17,
+            "ak47": 64,
+            "usp": 14,
+            "m4a1": 3
+          },
+          "purchases": {
+            "armor": 9,
+            "ak47": 6,
+            "defusekit": 1,
+            "m4a1": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 37,
+            "ak47:21": 1,
+            "ak47:24": 14,
+            "m4a1:9": 2,
+            "pistol:12": 14,
+            "pistol:15": 1,
+            "usp:12": 10,
+            "usp:36": 1
+          },
+          "rounds_fired": 12,
+          "rounds_damaged": 12,
+          "death_rounds_without_shot": 1,
+          "rounds_received_before_first_shot": 5,
+          "alive_live_seconds": 649.3833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 940.647073510178,
+              "shots": 81,
+              "hit_events": 41,
+              "kills": 7,
+              "deaths": 5
+            },
+            "defend": {
+              "rounds": 3,
+              "damage": 143.63867160040323,
+              "shots": 17,
+              "hit_events": 9,
+              "kills": 2,
+              "deaths": 3
+            }
+          }
+        },
+        {
+          "seat": 5,
+          "name": "Takina",
+          "is_mine": false,
+          "team": 1,
+          "damage": 785.495445743376,
+          "kills": 6,
+          "deaths": 14,
+          "fire_events": 58,
+          "hit_events": 25,
+          "fire_events_with_bullet_hit": 25,
+          "head_hit_events": 3,
+          "damage_by_part": {
+            "head": 328.23470829205974,
+            "upper": 457.26073745131623
+          },
+          "weapons_fired": {
+            "mp9": 32,
+            "m4a4": 16,
+            "pistol": 2,
+            "ak47": 8
+          },
+          "purchases": {
+            "armor": 11,
+            "mp9": 2,
+            "helmet": 4,
+            "defusekit": 3,
+            "m4a4": 9,
+            "ak47": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 4,
+            "ak47:18": 1,
+            "m4a4:9": 13,
+            "mp9:6": 27,
+            "mp9:9": 1,
+            "mp9:15": 1,
+            "pistol:12": 1
+          },
+          "rounds_fired": 8,
+          "rounds_damaged": 8,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 11,
+          "alive_live_seconds": 464.73333333333335,
+          "by_side": {
+            "attack": {
+              "rounds": 3,
+              "damage": 336.94414823381106,
+              "shots": 10,
+              "hit_events": 10,
+              "kills": 4,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 448.5512975095649,
+              "shots": 48,
+              "hit_events": 15,
+              "kills": 2,
+              "deaths": 12
+            }
+          }
+        },
+        {
+          "seat": 7,
+          "name": "羊宫妃那",
+          "is_mine": false,
+          "team": 1,
+          "damage": 474.9659224021882,
+          "kills": 3,
+          "deaths": 14,
+          "fire_events": 26,
+          "hit_events": 14,
+          "fire_events_with_bullet_hit": 14,
+          "head_hit_events": 4,
+          "damage_by_part": {
+            "head": 302.77449019131745,
+            "lower": 24.884144915852165,
+            "upper": 147.30728729501854
+          },
+          "weapons_fired": {
+            "usp": 12,
+            "m4a1": 3,
+            "pistol": 8,
+            "ak47": 3
+          },
+          "purchases": {
+            "armor": 13,
+            "m4a1": 8,
+            "helmet": 9,
+            "mp9": 2,
+            "defusekit": 2,
+            "ak47": 2
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:18": 1,
+            "ak47:21": 1,
+            "m4a1:21": 1,
+            "pistol:12": 7,
+            "usp:12": 2,
+            "usp:15": 3,
+            "usp:18": 1,
+            "usp:24": 2
+          },
+          "rounds_fired": 6,
+          "rounds_damaged": 6,
+          "death_rounds_without_shot": 9,
+          "rounds_received_before_first_shot": 13,
+          "alive_live_seconds": 447.06666666666666,
+          "by_side": {
+            "attack": {
+              "rounds": 3,
+              "damage": 205.82334976932498,
+              "shots": 11,
+              "hit_events": 6,
+              "kills": 2,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 269.14257263286316,
+              "shots": 15,
+              "hit_events": 8,
+              "kills": 1,
+              "deaths": 12
+            }
+          }
+        }
+      ]
+    },
+    {
+      "prefix": "c76",
+      "job_id": "c76a4d00-4dd7-48db-97c9-e5893635f26a",
+      "created_at": "2026-11-16T00:00:02.247340+00:00",
+      "result": [
+        8,
+        13
+      ],
+      "verified_events": {
+        "chunks": 2,
+        "rows": 5371,
+        "raw_bytes": 1893864,
+        "sha256": "cd44f68503cc4cfb4544ede6516cc4a44f68ea0e4c79b43bdf645c868609e666"
+      },
+      "players": [
+        {
+          "seat": 5,
+          "name": "o55man",
+          "is_mine": false,
+          "team": 1,
+          "damage": 4761.857062790297,
+          "kills": 38,
+          "deaths": 8,
+          "fire_events": 186,
+          "hit_events": 130,
+          "fire_events_with_bullet_hit": 129,
+          "head_hit_events": 33,
+          "damage_by_part": {
+            "head": 2848.769551463332,
+            "lower": 157.08724557047614,
+            "upper": 1756.000265756489
+          },
+          "weapons_fired": {
+            "usp": 9,
+            "m4a1": 89,
+            "pistol": 12,
+            "ak47": 76
+          },
+          "purchases": {
+            "armor": 9,
+            "m4a1": 2,
+            "helmet": 8,
+            "defusekit": 2,
+            "ak47": 6
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 1,
+            "ak47:9": 4,
+            "ak47:12": 8,
+            "ak47:15": 23,
+            "ak47:18": 21,
+            "ak47:21": 1,
+            "ak47:24": 1,
+            "ak47:27": 1,
+            "ak47:33": 1,
+            "m4a1:6": 3,
+            "m4a1:9": 10,
+            "m4a1:12": 38,
+            "m4a1:15": 9,
+            "m4a1:21": 1,
+            "m4a1:30": 1,
+            "m4a1:33": 2,
+            "m4a1:36": 1,
+            "m4a1:42": 1,
+            "pistol:21": 2,
+            "pistol:24": 1,
+            "pistol:27": 2,
+            "pistol:30": 4,
+            "usp:21": 6,
+            "usp:27": 2
+          },
+          "rounds_fired": 19,
+          "rounds_damaged": 18,
+          "death_rounds_without_shot": 0,
+          "rounds_received_before_first_shot": 1,
+          "alive_live_seconds": 873.8333333333334,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 1983.284205492264,
+              "shots": 88,
+              "hit_events": 55,
+              "kills": 14,
+              "deaths": 7
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 2778.5728572980333,
+              "shots": 98,
+              "hit_events": 75,
+              "kills": 24,
+              "deaths": 1
+            }
+          }
+        },
+        {
+          "seat": 8,
+          "name": "Verstappen",
+          "is_mine": false,
+          "team": 1,
+          "damage": 2195.681607639093,
+          "kills": 13,
+          "deaths": 14,
+          "fire_events": 70,
+          "hit_events": 49,
+          "fire_events_with_bullet_hit": 46,
+          "head_hit_events": 16,
+          "damage_by_part": {
+            "head": 1673.6990775724037,
+            "lower": 42.48593739978084,
+            "upper": 479.4965926669082
+          },
+          "weapons_fired": {
+            "usp": 10,
+            "m4a1": 52,
+            "pistol": 2,
+            "deagle": 3,
+            "ak47": 3
+          },
+          "purchases": {
+            "armor": 14,
+            "m4a1": 4,
+            "defusekit": 4,
+            "helmet": 11,
+            "deagle": 2,
+            "ak47": 6
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:18": 1,
+            "m4a1:9": 10,
+            "m4a1:12": 3,
+            "m4a1:15": 3,
+            "m4a1:18": 16,
+            "pistol:15": 1,
+            "usp:15": 2,
+            "usp:18": 5
+          },
+          "rounds_fired": 15,
+          "rounds_damaged": 14,
+          "death_rounds_without_shot": 4,
+          "rounds_received_before_first_shot": 4,
+          "alive_live_seconds": 726.9333333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 661.1712078580452,
+              "shots": 8,
+              "hit_events": 8,
+              "kills": 4,
+              "deaths": 9
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1534.5103997810475,
+              "shots": 62,
+              "hit_events": 41,
+              "kills": 9,
+              "deaths": 5
+            }
+          }
+        },
+        {
+          "seat": 0,
+          "name": "PyZ",
+          "is_mine": false,
+          "team": 0,
+          "damage": 2008.869315913267,
+          "kills": 13,
+          "deaths": 17,
+          "fire_events": 134,
+          "hit_events": 75,
+          "fire_events_with_bullet_hit": 75,
+          "head_hit_events": 7,
+          "damage_by_part": {
+            "head": 698.1147139668036,
+            "lower": 235.87047142851463,
+            "upper": 1074.8841305179485
+          },
+          "weapons_fired": {
+            "pistol": 22,
+            "ak47": 42,
+            "usp": 12,
+            "m4a1": 58
+          },
+          "purchases": {
+            "armor": 16,
+            "ak47": 9,
+            "defusekit": 6,
+            "m4a1": 5
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 36,
+            "ak47:30": 1,
+            "m4a1:6": 44,
+            "m4a1:18": 1,
+            "m4a1:39": 1,
+            "pistol:12": 19,
+            "usp:12": 10
+          },
+          "rounds_fired": 14,
+          "rounds_damaged": 14,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 11,
+          "alive_live_seconds": 670.5833333333334,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1016.0359606573231,
+              "shots": 64,
+              "hit_events": 32,
+              "kills": 8,
+              "deaths": 11
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 992.8333552559438,
+              "shots": 70,
+              "hit_events": 43,
+              "kills": 5,
+              "deaths": 6
+            }
+          }
+        },
+        {
+          "seat": 4,
+          "name": "zzp13553046106",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1752.2051831552221,
+          "kills": 10,
+          "deaths": 14,
+          "fire_events": 73,
+          "hit_events": 57,
+          "fire_events_with_bullet_hit": 56,
+          "head_hit_events": 7,
+          "damage_by_part": {
+            "head": 628.2912747734335,
+            "lower": 229.3465995640444,
+            "upper": 894.5673088177441
+          },
+          "weapons_fired": {
+            "pistol": 5,
+            "ak47": 33,
+            "m4a4": 35
+          },
+          "purchases": {
+            "armor": 14,
+            "helmet": 6,
+            "ak47": 10,
+            "m4a4": 2,
+            "defusekit": 2
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 10,
+            "ak47:12": 14,
+            "ak47:30": 1,
+            "m4a4:9": 14,
+            "m4a4:12": 2,
+            "m4a4:15": 2,
+            "m4a4:18": 2,
+            "m4a4:24": 1,
+            "pistol:12": 2
+          },
+          "rounds_fired": 13,
+          "rounds_damaged": 13,
+          "death_rounds_without_shot": 4,
+          "rounds_received_before_first_shot": 10,
+          "alive_live_seconds": 693.7666666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 734.0308847829244,
+              "shots": 38,
+              "hit_events": 24,
+              "kills": 2,
+              "deaths": 12
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 1018.1742983722977,
+              "shots": 35,
+              "hit_events": 33,
+              "kills": 8,
+              "deaths": 2
+            }
+          }
+        },
+        {
+          "seat": 1,
+          "name": "zkdw66",
+          "is_mine": true,
+          "team": 0,
+          "damage": 1554.0429600007512,
+          "kills": 12,
+          "deaths": 16,
+          "fire_events": 93,
+          "hit_events": 70,
+          "fire_events_with_bullet_hit": 69,
+          "head_hit_events": 2,
+          "damage_by_part": {
+            "head": 192.86159953672933,
+            "lower": 238.96345383428732,
+            "upper": 1122.2179066297344
+          },
+          "weapons_fired": {
+            "pistol": 4,
+            "ak47": 31,
+            "usp": 1,
+            "m4a1": 57
+          },
+          "purchases": {
+            "armor": 16,
+            "ak47": 10,
+            "m4a1": 4,
+            "defusekit": 4
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 17,
+            "ak47:24": 7,
+            "ak47:33": 1,
+            "ak47:36": 1,
+            "m4a1:9": 33,
+            "m4a1:12": 1,
+            "m4a1:21": 1,
+            "m4a1:24": 10,
+            "pistol:12": 2
+          },
+          "rounds_fired": 14,
+          "rounds_damaged": 14,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 12,
+          "alive_live_seconds": 643.1833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 397.3106324620343,
+              "shots": 35,
+              "hit_events": 16,
+              "kills": 1,
+              "deaths": 12
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 1156.7323275387168,
+              "shots": 58,
+              "hit_events": 54,
+              "kills": 11,
+              "deaths": 4
+            }
+          }
+        },
+        {
+          "seat": 2,
+          "name": "Foahh",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1545.0389304983146,
+          "kills": 11,
+          "deaths": 16,
+          "fire_events": 87,
+          "hit_events": 63,
+          "fire_events_with_bullet_hit": 63,
+          "head_hit_events": 6,
+          "damage_by_part": {
+            "head": 507.7392086797596,
+            "lower": 148.31627480454276,
+            "upper": 888.9834470140122
+          },
+          "weapons_fired": {
+            "pistol": 5,
+            "ak47": 21,
+            "usp": 18,
+            "m4a1": 43
+          },
+          "purchases": {
+            "armor": 17,
+            "ak47": 10,
+            "m4a1": 3,
+            "defusekit": 3
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 15,
+            "ak47:9": 2,
+            "m4a1:6": 34,
+            "m4a1:21": 1,
+            "pistol:12": 2,
+            "pistol:24": 1,
+            "usp:24": 14
+          },
+          "rounds_fired": 12,
+          "rounds_damaged": 12,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 10,
+          "alive_live_seconds": 675.3833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 380.2491700813954,
+              "shots": 26,
+              "hit_events": 14,
+              "kills": 2,
+              "deaths": 12
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 1164.789760416919,
+              "shots": 61,
+              "hit_events": 49,
+              "kills": 9,
+              "deaths": 4
+            }
+          }
+        },
+        {
+          "seat": 6,
+          "name": "Niko",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1522.1950326699357,
+          "kills": 12,
+          "deaths": 12,
+          "fire_events": 146,
+          "hit_events": 78,
+          "fire_events_with_bullet_hit": 78,
+          "head_hit_events": 3,
+          "damage_by_part": {
+            "head": 204.9292533076183,
+            "lower": 194.03722451547395,
+            "upper": 1123.2285548468435
+          },
+          "weapons_fired": {
+            "usp": 24,
+            "m4a1": 91,
+            "pistol": 28,
+            "ak47": 3
+          },
+          "purchases": {
+            "defusekit": 6,
+            "m4a1": 5,
+            "armor": 13,
+            "ak47": 6
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 1,
+            "m4a1:6": 78,
+            "m4a1:21": 1,
+            "m4a1:30": 1,
+            "pistol:12": 25,
+            "usp:12": 22
+          },
+          "rounds_fired": 12,
+          "rounds_damaged": 12,
+          "death_rounds_without_shot": 5,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 865.5333333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 197.5527027163221,
+              "shots": 31,
+              "hit_events": 14,
+              "kills": 2,
+              "deaths": 7
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1324.6423299536136,
+              "shots": 115,
+              "hit_events": 64,
+              "kills": 10,
+              "deaths": 5
+            }
+          }
+        },
+        {
+          "seat": 3,
+          "name": "WWW",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1228.9500671511664,
+          "kills": 11,
+          "deaths": 17,
+          "fire_events": 38,
+          "hit_events": 24,
+          "fire_events_with_bullet_hit": 24,
+          "head_hit_events": 13,
+          "damage_by_part": {
+            "head": 1047.3206223635157,
+            "lower": 18.659464141940433,
+            "upper": 162.9699806457102
+          },
+          "weapons_fired": {
+            "pistol": 19,
+            "ak47": 7,
+            "usp": 3,
+            "m4a1": 9
+          },
+          "purchases": {
+            "armor": 17,
+            "galilar": 3,
+            "helmet": 7,
+            "ak47": 8,
+            "m4a1": 5,
+            "defusekit": 5,
+            "smokegrenade": 4
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 1,
+            "ak47:30": 2,
+            "m4a1:9": 2,
+            "m4a1:30": 2,
+            "pistol:12": 10,
+            "pistol:24": 4,
+            "pistol:36": 1,
+            "usp:12": 1
+          },
+          "rounds_fired": 10,
+          "rounds_damaged": 10,
+          "death_rounds_without_shot": 11,
+          "rounds_received_before_first_shot": 15,
+          "alive_live_seconds": 810.4333333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 657.9122729620068,
+              "shots": 26,
+              "hit_events": 13,
+              "kills": 5,
+              "deaths": 12
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 571.0377941891595,
+              "shots": 12,
+              "hit_events": 11,
+              "kills": 6,
+              "deaths": 5
+            }
+          }
+        },
+        {
+          "seat": 7,
+          "name": "HKU Chopper",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1138.4030642424852,
+          "kills": 10,
+          "deaths": 10,
+          "fire_events": 126,
+          "hit_events": 72,
+          "fire_events_with_bullet_hit": 71,
+          "head_hit_events": 2,
+          "damage_by_part": {
+            "head": 106.73294131750563,
+            "lower": 270.0758510033206,
+            "upper": 761.594271921659
+          },
+          "weapons_fired": {
+            "usp": 19,
+            "m4a1": 54,
+            "mac10": 47,
+            "pistol": 3,
+            "ak47": 3
+          },
+          "purchases": {
+            "m4a1": 3,
+            "armor": 11,
+            "defusekit": 3,
+            "flashbang": 10,
+            "smokegrenade": 3,
+            "mac10": 1,
+            "ak47": 7
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 2,
+            "m4a1:6": 41,
+            "m4a1:33": 1,
+            "mac10:5": 43,
+            "mac10:29": 1,
+            "pistol:12": 2,
+            "usp:12": 16
+          },
+          "rounds_fired": 9,
+          "rounds_damaged": 9,
+          "death_rounds_without_shot": 6,
+          "rounds_received_before_first_shot": 7,
+          "alive_live_seconds": 838.0333333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 324.9181209214328,
+              "shots": 53,
+              "hit_events": 28,
+              "kills": 1,
+              "deaths": 8
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 813.4849433210525,
+              "shots": 73,
+              "hit_events": 44,
+              "kills": 9,
+              "deaths": 2
+            }
+          }
+        },
+        {
+          "seat": 9,
+          "name": "123",
+          "is_mine": false,
+          "team": 1,
+          "damage": 819.6614820947768,
+          "kills": 7,
+          "deaths": 13,
+          "fire_events": 44,
+          "hit_events": 38,
+          "fire_events_with_bullet_hit": 34,
+          "head_hit_events": 1,
+          "damage_by_part": {
+            "head": 94.50330441465644,
+            "lower": 59.59937517827255,
+            "upper": 665.5588025018478
+          },
+          "weapons_fired": {
+            "m4a1": 37,
+            "pistol": 2,
+            "ak47": 5
+          },
+          "purchases": {
+            "armor": 12,
+            "m4a1": 5,
+            "defusekit": 5,
+            "galilar": 2,
+            "ak47": 5
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 2,
+            "ak47:15": 1,
+            "m4a1:9": 15,
+            "m4a1:12": 4,
+            "m4a1:15": 6,
+            "m4a1:21": 1,
+            "pistol:12": 1
+          },
+          "rounds_fired": 10,
+          "rounds_damaged": 10,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 13,
+          "alive_live_seconds": 840.1333333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 153.56883776867784,
+              "shots": 7,
+              "hit_events": 9,
+              "kills": 0,
+              "deaths": 8
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 666.0926443260989,
+              "shots": 37,
+              "hit_events": 29,
+              "kills": 7,
+              "deaths": 5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "prefix": "9e35",
+      "job_id": "9e35b0a8-1d78-479a-b4a0-f95787d5aed3",
+      "created_at": "2026-11-15T22:00:03.684930+00:00",
+      "result": [
+        7,
+        13
+      ],
+      "verified_events": {
+        "chunks": 2,
+        "rows": 5313,
+        "raw_bytes": 1766380,
+        "sha256": "ff8b97df416d786df1a748f3836627de1c572fa471bb0fcd305a8a1c595f2461"
+      },
+      "players": [
+        {
+          "seat": 2,
+          "name": "o55man",
+          "is_mine": false,
+          "team": 0,
+          "damage": 3440.638679677044,
+          "kills": 23,
+          "deaths": 15,
+          "fire_events": 129,
+          "hit_events": 90,
+          "fire_events_with_bullet_hit": 86,
+          "head_hit_events": 24,
+          "damage_by_part": {
+            "head": 2118.5000502992193,
+            "lower": 129.69928048499065,
+            "upper": 1192.4393488928338
+          },
+          "weapons_fired": {
+            "pistol": 6,
+            "ak47": 67,
+            "usp": 9,
+            "m4a1": 47
+          },
+          "purchases": {
+            "armor": 12,
+            "ak47": 6,
+            "helmet": 10,
+            "m4a1": 5,
+            "defusekit": 5
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 3,
+            "ak47:9": 6,
+            "ak47:12": 9,
+            "ak47:15": 16,
+            "ak47:18": 10,
+            "ak47:21": 3,
+            "ak47:24": 1,
+            "ak47:30": 1,
+            "m4a1:9": 6,
+            "m4a1:12": 19,
+            "m4a1:15": 12,
+            "pistol:21": 2,
+            "pistol:24": 1,
+            "usp:21": 2,
+            "usp:24": 5
+          },
+          "rounds_fired": 19,
+          "rounds_damaged": 19,
+          "death_rounds_without_shot": 1,
+          "rounds_received_before_first_shot": 1,
+          "alive_live_seconds": 573.6833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 2375.0283670759686,
+              "shots": 73,
+              "hit_events": 53,
+              "kills": 15,
+              "deaths": 8
+            },
+            "defend": {
+              "rounds": 8,
+              "damage": 1065.610312601075,
+              "shots": 56,
+              "hit_events": 37,
+              "kills": 8,
+              "deaths": 7
+            }
+          }
+        },
+        {
+          "seat": 7,
+          "name": "Kozihvc",
+          "is_mine": false,
+          "team": 1,
+          "damage": 2666.0993323489593,
+          "kills": 23,
+          "deaths": 14,
+          "fire_events": 216,
+          "hit_events": 143,
+          "fire_events_with_bullet_hit": 143,
+          "head_hit_events": 5,
+          "damage_by_part": {
+            "head": 252.81354672761796,
+            "lower": 960.4610336700875,
+            "upper": 1452.8247519512538
+          },
+          "weapons_fired": {
+            "usp": 13,
+            "m4a1": 101,
+            "mp9": 29,
+            "pistol": 37,
+            "ak47": 36
+          },
+          "purchases": {
+            "defusekit": 5,
+            "flashbang": 2,
+            "m4a1": 8,
+            "armor": 13,
+            "helmet": 11,
+            "smokegrenade": 6,
+            "mp9": 1,
+            "ak47": 3,
+            "molotov": 3
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 32,
+            "m4a1:9": 78,
+            "m4a1:33": 2,
+            "mp9:6": 2,
+            "mp9:9": 24,
+            "pistol:15": 31,
+            "pistol:30": 1,
+            "usp:15": 10
+          },
+          "rounds_fired": 17,
+          "rounds_damaged": 17,
+          "death_rounds_without_shot": 1,
+          "rounds_received_before_first_shot": 4,
+          "alive_live_seconds": 700.2833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 8,
+              "damage": 705.9943801354372,
+              "shots": 73,
+              "hit_events": 38,
+              "kills": 6,
+              "deaths": 5
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1960.1049522135222,
+              "shots": 143,
+              "hit_events": 105,
+              "kills": 17,
+              "deaths": 9
+            }
+          }
+        },
+        {
+          "seat": 8,
+          "name": "GOAT",
+          "is_mine": false,
+          "team": 1,
+          "damage": 2588.3678377532838,
+          "kills": 20,
+          "deaths": 9,
+          "fire_events": 76,
+          "hit_events": 66,
+          "fire_events_with_bullet_hit": 65,
+          "head_hit_events": 19,
+          "damage_by_part": {
+            "head": 1663.2182711658643,
+            "lower": 14.156329557629054,
+            "upper": 910.9932370297904
+          },
+          "weapons_fired": {
+            "usp": 8,
+            "m4a1": 56,
+            "pistol": 3,
+            "ak47": 9
+          },
+          "purchases": {
+            "armor": 10,
+            "m4a1": 7,
+            "defusekit": 6,
+            "helmet": 8,
+            "deagle": 1,
+            "ak47": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 4,
+            "ak47:12": 2,
+            "m4a1:9": 15,
+            "m4a1:15": 3,
+            "m4a1:18": 15,
+            "m4a1:21": 4,
+            "m4a1:24": 2,
+            "m4a1:27": 1,
+            "m4a1:33": 1,
+            "pistol:15": 2,
+            "usp:15": 3,
+            "usp:21": 1
+          },
+          "rounds_fired": 13,
+          "rounds_damaged": 13,
+          "death_rounds_without_shot": 3,
+          "rounds_received_before_first_shot": 7,
+          "alive_live_seconds": 774.0166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 8,
+              "damage": 692.9537014263723,
+              "shots": 12,
+              "hit_events": 13,
+              "kills": 5,
+              "deaths": 2
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1895.4141363269116,
+              "shots": 64,
+              "hit_events": 53,
+              "kills": 15,
+              "deaths": 7
+            }
+          }
+        },
+        {
+          "seat": 5,
+          "name": "jinzuyu",
+          "is_mine": false,
+          "team": 1,
+          "damage": 2317.150214237846,
+          "kills": 21,
+          "deaths": 15,
+          "fire_events": 150,
+          "hit_events": 90,
+          "fire_events_with_bullet_hit": 85,
+          "head_hit_events": 5,
+          "damage_by_part": {
+            "head": 526.4746612474572,
+            "lower": 319.2319971788817,
+            "upper": 1471.443555811507
+          },
+          "weapons_fired": {
+            "usp": 1,
+            "m4a1": 37,
+            "pistol": 20,
+            "galilar": 33,
+            "ak47": 59
+          },
+          "purchases": {
+            "armor": 14,
+            "m4a1": 8,
+            "defusekit": 8,
+            "helmet": 9,
+            "galilar": 2,
+            "ak47": 4
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 45,
+            "ak47:36": 1,
+            "galilar:6": 29,
+            "galilar:39": 1,
+            "m4a1:6": 27,
+            "m4a1:42": 1,
+            "pistol:9": 19
+          },
+          "rounds_fired": 14,
+          "rounds_damaged": 13,
+          "death_rounds_without_shot": 5,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 699.2666666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 8,
+              "damage": 1783.0916126148409,
+              "shots": 112,
+              "hit_events": 64,
+              "kills": 14,
+              "deaths": 7
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 534.0586016230051,
+              "shots": 38,
+              "hit_events": 26,
+              "kills": 7,
+              "deaths": 8
+            }
+          }
+        },
+        {
+          "seat": 3,
+          "name": "META_X",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1824.2087324006848,
+          "kills": 13,
+          "deaths": 19,
+          "fire_events": 51,
+          "hit_events": 35,
+          "fire_events_with_bullet_hit": 35,
+          "head_hit_events": 12,
+          "damage_by_part": {
+            "head": 1351.255862816194,
+            "lower": 14.92524009299987,
+            "upper": 458.0276294914909
+          },
+          "weapons_fired": {
+            "pistol": 10,
+            "deagle": 10,
+            "ak47": 19,
+            "usp": 10,
+            "m4a1": 2
+          },
+          "purchases": {
+            "armor": 19,
+            "helmet": 14,
+            "deagle": 8,
+            "ak47": 7,
+            "m4a1": 2,
+            "defusekit": 7
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 2,
+            "ak47:12": 1,
+            "ak47:18": 3,
+            "ak47:21": 1,
+            "ak47:27": 1,
+            "ak47:30": 1,
+            "ak47:36": 1,
+            "ak47:39": 1,
+            "deagle:33": 4,
+            "m4a1:12": 1,
+            "pistol:15": 9,
+            "usp:15": 3,
+            "usp:18": 3
+          },
+          "rounds_fired": 13,
+          "rounds_damaged": 13,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 8,
+          "alive_live_seconds": 630.1833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1340.8254200576375,
+              "shots": 36,
+              "hit_events": 26,
+              "kills": 10,
+              "deaths": 11
+            },
+            "defend": {
+              "rounds": 8,
+              "damage": 483.3833123430472,
+              "shots": 15,
+              "hit_events": 9,
+              "kills": 3,
+              "deaths": 8
+            }
+          }
+        },
+        {
+          "seat": 6,
+          "name": "疯狂水世界三分钟一局巨爽巨解压",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1554.4258919632896,
+          "kills": 13,
+          "deaths": 10,
+          "fire_events": 135,
+          "hit_events": 73,
+          "fire_events_with_bullet_hit": 72,
+          "head_hit_events": 1,
+          "damage_by_part": {
+            "head": 104.23734980761266,
+            "lower": 125.11989331085424,
+            "upper": 1325.0686488448227
+          },
+          "weapons_fired": {
+            "usp": 36,
+            "m4a1": 55,
+            "pistol": 18,
+            "ak47": 26
+          },
+          "purchases": {
+            "armor": 10,
+            "m4a1": 7,
+            "defusekit": 7,
+            "helmet": 8,
+            "hegrenade": 8,
+            "ak47": 1
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 16,
+            "ak47:24": 4,
+            "m4a1:9": 33,
+            "m4a1:24": 10,
+            "pistol:12": 17,
+            "usp:12": 32
+          },
+          "rounds_fired": 14,
+          "rounds_damaged": 13,
+          "death_rounds_without_shot": 5,
+          "rounds_received_before_first_shot": 10,
+          "alive_live_seconds": 813.5833333333334,
+          "by_side": {
+            "attack": {
+              "rounds": 8,
+              "damage": 442.88549739390874,
+              "shots": 44,
+              "hit_events": 23,
+              "kills": 6,
+              "deaths": 3
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1111.5403945693809,
+              "shots": 91,
+              "hit_events": 50,
+              "kills": 7,
+              "deaths": 7
+            }
+          }
+        },
+        {
+          "seat": 0,
+          "name": "WWW",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1453.4154378063702,
+          "kills": 10,
+          "deaths": 16,
+          "fire_events": 69,
+          "hit_events": 46,
+          "fire_events_with_bullet_hit": 39,
+          "head_hit_events": 13,
+          "damage_by_part": {
+            "head": 981.8300593293177,
+            "lower": 17.97345699096413,
+            "upper": 453.61192148608836
+          },
+          "weapons_fired": {
+            "pistol": 36,
+            "galilar": 3,
+            "ak47": 18,
+            "m4a1": 12
+          },
+          "purchases": {
+            "armor": 16,
+            "galilar": 2,
+            "helmet": 10,
+            "ak47": 6,
+            "smokegrenade": 7,
+            "defusekit": 5,
+            "m4a1": 3,
+            "mp9": 3
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 3,
+            "ak47:12": 2,
+            "ak47:21": 1,
+            "ak47:36": 2,
+            "galilar:9": 1,
+            "galilar:27": 1,
+            "m4a1:9": 2,
+            "m4a1:18": 1,
+            "m4a1:24": 1,
+            "m4a1:30": 3,
+            "m4a1:33": 1,
+            "pistol:12": 20,
+            "pistol:24": 3,
+            "pistol:27": 3,
+            "pistol:36": 1
+          },
+          "rounds_fired": 9,
+          "rounds_damaged": 9,
+          "death_rounds_without_shot": 10,
+          "rounds_received_before_first_shot": 16,
+          "alive_live_seconds": 696.4666666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1103.4111128107047,
+              "shots": 57,
+              "hit_events": 37,
+              "kills": 8,
+              "deaths": 10
+            },
+            "defend": {
+              "rounds": 8,
+              "damage": 350.0043249956654,
+              "shots": 12,
+              "hit_events": 9,
+              "kills": 2,
+              "deaths": 6
+            }
+          }
+        },
+        {
+          "seat": 4,
+          "name": "Verstappen",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1412.255024109553,
+          "kills": 12,
+          "deaths": 19,
+          "fire_events": 36,
+          "hit_events": 25,
+          "fire_events_with_bullet_hit": 25,
+          "head_hit_events": 13,
+          "damage_by_part": {
+            "head": 1260.6482181314648,
+            "upper": 151.60680597808823
+          },
+          "weapons_fired": {
+            "pistol": 2,
+            "deagle": 7,
+            "ak47": 8,
+            "usp": 17,
+            "m4a1": 2
+          },
+          "purchases": {
+            "armor": 19,
+            "helmet": 14,
+            "deagle": 8,
+            "ak47": 6,
+            "m4a1": 3,
+            "defusekit": 7
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 1,
+            "ak47:21": 1,
+            "deagle:33": 1,
+            "pistol:15": 1,
+            "usp:15": 3,
+            "usp:18": 8,
+            "usp:39": 1
+          },
+          "rounds_fired": 11,
+          "rounds_damaged": 8,
+          "death_rounds_without_shot": 9,
+          "rounds_received_before_first_shot": 10,
+          "alive_live_seconds": 568.8833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 855.8816933942509,
+              "shots": 15,
+              "hit_events": 9,
+              "kills": 7,
+              "deaths": 11
+            },
+            "defend": {
+              "rounds": 8,
+              "damage": 556.3733307153022,
+              "shots": 21,
+              "hit_events": 16,
+              "kills": 5,
+              "deaths": 8
+            }
+          }
+        },
+        {
+          "seat": 9,
+          "name": "Donk",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1124.176233506342,
+          "kills": 6,
+          "deaths": 13,
+          "fire_events": 32,
+          "hit_events": 25,
+          "fire_events_with_bullet_hit": 24,
+          "head_hit_events": 11,
+          "damage_by_part": {
+            "head": 878.6798030256047,
+            "lower": 30.649062565305435,
+            "upper": 214.8473679154319
+          },
+          "weapons_fired": {
+            "m4a1": 3,
+            "usp": 10,
+            "pistol": 6,
+            "ak47": 13
+          },
+          "purchases": {
+            "armor": 13,
+            "m4a1": 7,
+            "defusekit": 6,
+            "smokegrenade": 6,
+            "helmet": 8,
+            "ak47": 2
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:36": 6,
+            "m4a1:36": 1,
+            "pistol:36": 4,
+            "usp:36": 6
+          },
+          "rounds_fired": 10,
+          "rounds_damaged": 10,
+          "death_rounds_without_shot": 6,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 670.7166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 8,
+              "damage": 762.3088304440965,
+              "shots": 19,
+              "hit_events": 16,
+              "kills": 4,
+              "deaths": 4
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 361.8674030622455,
+              "shots": 13,
+              "hit_events": 9,
+              "kills": 2,
+              "deaths": 9
+            }
+          }
+        },
+        {
+          "seat": 1,
+          "name": "zkdw66",
+          "is_mine": true,
+          "team": 0,
+          "damage": 815.7492082739827,
+          "kills": 3,
+          "deaths": 14,
+          "fire_events": 64,
+          "hit_events": 38,
+          "fire_events_with_bullet_hit": 38,
+          "head_hit_events": 1,
+          "damage_by_part": {
+            "head": 76.31837559957084,
+            "lower": 101.6361658594858,
+            "upper": 637.7946668149261
+          },
+          "weapons_fired": {
+            "pistol": 12,
+            "ak47": 23,
+            "usp": 13,
+            "m4a1": 16
+          },
+          "purchases": {
+            "armor": 14,
+            "ak47": 6,
+            "m4a1": 5,
+            "defusekit": 5
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 13,
+            "ak47:24": 4,
+            "m4a1:9": 9,
+            "m4a1:24": 2,
+            "pistol:12": 10,
+            "usp:12": 11
+          },
+          "rounds_fired": 10,
+          "rounds_damaged": 10,
+          "death_rounds_without_shot": 8,
+          "rounds_received_before_first_shot": 12,
+          "alive_live_seconds": 678.3833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 427.2664360521137,
+              "shots": 35,
+              "hit_events": 22,
+              "kills": 0,
+              "deaths": 8
+            },
+            "defend": {
+              "rounds": 8,
+              "damage": 388.482772221869,
+              "shots": 29,
+              "hit_events": 16,
+              "kills": 3,
+              "deaths": 6
+            }
+          }
+        }
+      ]
+    },
+    {
+      "prefix": "c630",
+      "job_id": "c6309922-3a77-45cf-930a-70d5c0823cb4",
+      "created_at": "2026-11-15T20:00:01.904934+00:00",
+      "result": [
+        13,
+        8
+      ],
+      "verified_events": {
+        "chunks": 2,
+        "rows": 5373,
+        "raw_bytes": 1782149,
+        "sha256": "0898858ac2aed9dfabb851b6472963b0e1fb386fc3cae64ff8f41a6fbcccb18e"
+      },
+      "players": [
+        {
+          "seat": 7,
+          "name": "Verstappen",
+          "is_mine": false,
+          "team": 1,
+          "damage": 3784.9637808862963,
+          "kills": 27,
+          "deaths": 15,
+          "fire_events": 100,
+          "hit_events": 65,
+          "fire_events_with_bullet_hit": 64,
+          "head_hit_events": 35,
+          "damage_by_part": {
+            "head": 3250.8367021500676,
+            "upper": 534.1270787362284
+          },
+          "weapons_fired": {
+            "usp": 15,
+            "m4a1": 63,
+            "pistol": 7,
+            "deagle": 4,
+            "ak47": 11
+          },
+          "purchases": {
+            "armor": 15,
+            "m4a1": 6,
+            "defusekit": 6,
+            "helmet": 14,
+            "deagle": 3,
+            "ak47": 5
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 2,
+            "ak47:15": 1,
+            "ak47:18": 3,
+            "ak47:21": 1,
+            "deagle:33": 1,
+            "m4a1:9": 11,
+            "m4a1:12": 5,
+            "m4a1:15": 6,
+            "m4a1:18": 15,
+            "m4a1:27": 1,
+            "m4a1:42": 1,
+            "pistol:15": 5,
+            "usp:15": 1,
+            "usp:18": 10
+          },
+          "rounds_fired": 16,
+          "rounds_damaged": 15,
+          "death_rounds_without_shot": 5,
+          "rounds_received_before_first_shot": 8,
+          "alive_live_seconds": 896.05,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 891.2740197838217,
+              "shots": 22,
+              "hit_events": 10,
+              "kills": 6,
+              "deaths": 9
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 2893.689761102474,
+              "shots": 78,
+              "hit_events": 55,
+              "kills": 21,
+              "deaths": 6
+            }
+          }
+        },
+        {
+          "seat": 3,
+          "name": "Derek",
+          "is_mine": false,
+          "team": 0,
+          "damage": 3374.743398043855,
+          "kills": 26,
+          "deaths": 11,
+          "fire_events": 99,
+          "hit_events": 51,
+          "fire_events_with_bullet_hit": 50,
+          "head_hit_events": 27,
+          "damage_by_part": {
+            "head": 2908.0523150134463,
+            "upper": 466.6910830304085
+          },
+          "weapons_fired": {
+            "pistol": 35,
+            "ak47": 39,
+            "usp": 2,
+            "m4a1": 23
+          },
+          "purchases": {
+            "armor": 11,
+            "helmet": 10,
+            "ak47": 6,
+            "m4a1": 3,
+            "defusekit": 3
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 2,
+            "ak47:9": 8,
+            "ak47:21": 1,
+            "ak47:30": 3,
+            "ak47:33": 1,
+            "ak47:36": 1,
+            "ak47:42": 1,
+            "m4a1:6": 8,
+            "m4a1:9": 2,
+            "m4a1:18": 2,
+            "m4a1:21": 3,
+            "m4a1:24": 1,
+            "pistol:12": 1,
+            "pistol:15": 3,
+            "pistol:18": 17,
+            "pistol:21": 1,
+            "pistol:33": 7,
+            "pistol:36": 1
+          },
+          "rounds_fired": 14,
+          "rounds_damaged": 14,
+          "death_rounds_without_shot": 3,
+          "rounds_received_before_first_shot": 3,
+          "alive_live_seconds": 1545.0166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 2460.5256427801983,
+              "shots": 74,
+              "hit_events": 37,
+              "kills": 19,
+              "deaths": 8
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 914.2177552636566,
+              "shots": 25,
+              "hit_events": 14,
+              "kills": 7,
+              "deaths": 3
+            }
+          }
+        },
+        {
+          "seat": 2,
+          "name": "jinzuyu",
+          "is_mine": false,
+          "team": 0,
+          "damage": 2619.1990468899116,
+          "kills": 17,
+          "deaths": 15,
+          "fire_events": 209,
+          "hit_events": 89,
+          "fire_events_with_bullet_hit": 87,
+          "head_hit_events": 13,
+          "damage_by_part": {
+            "head": 1165.36617374077,
+            "lower": 203.35468077474408,
+            "upper": 1250.4781923743978
+          },
+          "weapons_fired": {
+            "galilar": 42,
+            "ak47": 12,
+            "usp": 48,
+            "m4a1": 76,
+            "mp9": 31
+          },
+          "purchases": {
+            "armor": 15,
+            "galilar": 6,
+            "flashbang": 13,
+            "ak47": 3,
+            "hegrenade": 12,
+            "smokegrenade": 6,
+            "helmet": 6,
+            "m4a1": 5,
+            "mp9": 1,
+            "defusekit": 2
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 8,
+            "galilar:6": 30,
+            "galilar:24": 1,
+            "galilar:27": 1,
+            "m4a1:6": 66,
+            "mp9:6": 27,
+            "usp:12": 41,
+            "usp:30": 1
+          },
+          "rounds_fired": 17,
+          "rounds_damaged": 16,
+          "death_rounds_without_shot": 4,
+          "rounds_received_before_first_shot": 6,
+          "alive_live_seconds": 1110.5333333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1158.1024824628641,
+              "shots": 54,
+              "hit_events": 33,
+              "kills": 7,
+              "deaths": 9
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 1461.0965644270477,
+              "shots": 155,
+              "hit_events": 56,
+              "kills": 10,
+              "deaths": 6
+            }
+          }
+        },
+        {
+          "seat": 9,
+          "name": "Yook Yuan",
+          "is_mine": false,
+          "team": 1,
+          "damage": 2096.3735280647493,
+          "kills": 17,
+          "deaths": 16,
+          "fire_events": 98,
+          "hit_events": 75,
+          "fire_events_with_bullet_hit": 74,
+          "head_hit_events": 8,
+          "damage_by_part": {
+            "head": 735.3793625181418,
+            "lower": 127.09314263429907,
+            "upper": 1233.9010229123085
+          },
+          "weapons_fired": {
+            "usp": 13,
+            "m4a1": 43,
+            "pistol": 13,
+            "ak47": 29
+          },
+          "purchases": {
+            "defusekit": 10,
+            "m4a1": 8,
+            "armor": 15,
+            "ak47": 4
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 9,
+            "ak47:9": 9,
+            "ak47:24": 1,
+            "ak47:27": 2,
+            "m4a1:6": 28,
+            "m4a1:9": 4,
+            "m4a1:24": 1,
+            "pistol:12": 11,
+            "usp:12": 6,
+            "usp:24": 4
+          },
+          "rounds_fired": 15,
+          "rounds_damaged": 14,
+          "death_rounds_without_shot": 3,
+          "rounds_received_before_first_shot": 8,
+          "alive_live_seconds": 1122.9,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 694.1120949010116,
+              "shots": 42,
+              "hit_events": 23,
+              "kills": 5,
+              "deaths": 6
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1402.2614331637376,
+              "shots": 56,
+              "hit_events": 52,
+              "kills": 12,
+              "deaths": 10
+            }
+          }
+        },
+        {
+          "seat": 0,
+          "name": "META_X",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1908.7720172799218,
+          "kills": 13,
+          "deaths": 13,
+          "fire_events": 58,
+          "hit_events": 38,
+          "fire_events_with_bullet_hit": 35,
+          "head_hit_events": 14,
+          "damage_by_part": {
+            "head": 1494.1646585049375,
+            "lower": 7.925500076464453,
+            "upper": 406.6818586985197
+          },
+          "weapons_fired": {
+            "pistol": 2,
+            "deagle": 15,
+            "ak47": 3,
+            "usp": 12,
+            "m4a1": 26
+          },
+          "purchases": {
+            "armor": 15,
+            "helmet": 13,
+            "deagle": 4,
+            "ak47": 6,
+            "m4a1": 3,
+            "defusekit": 3
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 1,
+            "deagle:33": 9,
+            "deagle:39": 1,
+            "m4a1:9": 7,
+            "m4a1:12": 1,
+            "m4a1:15": 2,
+            "m4a1:18": 3,
+            "m4a1:21": 1,
+            "pistol:15": 1,
+            "usp:15": 4,
+            "usp:18": 4
+          },
+          "rounds_fired": 12,
+          "rounds_damaged": 11,
+          "death_rounds_without_shot": 7,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 1276.6666666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 643.3556158522413,
+              "shots": 20,
+              "hit_events": 9,
+              "kills": 2,
+              "deaths": 11
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 1265.4164014276805,
+              "shots": 38,
+              "hit_events": 29,
+              "kills": 11,
+              "deaths": 2
+            }
+          }
+        },
+        {
+          "seat": 4,
+          "name": "GOAT",
+          "is_mine": false,
+          "team": 0,
+          "damage": 1742.4216516163506,
+          "kills": 13,
+          "deaths": 12,
+          "fire_events": 77,
+          "hit_events": 33,
+          "fire_events_with_bullet_hit": 33,
+          "head_hit_events": 13,
+          "damage_by_part": {
+            "head": 1367.7139344074092,
+            "lower": 11.139409822606524,
+            "upper": 363.56830738633494
+          },
+          "weapons_fired": {
+            "pistol": 20,
+            "deagle": 2,
+            "ak47": 27,
+            "m4a1": 28
+          },
+          "purchases": {
+            "armor": 13,
+            "deagle": 1,
+            "ak47": 8,
+            "helmet": 11,
+            "m4a1": 3,
+            "defusekit": 3
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 2,
+            "ak47:12": 4,
+            "ak47:15": 1,
+            "ak47:18": 5,
+            "ak47:21": 2,
+            "ak47:24": 1,
+            "deagle:33": 1,
+            "m4a1:9": 1,
+            "m4a1:12": 20,
+            "m4a1:15": 1,
+            "m4a1:18": 1,
+            "pistol:15": 18
+          },
+          "rounds_fired": 13,
+          "rounds_damaged": 11,
+          "death_rounds_without_shot": 1,
+          "rounds_received_before_first_shot": 4,
+          "alive_live_seconds": 1499.0666666666666,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1533.2476044958817,
+              "shots": 49,
+              "hit_events": 29,
+              "kills": 12,
+              "deaths": 10
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 209.17404712046886,
+              "shots": 28,
+              "hit_events": 4,
+              "kills": 1,
+              "deaths": 2
+            }
+          }
+        },
+        {
+          "seat": 8,
+          "name": "Niko",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1560.2626898011351,
+          "kills": 10,
+          "deaths": 18,
+          "fire_events": 173,
+          "hit_events": 58,
+          "fire_events_with_bullet_hit": 58,
+          "head_hit_events": 6,
+          "damage_by_part": {
+            "head": 589.2964671648106,
+            "lower": 194.8903880333399,
+            "upper": 776.0758346029845
+          },
+          "weapons_fired": {
+            "usp": 13,
+            "m4a1": 50,
+            "pistol": 42,
+            "ak47": 68
+          },
+          "purchases": {
+            "defusekit": 10,
+            "m4a1": 8,
+            "armor": 16,
+            "ak47": 6
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 60,
+            "ak47:12": 2,
+            "m4a1:6": 37,
+            "m4a1:21": 1,
+            "m4a1:36": 1,
+            "pistol:12": 39,
+            "usp:12": 11
+          },
+          "rounds_fired": 15,
+          "rounds_damaged": 13,
+          "death_rounds_without_shot": 4,
+          "rounds_received_before_first_shot": 5,
+          "alive_live_seconds": 880.6666666666666,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 628.9578433995005,
+              "shots": 110,
+              "hit_events": 29,
+              "kills": 4,
+              "deaths": 8
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 931.3048464016346,
+              "shots": 63,
+              "hit_events": 29,
+              "kills": 6,
+              "deaths": 10
+            }
+          }
+        },
+        {
+          "seat": 6,
+          "name": "2658406",
+          "is_mine": false,
+          "team": 1,
+          "damage": 1506.6668526439594,
+          "kills": 11,
+          "deaths": 17,
+          "fire_events": 150,
+          "hit_events": 57,
+          "fire_events_with_bullet_hit": 57,
+          "head_hit_events": 8,
+          "damage_by_part": {
+            "head": 681.7721689521835,
+            "lower": 61.75848385693287,
+            "upper": 763.1361998348428
+          },
+          "weapons_fired": {
+            "usp": 16,
+            "m4a1": 44,
+            "pistol": 43,
+            "ak47": 47
+          },
+          "purchases": {
+            "defusekit": 10,
+            "m4a1": 8,
+            "armor": 15,
+            "ak47": 5
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:6": 43,
+            "m4a1:6": 30,
+            "m4a1:24": 1,
+            "m4a1:30": 1,
+            "pistol:12": 38,
+            "usp:12": 11,
+            "usp:24": 1
+          },
+          "rounds_fired": 16,
+          "rounds_damaged": 14,
+          "death_rounds_without_shot": 2,
+          "rounds_received_before_first_shot": 5,
+          "alive_live_seconds": 1013.0166666666667,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 484.6161440572149,
+              "shots": 90,
+              "hit_events": 30,
+              "kills": 4,
+              "deaths": 7
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 1022.0507085867443,
+              "shots": 60,
+              "hit_events": 27,
+              "kills": 7,
+              "deaths": 10
+            }
+          }
+        },
+        {
+          "seat": 1,
+          "name": "zkdw66",
+          "is_mine": true,
+          "team": 0,
+          "damage": 1351.9844722716564,
+          "kills": 4,
+          "deaths": 16,
+          "fire_events": 68,
+          "hit_events": 45,
+          "fire_events_with_bullet_hit": 45,
+          "head_hit_events": 5,
+          "damage_by_part": {
+            "head": 415.2952298183818,
+            "lower": 131.78011912839528,
+            "upper": 804.9091233248794
+          },
+          "weapons_fired": {
+            "pistol": 8,
+            "ak47": 44,
+            "usp": 12,
+            "m4a1": 4
+          },
+          "purchases": {
+            "armor": 16,
+            "ak47": 8,
+            "m4a1": 5,
+            "defusekit": 5
+          },
+          "short_same_weapon_shot_gaps": {
+            "ak47:9": 26,
+            "ak47:12": 1,
+            "ak47:21": 1,
+            "ak47:24": 4,
+            "ak47:27": 1,
+            "ak47:42": 1,
+            "m4a1:9": 1,
+            "pistol:12": 4,
+            "usp:12": 11
+          },
+          "rounds_fired": 11,
+          "rounds_damaged": 11,
+          "death_rounds_without_shot": 6,
+          "rounds_received_before_first_shot": 9,
+          "alive_live_seconds": 990.9833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 12,
+              "damage": 1101.1958945028819,
+              "shots": 52,
+              "hit_events": 35,
+              "kills": 3,
+              "deaths": 10
+            },
+            "defend": {
+              "rounds": 9,
+              "damage": 250.7885777687746,
+              "shots": 16,
+              "hit_events": 10,
+              "kills": 1,
+              "deaths": 6
+            }
+          }
+        },
+        {
+          "seat": 5,
+          "name": "Kozihvc",
+          "is_mine": false,
+          "team": 1,
+          "damage": 314.5336683072507,
+          "kills": 2,
+          "deaths": 7,
+          "fire_events": 85,
+          "hit_events": 15,
+          "fire_events_with_bullet_hit": 15,
+          "head_hit_events": 1,
+          "damage_by_part": {
+            "head": 39.85731667354631,
+            "upper": 274.67635163370437
+          },
+          "weapons_fired": {
+            "usp": 23,
+            "m4a1": 62
+          },
+          "purchases": {
+            "defusekit": 4,
+            "flashbang": 2,
+            "m4a1": 4,
+            "armor": 6,
+            "helmet": 3,
+            "smokegrenade": 2
+          },
+          "short_same_weapon_shot_gaps": {
+            "m4a1:9": 52,
+            "m4a1:27": 1,
+            "usp:15": 11,
+            "usp:18": 6,
+            "usp:30": 1
+          },
+          "rounds_fired": 6,
+          "rounds_damaged": 5,
+          "death_rounds_without_shot": 1,
+          "rounds_received_before_first_shot": 1,
+          "alive_live_seconds": 1625.4833333333333,
+          "by_side": {
+            "attack": {
+              "rounds": 9,
+              "damage": 0,
+              "shots": 0,
+              "hit_events": 0,
+              "kills": 0,
+              "deaths": 0
+            },
+            "defend": {
+              "rounds": 12,
+              "damage": 314.5336683072507,
+              "shots": 85,
+              "hit_events": 15,
+              "kills": 2,
+              "deaths": 7
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "latest_own_policy": {
+    "job_id": "e2e40a26-1715-4a31-946a-3787284c5a52",
+    "seat": 6,
+    "bundle": "d948b68705b72dc4c3931d1e4fd36b3bffeb683ebd6b9f85abf75dfbe5fc5fa0",
+    "source_sha256": "e3d3d100cd1902f233a8d046e1f0b3e4f2c785ff22363fac5831d72c28dec671",
+    "verified_training": {
+      "rows": 18887,
+      "raw_bytes": 58434550,
+      "sha256": "7dffb222e3fc299d8f763c0735275265dbc43423c342ba0dcbec0805fe87596f"
+    },
+    "decisions": 18887,
+    "action_mismatches": 0,
+    "faults": 0,
+    "counts": {
+      "alive_live": 11859,
+      "visible": 175,
+      "fire_request": 29,
+      "move_route": 5883,
+      "directional_sound_calls": 420,
+      "watch_damage_search": 35,
+      "combat": 175,
+      "combat_speed_blocked": 33,
+      "combat_aim_blocked": 51,
+      "combat_cooldown_one_tick": 23,
+      "move_arrived": 5775,
+      "move_escape": 15,
+      "watch_attack_approach": 666
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "side": "defend",
+        "counts": {
+          "alive_live": 465,
+          "visible": 27,
+          "fire_request": 2,
+          "move_route": 433,
+          "directional_sound_calls": 26,
+          "watch_damage_search": 5,
+          "combat": 27,
+          "combat_speed_blocked": 21,
+          "combat_aim_blocked": 6,
+          "combat_cooldown_one_tick": 0
+        },
+        "first": {
+          "damage": 1659,
+          "visible": 1674,
+          "fire": 1737
+        },
+        "death": 1753,
+        "first_damage_hp": 89.34626840594589,
+        "first_public_hit_tick": 1657,
+        "first_hit_to_death_seconds": 1.6,
+        "first_sight_hp": 78.6508894603282,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 1569,
+            "round_tick": 1569,
+            "position": [
+              156.7583900985271,
+              64.57605028989722,
+              20.000110000000003
+            ],
+            "hp": 100.0,
+            "yaw": 0.5972195806475675,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "left",
+                "distance_band": "far"
+              }
+            ],
+            "speed": 4.735068894292469,
+            "fire": false,
+            "yaw_rate": -1.0,
+            "move_mode": "route",
+            "gun": "usp",
+            "helmet": false,
+            "armor": 100.0,
+            "cash": 150
+          },
+          {
+            "tick": 1614,
+            "round_tick": 1614,
+            "position": [
+              160.17348125835056,
+              64.46901710742546,
+              20.027965264951217
+            ],
+            "hp": 100.0,
+            "yaw": 0.37669147676889875,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "left",
+                "distance_band": "far"
+              }
+            ],
+            "speed": 4.757010552478964,
+            "fire": false,
+            "yaw_rate": 1.0,
+            "move_mode": "route",
+            "gun": "usp",
+            "helmet": false,
+            "armor": 100.0,
+            "cash": 150
+          }
+        ],
+        "last_position": [
+          162.30619149816124,
+          62.10558305197175,
+          19.988102428853757
+        ],
+        "end_loadout": {
+          "gun": "usp",
+          "armor": 75.9095775513679,
+          "helmet": false,
+          "cash": 150
+        },
+        "first_shot_hp": 6.132661491297117,
+        "round_damage": 37.41929758478251
+      },
+      {
+        "round": 2,
+        "side": "defend",
+        "counts": {
+          "alive_live": 801,
+          "visible": 0,
+          "fire_request": 0,
+          "move_route": 301,
+          "directional_sound_calls": 27,
+          "move_arrived": 500,
+          "watch_damage_search": 6
+        },
+        "first": {
+          "arrival": 3702,
+          "damage": 5184
+        },
+        "death": 5200,
+        "first_damage_hp": 72.81506256337192,
+        "first_public_hit_tick": 5182,
+        "first_hit_to_death_seconds": 0.3,
+        "first_sight_hp": null,
+        "directional_sounds_before_hit_2s": [],
+        "last_position": [
+          167.00303062956218,
+          60.47994009116102,
+          20.1169084748544
+        ],
+        "end_loadout": {
+          "gun": "usp",
+          "armor": 88.15593115589085,
+          "helmet": false,
+          "cash": 1000
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 3,
+        "side": "defend",
+        "counts": {
+          "alive_live": 990,
+          "visible": 0,
+          "fire_request": 0,
+          "move_route": 470,
+          "directional_sound_calls": 50,
+          "move_arrived": 520,
+          "watch_damage_search": 6
+        },
+        "first": {
+          "arrival": 7389,
+          "damage": 8931
+        },
+        "death": 8947,
+        "first_damage_hp": 65.02685817015826,
+        "first_public_hit_tick": 8929,
+        "first_hit_to_death_seconds": 0.3,
+        "first_sight_hp": null,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 8862,
+            "round_tick": 3245,
+            "position": [
+              166.93950799175806,
+              60.4438960911294,
+              20.11516253020713
+            ],
+            "hp": 100.0,
+            "yaw": -1.1359066421538113,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "right",
+                "distance_band": "far"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 0.0,
+            "cash": 200
+          }
+        ],
+        "last_position": [
+          166.93801380359588,
+          60.44378516982609,
+          20.11513412204917
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 0.0,
+          "helmet": false,
+          "cash": 200
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 4,
+        "side": "defend",
+        "counts": {
+          "alive_live": 649,
+          "visible": 3,
+          "fire_request": 0,
+          "move_route": 472,
+          "directional_sound_calls": 25,
+          "move_arrived": 174,
+          "watch_damage_search": 3,
+          "combat": 3,
+          "combat_speed_blocked": 0,
+          "combat_aim_blocked": 3,
+          "combat_cooldown_one_tick": 0
+        },
+        "first": {
+          "arrival": 12492,
+          "damage": 13005,
+          "visible": 13014
+        },
+        "death": 13021,
+        "first_damage_hp": 65.06269505849681,
+        "first_public_hit_tick": 13003,
+        "first_hit_to_death_seconds": 0.3,
+        "first_sight_hp": 30.129082585311487,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 12945,
+            "round_tick": 2231,
+            "position": [
+              166.99195644104273,
+              60.50413020025078,
+              20.116911828650984
+            ],
+            "hp": 100.0,
+            "yaw": -2.375871547730033,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "right",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 0.0,
+            "cash": 250
+          },
+          {
+            "tick": 12972,
+            "round_tick": 2258,
+            "position": [
+              166.99131493675253,
+              60.50383300192921,
+              20.116892134065406
+            ],
+            "hp": 100.0,
+            "yaw": -2.1733715477300373,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "right",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 0.0,
+            "cash": 300
+          },
+          {
+            "tick": 12999,
+            "round_tick": 2285,
+            "position": [
+              166.99067343246233,
+              60.50353580360764,
+              20.116872439479824
+            ],
+            "hp": 100.0,
+            "yaw": -1.9708715477300407,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "right",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 0.0,
+            "cash": 300
+          }
+        ],
+        "last_position": [
+          166.99017448468106,
+          60.50330464935753,
+          20.116857121468815
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 0.0,
+          "helmet": false,
+          "cash": 300
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 5,
+        "side": "defend",
+        "counts": {
+          "alive_live": 667,
+          "visible": 5,
+          "fire_request": 0,
+          "move_route": 320,
+          "directional_sound_calls": 46,
+          "move_arrived": 342,
+          "watch_damage_search": 2,
+          "combat": 5,
+          "combat_speed_blocked": 0,
+          "combat_aim_blocked": 5,
+          "combat_cooldown_one_tick": 0
+        },
+        "first": {
+          "arrival": 14925,
+          "damage": 15945,
+          "visible": 15951
+        },
+        "death": 15964,
+        "first_damage_hp": 72.84926523600683,
+        "first_public_hit_tick": 15943,
+        "first_hit_to_death_seconds": 0.35,
+        "first_sight_hp": 45.69689211801575,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 15921,
+            "round_tick": 2318,
+            "position": [
+              167.00964844666834,
+              60.444485998536464,
+              20.11679734821905
+            ],
+            "hp": 100.0,
+            "yaw": 1.689271708219391,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "center",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 100.0,
+            "cash": 200
+          }
+        ],
+        "last_position": [
+          167.008439201031,
+          60.44472949804926,
+          20.116751464391136
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 88.17630215897802,
+          "helmet": false,
+          "cash": 200
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 6,
+        "side": "defend",
+        "counts": {
+          "alive_live": 781,
+          "visible": 12,
+          "fire_request": 3,
+          "move_route": 407,
+          "directional_sound_calls": 19,
+          "move_arrived": 362,
+          "combat": 12,
+          "combat_speed_blocked": 0,
+          "combat_aim_blocked": 3,
+          "combat_cooldown_one_tick": 3
+        },
+        "first": {
+          "arrival": 18444,
+          "visible": 19530,
+          "fire": 19539,
+          "damage": 19548
+        },
+        "death": 19564,
+        "first_damage_hp": 72.91763240456191,
+        "first_public_hit_tick": 19546,
+        "first_hit_to_death_seconds": 0.3,
+        "first_sight_hp": 100.0,
+        "directional_sounds_before_hit_2s": [],
+        "last_position": [
+          166.98013919762823,
+          60.486796952462626,
+          20.116410170995454
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 88.20345021786895,
+          "helmet": false,
+          "cash": 100
+        },
+        "first_shot_hp": 100.0,
+        "round_damage": 72.92818899713978
+      },
+      {
+        "round": 7,
+        "side": "defend",
+        "counts": {
+          "alive_live": 670,
+          "visible": 0,
+          "fire_request": 0,
+          "move_route": 374,
+          "directional_sound_calls": 50,
+          "move_escape": 15,
+          "move_arrived": 281,
+          "watch_damage_search": 4
+        },
+        "first": {
+          "arrival": 21471,
+          "damage": 22302
+        },
+        "death": 22312,
+        "first_damage_hp": 65.00621980924703,
+        "first_public_hit_tick": 22300,
+        "first_hit_to_death_seconds": 0.2,
+        "first_sight_hp": null,
+        "directional_sounds_before_hit_2s": [],
+        "last_position": [
+          167.65803967130265,
+          59.9624068984875,
+          20.1384122125403
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 0.0,
+          "helmet": false,
+          "cash": 250
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 8,
+        "side": "defend",
+        "counts": {
+          "alive_live": 801,
+          "visible": 3,
+          "fire_request": 0,
+          "move_route": 339,
+          "directional_sound_calls": 17,
+          "move_arrived": 459,
+          "watch_damage_search": 5,
+          "combat": 3,
+          "combat_speed_blocked": 0,
+          "combat_aim_blocked": 3,
+          "combat_cooldown_one_tick": 0
+        },
+        "first": {
+          "arrival": 24111,
+          "damage": 25473,
+          "visible": 25488
+        },
+        "death": 25495,
+        "first_damage_hp": 72.90096455024222,
+        "first_public_hit_tick": 25471,
+        "first_hit_to_death_seconds": 0.4,
+        "first_sight_hp": 18.712981810492607,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 25374,
+            "round_tick": 2642,
+            "position": [
+              166.97672583801003,
+              60.485215845308716,
+              20.11630538158532
+            ],
+            "hp": 100.0,
+            "yaw": -2.5914081980058477,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "right",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 100.0,
+            "cash": 100
+          }
+        ],
+        "last_position": [
+          166.974113748302,
+          60.48390481708103,
+          20.116224005758134
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 88.20027155313602,
+          "helmet": false,
+          "cash": 100
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 9,
+        "side": "defend",
+        "counts": {
+          "alive_live": 660,
+          "visible": 0,
+          "fire_request": 0,
+          "move_route": 355,
+          "directional_sound_calls": 46,
+          "move_arrived": 305,
+          "watch_damage_search": 4
+        },
+        "first": {
+          "arrival": 27222,
+          "damage": 28125
+        },
+        "death": 28135,
+        "first_damage_hp": 65.05279178923101,
+        "first_public_hit_tick": 28123,
+        "first_hit_to_death_seconds": 0.2,
+        "first_sight_hp": null,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 28086,
+            "round_tick": 2291,
+            "position": [
+              166.62039765108628,
+              60.64594923287206,
+              20.1096092111374
+            ],
+            "hp": 100.0,
+            "yaw": 0.6771100551759441,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "right",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 0.0,
+            "cash": 250
+          }
+        ],
+        "last_position": [
+          166.61925207525726,
+          60.64594923287206,
+          20.10958012967238
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 0.0,
+          "helmet": false,
+          "cash": 250
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 10,
+        "side": "defend",
+        "counts": {
+          "alive_live": 2300,
+          "visible": 0,
+          "fire_request": 0,
+          "move_route": 399,
+          "directional_sound_calls": 18,
+          "move_arrived": 1901
+        },
+        "first": {
+          "arrival": 30381
+        },
+        "death": null,
+        "first_public_hit_tick": null,
+        "first_hit_to_death_seconds": null,
+        "first_sight_hp": null,
+        "directional_sounds_before_hit_2s": [],
+        "last_position": [
+          166.9980805885685,
+          60.49510899525143,
+          20.116960984084887
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 100.0,
+          "helmet": false,
+          "cash": 100
+        },
+        "first_shot_hp": null,
+        "round_damage": 0
+      },
+      {
+        "round": 11,
+        "side": "defend",
+        "counts": {
+          "alive_live": 656,
+          "visible": 17,
+          "fire_request": 3,
+          "move_route": 523,
+          "directional_sound_calls": 43,
+          "move_arrived": 116,
+          "combat": 17,
+          "combat_speed_blocked": 0,
+          "combat_aim_blocked": 3,
+          "combat_cooldown_one_tick": 3
+        },
+        "first": {
+          "arrival": 38313,
+          "visible": 38661,
+          "fire": 38670,
+          "damage": 38694
+        },
+        "death": 38710,
+        "first_damage_hp": 72.89744803435809,
+        "first_public_hit_tick": 38692,
+        "first_hit_to_death_seconds": 0.3,
+        "first_sight_hp": 100.0,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 38595,
+            "round_tick": 2213,
+            "position": [
+              167.0000308165807,
+              60.49601256355259,
+              20.117020858014516
+            ],
+            "hp": 100.0,
+            "yaw": 2.617456840983651,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "left",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 100.0,
+            "cash": 3000
+          },
+          {
+            "tick": 38646,
+            "round_tick": 2264,
+            "position": [
+              166.99881908625477,
+              60.49545118894518,
+              20.11698365713064
+            ],
+            "hp": 100.0,
+            "yaw": 2.999956840983643,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "left",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 0.0,
+            "fire": false,
+            "yaw_rate": 0.15,
+            "move_mode": "arrived",
+            "gun": "m4a1",
+            "helmet": false,
+            "armor": 100.0,
+            "cash": 3000
+          }
+        ],
+        "last_position": [
+          166.99732224291097,
+          60.494757726194855,
+          20.116937703097616
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 88.19747134715482,
+          "helmet": false,
+          "cash": 3000
+        },
+        "first_shot_hp": 100.0,
+        "round_damage": 73.02243311216309
+      },
+      {
+        "round": 12,
+        "side": "defend",
+        "counts": {
+          "alive_live": 1208,
+          "visible": 57,
+          "fire_request": 11,
+          "move_route": 330,
+          "directional_sound_calls": 25,
+          "move_arrived": 815,
+          "combat": 57,
+          "combat_speed_blocked": 0,
+          "combat_aim_blocked": 19,
+          "combat_cooldown_one_tick": 8
+        },
+        "first": {
+          "arrival": 42345,
+          "visible": 43608,
+          "fire": 43626,
+          "damage": 44961
+        },
+        "death": 44977,
+        "first_damage_hp": 72.89889418804805,
+        "first_public_hit_tick": 44959,
+        "first_hit_to_death_seconds": 0.3,
+        "first_sight_hp": 100.0,
+        "directional_sounds_before_hit_2s": [],
+        "last_position": [
+          166.9683504829227,
+          60.471152417597786,
+          20.115922730030025
+        ],
+        "end_loadout": {
+          "gun": "m4a1",
+          "armor": 88.19559315693833,
+          "helmet": false,
+          "cash": 2750
+        },
+        "first_shot_hp": 100.0,
+        "round_damage": 270.83691044165545
+      },
+      {
+        "round": 13,
+        "side": "attack",
+        "counts": {
+          "alive_live": 716,
+          "visible": 33,
+          "fire_request": 7,
+          "move_route": 683,
+          "watch_attack_approach": 404,
+          "directional_sound_calls": 19,
+          "combat": 33,
+          "combat_speed_blocked": 6,
+          "combat_aim_blocked": 3,
+          "combat_cooldown_one_tick": 6
+        },
+        "first": {
+          "visible": 47688,
+          "damage": 47703,
+          "fire": 47706
+        },
+        "death": 47785,
+        "first_damage_hp": 84.67638206981435,
+        "first_public_hit_tick": 47701,
+        "first_hit_to_death_seconds": 1.4,
+        "first_sight_hp": 100.0,
+        "directional_sounds_before_hit_2s": [],
+        "last_position": [
+          150.14746416706748,
+          134.23455697453937,
+          19.838662659555407
+        ],
+        "end_loadout": {
+          "gun": "pistol",
+          "armor": 54.94885450095655,
+          "helmet": false,
+          "cash": 150
+        },
+        "first_shot_hp": 84.67638206981435,
+        "round_damage": 66.22122677652331
+      },
+      {
+        "round": 14,
+        "side": "attack",
+        "counts": {
+          "alive_live": 495,
+          "visible": 18,
+          "fire_request": 3,
+          "move_route": 477,
+          "watch_attack_approach": 262,
+          "directional_sound_calls": 9,
+          "combat": 18,
+          "combat_speed_blocked": 6,
+          "combat_aim_blocked": 6,
+          "combat_cooldown_one_tick": 3
+        },
+        "first": {
+          "visible": 51192,
+          "fire": 51210,
+          "damage": 51222
+        },
+        "death": 51244,
+        "first_damage_hp": 75.0629759698205,
+        "first_public_hit_tick": 51220,
+        "first_hit_to_death_seconds": 0.4,
+        "first_sight_hp": 100.0,
+        "directional_sounds_before_hit_2s": [
+          {
+            "tick": 51189,
+            "round_tick": 1788,
+            "position": [
+              153.3232045353189,
+              58.81648977931237,
+              19.827618885300165
+            ],
+            "hp": 100.0,
+            "yaw": -0.8630665992282902,
+            "visible": [],
+            "sounds": [
+              {
+                "type": "footstep",
+                "direction": "left",
+                "distance_band": "mid"
+              }
+            ],
+            "speed": 4.572307797879877,
+            "fire": false,
+            "yaw_rate": -0.006222220020498289,
+            "move_mode": "route",
+            "gun": "pistol",
+            "helmet": false,
+            "armor": 100.0,
+            "cash": 2000
+          }
+        ],
+        "last_position": [
+          153.85520361558181,
+          59.425298739785326,
+          19.82428192682213
+        ],
+        "end_loadout": {
+          "gun": "pistol",
+          "armor": 78.6260008466984,
+          "helmet": false,
+          "cash": 2000
+        },
+        "first_shot_hp": 100.0,
+        "round_damage": 35.70694498134433
+      }
+    ]
+  },
+  "limitations": [
+    "Retrospective public events and verified own inputs; no opponent private source or input.",
+    "Different maps, sides and opponents: no controlled v7/v8 win-rate estimate.",
+    "Hit-event proportion and head-hit proportion are not target-selection intent.",
+    "Counterfactual damage cannot be recovered from fixed recorded observations."
+  ]
+}

@@ -107,6 +107,8 @@ class WatchTests(unittest.TestCase):
             row.pop('map', None)
             row['match_tick'] += 3
             row['round_tick'] += 3
+            if math.hypot(m['x']-10, m['y']) < 1.2:
+                break  # v9 continues clearing the next lane after entering.
         self.assertLess(math.hypot(m['x']-10, m['y']), 1.2)
         self.assertLess(lateral, .8)
 

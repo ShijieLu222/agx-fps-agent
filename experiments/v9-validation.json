@@ -1,0 +1,136 @@
+{
+  "format": "agx-fps-v9-validation.v1",
+  "date": "2026-11-16",
+  "status": "local_candidate_not_uploaded",
+  "source_sha256": "226c44d649ba11a96c9ddf2370e9864c7654a1bd10b4740970639857e247d86d",
+  "bundle_sha256": "1abc777347a92c602519c68c1b4942e77a64f346ea57f180cbf6e6274c8792db",
+  "bundle_bytes": 18628,
+  "bundle_contents": [
+    "agent.py"
+  ],
+  "unit_tests": {
+    "command": "python3 -B -m unittest discover -s tests -v",
+    "passed": 141,
+    "failed": 0
+  },
+  "decisions_checked": 128897,
+  "historical_checks": [
+    {
+      "audit": "experiments/v9-e2e4-audit.json",
+      "seat": 6,
+      "decisions": 18887,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.010089000000000015,
+        "act_seconds": 0.48675300000000243,
+        "json_row_decode_seconds": 0.47741799999999657,
+        "action_encode_seconds": 0.06311600000000162,
+        "local_total_seconds": 1.0373760000000005,
+        "local_callback_max_ms_including_json": 10.89999999999991,
+        "act_max_ms": 10.859999999999982,
+        "act_p99_ms": 0.46199999999996244,
+        "act_median_ms": 0.013000000000040757,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v9-e144-audit.json",
+      "seat": 3,
+      "decisions": 20435,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.011425000000000018,
+        "act_seconds": 0.2421550000000302,
+        "json_row_decode_seconds": 0.5366449999999823,
+        "action_encode_seconds": 0.06938999999997897,
+        "local_total_seconds": 0.8596149999999915,
+        "local_callback_max_ms_including_json": 1.479000000000008,
+        "act_max_ms": 1.4210000000000056,
+        "act_p99_ms": 0.062000000000006494,
+        "act_median_ms": 0.011999999999900979,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v9-c76-audit.json",
+      "seat": 1,
+      "decisions": 25825,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.009909000000000057,
+        "act_seconds": 0.2531899999999999,
+        "json_row_decode_seconds": 0.6311789999999927,
+        "action_encode_seconds": 0.07775199999997218,
+        "local_total_seconds": 0.9720299999999649,
+        "local_callback_max_ms_including_json": 0.4749999999998922,
+        "act_max_ms": 0.44199999999994244,
+        "act_p99_ms": 0.05699999999997374,
+        "act_median_ms": 0.008000000000008,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v9-9e35-audit.json",
+      "seat": 1,
+      "decisions": 22549,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.009987999999999997,
+        "act_seconds": 0.2722120000000353,
+        "json_row_decode_seconds": 0.5826860000000248,
+        "action_encode_seconds": 0.07629199999998826,
+        "local_total_seconds": 0.9411780000000484,
+        "local_callback_max_ms_including_json": 0.5290000000000017,
+        "act_max_ms": 0.4709999999999992,
+        "act_p99_ms": 0.06299999999992423,
+        "act_median_ms": 0.012000000000012001,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    },
+    {
+      "audit": "experiments/v9-c630-audit.json",
+      "seat": 1,
+      "decisions": 41201,
+      "errors": 0,
+      "warnings": 0,
+      "cpu": {
+        "import_and_init_seconds": 0.012553999999999954,
+        "act_seconds": 0.32731599999998995,
+        "json_row_decode_seconds": 0.840843999999991,
+        "action_encode_seconds": 0.10405599999999837,
+        "local_total_seconds": 1.2847699999999793,
+        "local_callback_max_ms_including_json": 0.6399999999997519,
+        "act_max_ms": 0.5999999999999339,
+        "act_p99_ms": 0.04300000000001525,
+        "act_median_ms": 0.0029999999999752447,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      }
+    }
+  ],
+  "issue_regressions": [
+    "All recorded v8 actions reproduced",
+    "All v9 actions JSON/schema valid",
+    "Round 2 first unseen hit requests witnessed retreat after long stop",
+    "Round 4 right-side footsteps turn the view right before the first hit"
+  ],
+  "limitations": [
+    "Historical inputs do not advance physics or establish new outcomes.",
+    "Local motion and weapon fixtures are not the official simulator.",
+    "No v9 admission, ranking or new match result is claimed.",
+    "Teammate support uses observed death-zone transitions, not unavailable enemy sightings."
+  ]
+}
