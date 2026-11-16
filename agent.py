@@ -1,4 +1,4 @@
-"""AGX FPS v4 adapted from the official public starter.
+"""AGX FPS v7 candidate adapted from the official public starter.
 
 Source: https://agx.cool/docs/schema/fps.example.agent.py
 Retrieved: 2026-11-15. Contract: rsi-fps-5.5.
@@ -9,6 +9,12 @@ user-supplied AGX_FPS_v3_3_Duel.zip (2026-11-15); no performance gain is proven.
 v3 addressed range/exhausted-ammo stalls and objective/navigation failures.
 v4 targets stopping, unseen-damage response and route failures observed in the
 owner's second match. Offline checks do not establish a win-rate gain.
+v5 adds final-waypoint arrival control; its
+closed-loop fixtures are approximations, not official match evaluations.
+v6 addresses false airborne arrivals and repeated box-climbing failures from
+the owner's Dust2 match. Navigation source edges remain unverified candidates.
+v7 confirms brief head-only sightings before firing and bounds lost-sight
+braking, without treating spectator positions as legal target observations.
 """
 import math
 import gc
@@ -74,6 +80,7 @@ class Player:
     def __init__(self):
         self.nodes, self.edges, self.sites = {}, {}, []
         self.walk_edges = set()
+        self.source_edges = set()
         self.pending_map = None
         self.map_identity = None
         self.path, self.goal = [], None
@@ -114,16 +121,59 @@ class Player:
     def reset_navigation(self):
         self.path_nodes, self.nav_from = [], None
         self.retry_node = None
+        self.pending_leg = None
+        self.nav_trace, self.trace_airborne = [], False
+        self.recovery_trace = []
+        self.recovery_until, self.recovery_edge = 0, None
+        self.return_failures = set()
+        self.jump_attempts, self.last_jump_tick = {}, -10000
         self.failed_edges = {}
         self.nav_tick = 0
         self.leg_target, self.leg_best, self.leg_progress_tick = None, math.inf, 0
         self.last_move_tick = None
+        self.arrival_goal = None
+
+    def track_ground(self, me, pos):
+        """Retain a short actually walked corridor, never reverse a jump/drop.
+
+        An unsuccessful jump may land back at its launch point. Only that
+        spatially matched landing can reconnect the preceding ground trail.
+        """
+        if not me["grounded"]:
+            self.trace_airborne = True
+            return
+        if self.nav_trace:
+            previous = self.nav_trace[-1]
+            if (math.dist(pos[:2], previous[:2]) > (0.2 if self.trace_airborne else 0.8)
+                    or abs(pos[2] - previous[2]) > (0.2 if self.trace_airborne else 0.35)):
+                self.nav_trace = []
+        self.trace_airborne = False
+        if not self.nav_trace or distance(pos, self.nav_trace[-1]) > 0.12:
+            self.nav_trace.append(list(pos))
+            self.nav_trace = self.nav_trace[-128:]
+
+    def witnessed_return(self, here):
+        """Return points to a reached anchor only along our continuous trail."""
+        if self.trace_airborne or not self.nav_trace or here not in self.nodes:
+            return []
+        target = self.nodes[here]
+        for index in range(len(self.nav_trace)-1, -1, -1):
+            point = self.nav_trace[index]
+            if (math.dist(point[:2], target[:2]) < 1.0
+                    and abs(point[2]-target[2]) <= 0.6):
+                return [list(p) for p in reversed(self.nav_trace[index:])]
+        return []
 
     def penalize_leg(self):
         """Remember an observed failed traversal, never an unseen obstacle."""
         if not self.path_nodes:
             return
         there = self.path_nodes[0]
+        # A search starting at the still-unreached destination must not erase
+        # the failed leg's real origin or grant it a fresh jump allowance.
+        if (self.nav_from is None and self.pending_leg is not None
+                and there == self.pending_leg[1]):
+            self.nav_from = self.pending_leg[0]
         if self.nav_from is None:
             # A spawn-to-first-node connector has no reached-node anchor.
             # Recover only along an explicit walk corridor containing our feet,
@@ -161,6 +211,7 @@ class Player:
         if there is None or there == self.nav_from:
             return
         key = (self.nav_from, there)
+        self.pending_leg = key
         # Backtrack only over an explicitly reversible walk at a compatible
         # foot height. A completed descent cannot be reversed by a virtual
         # start connector. Continue toward that leg's published destination;
@@ -169,7 +220,15 @@ class Player:
                          and self.last_position is not None
                          and abs(self.last_position[2]
                                  - self.nodes[self.nav_from][2]) <= 0.6)
-        self.retry_node = self.nav_from if can_backtrack else there
+        witnessed = ([] if (key in self.return_failures
+                            or (key not in self.walk_edges and key not in self.source_edges)) else
+                     self.witnessed_return(self.nav_from))
+        self.retry_node = self.nav_from if can_backtrack or witnessed else there
+        self.recovery_trace = witnessed if not can_backtrack else []
+        if self.recovery_trace:
+            self.recovery_edge = key
+            length = sum(distance(a, b) for a, b in zip(witnessed, witnessed[1:]))
+            self.recovery_until = self.nav_tick + min(360, 90 + int(60 * length))
         old = self.failed_edges.get(key, (0, 0.0))[1]
         length = distance(self.nodes[self.nav_from], self.nodes[there])
         self.failed_edges[key] = (self.nav_tick + 1800,
@@ -198,6 +257,82 @@ class Player:
         self.retreat_path = []
         self.retreat_until = 0
         self.damage_cooldown = 0
+        self.sight_tracks = {}
+        self.last_combat_tick = None
+        self.last_visible_tick = None
+        self.lost_hold_used, self.hold_last_tick = 0, None
+        self.peek_advance_until = 0
+        self.unconfirmed_head_since = None
+
+    @staticmethod
+    def head_only(enemy):
+        parts = enemy.get("parts", [])
+        return "head" in parts and not any(p in parts for p in ("chest", "abdomen"))
+
+    def observe_targets(self, o):
+        """Track only consecutive, current legal sightings at decision cadence."""
+        tick = o["match_tick"]
+        current = {}
+        for enemy in ([] if o["me"]["blind_ticks"] else o["visible"]):
+            seat = enemy.get("seat")
+            pose = (bool(enemy["crouch"]), self.head_only(enemy))
+            old = self.sight_tracks.get(seat)
+            since = (old[2] if old and old[0] in (tick-3, tick)
+                     and old[1] == pose else tick)
+            current[seat] = (tick, pose, since)
+        # An absent or blinded target cannot accumulate stable time in memory.
+        self.sight_tracks = current
+        if current:
+            # Suppressing combat during a navigation window is not a quiet
+            # encounter. Only an actual gap in legal sightings rearms holding.
+            if self.last_visible_tick is None or tick-self.last_visible_tick >= 60:
+                self.lost_hold_used = 0
+                self.unconfirmed_head_since = None
+            self.last_visible_tick = tick
+
+    def target_ready(self, enemy, tick):
+        if not any(p in enemy.get("parts", []) for p in ("chest", "abdomen", "head")):
+            return False
+        if not self.head_only(enemy):
+            return True
+        track = self.sight_tracks.get(enemy.get("seat"))
+        return bool(track and track[0] == tick and tick-track[2] >= 6)
+
+    def bound_head_wait(self, o, enemies):
+        """Changing posture/identity cannot renew an unproductive head duel."""
+        tick = o["match_tick"]
+        visible = enemies
+        if visible and all(self.head_only(e) and not self.target_ready(e, tick)
+                           for e in visible):
+            if self.unconfirmed_head_since is None:
+                self.unconfirmed_head_since = tick
+            elif tick-self.unconfirmed_head_since >= 90:
+                self.peek_advance_until = tick + 30
+                self.unconfirmed_head_since = tick
+        elif o["visible"] or self.last_visible_tick is None or tick-self.last_visible_tick >= 60:
+            self.unconfirmed_head_since = None
+
+    def lost_contact_hold(self, o, action):
+        """Briefly stay stopped without sight, with a non-refreshing budget."""
+        m, tick = o["me"], o["match_tick"]
+        if (o["visible"] or m["blind_ticks"] or not m["grounded"]
+                or self.enemy_memory is None or self.last_combat_tick is None
+                or tick-self.last_combat_tick > 9
+                or m["carrying_bomb"]
+                or (o["side"] == "defend" and o["bomb"]["state"] == "planted")
+                or tick < self.advance_until or tick < self.peek_advance_until):
+            return None
+        if self.lost_hold_used >= 30:
+            # Brief repeated glimpses must not indefinitely alternate braking
+            # and tiny movement requests. A stable head/body can still defend.
+            self.peek_advance_until = tick + 30
+            self.contact_until, self.enemy_memory = 0, None
+            return None
+        elapsed = max(0, min(3, tick-(self.hold_last_tick or self.last_combat_tick)))
+        self.lost_hold_used += elapsed
+        self.hold_last_tick = tick
+        return self.quiet_action(o, dict(action, **counterstop(m),
+                                         jump=False, fire=False, walk=False))
 
     def observe_safety(self, o):
         """Remember only our own continuous, grounded recent traversal."""
@@ -288,11 +423,19 @@ class Player:
                       for n in nav.get("nodes", [])}
         self.edges = {key: [] for key in self.nodes}
         self.walk_edges = set()
+        self.source_edges = set()
         for edge in nav.get("edges", []):
             if (edge["from"] in self.nodes and edge["to"] in self.nodes
                     and edge["kind"] != "ladder"):
                 cost = distance(self.nodes[edge["from"]],
                                 self.nodes[edge["to"]])
+                if edge["kind"] == "source-adjacency":
+                    self.source_edges.add((edge["from"], edge["to"]))
+                    # These edges are not collision-validated. Prefer a longer
+                    # gradual ascent to a short series of tall box steps. This
+                    # soft cost is a routing preference, NOT a jump-height law.
+                    rise = self.nodes[edge["to"]][2] - self.nodes[edge["from"]][2]
+                    cost += 30.0 * max(0.0, rise - 0.35) ** 2
                 self.edges[edge["from"]].append((edge["to"], cost))
                 if edge["kind"] == "walk":
                     self.edges[edge["to"]].append((edge["from"], cost))
@@ -411,7 +554,8 @@ class Player:
         m = o["me"]
         eye = [m["x"], m["y"], m["z"] + (0.95 if m["crouch"] else 1.62)]
         return [e for e in o["visible"]
-                if distance(eye, self.aim_point(e)) < reach]
+                if any(p in e.get("parts", []) for p in ("head", "chest", "abdomen"))
+                and distance(eye, self.aim_point(e)) < reach]
 
     def unknown_bomb_goal(self, o, pos):
         """Search public sites; never infer the hidden bomb coordinate."""
@@ -447,6 +591,9 @@ class Player:
             self.engagement_started = None
             return False
         m, tick = o["me"], o["match_tick"]
+        if (tick < self.peek_advance_until
+                and all(self.head_only(e) and not self.target_ready(e, tick) for e in enemies)):
+            return False
         pos = [m["x"], m["y"], m["z"]]
         nearest = min(distance(pos, [e["x"], e["y"], e["z"]]) for e in enemies)
         objective = (m["carrying_bomb"] or
@@ -476,7 +623,7 @@ class Player:
 
     def aim_point(self, enemy):
         heights = {"head": 1.64, "chest": 1.18, "abdomen": 0.88}
-        part = next((p for p in ("chest", "head", "abdomen")
+        part = next((p for p in ("chest", "abdomen", "head")
                      if p in enemy["parts"]), "chest")
         height = heights[part] * (0.6 if enemy["crouch"] else 1.0)
         return [enemy["x"], enemy["y"], enemy["z"] + height]
@@ -498,6 +645,8 @@ class Player:
         # view toward an actually observed old position; it never authorizes fire.
         self.last_fire, self.burst_start = False, None
         tick, m = o["match_tick"], o["me"]
+        if tick < self.peek_advance_until:
+            self.contact_until, self.enemy_memory = 0, None
         if self.enemy_memory and tick - self.enemy_memory[1] > 180:
             self.enemy_memory, self.target_seat = None, None
         if not action.get("use") and not action.get("jump"):
@@ -513,7 +662,10 @@ class Player:
     def combat(self, o, action, gun, enemies=None):
         m = o["me"]
         tick = o["match_tick"]
-        point = self.aim_point(self.select_enemy(o, enemies))
+        self.observe_targets(o)
+        enemy = self.select_enemy(o, enemies)
+        point = self.aim_point(enemy)
+        self.last_combat_tick, self.hold_last_tick = tick, tick
         self.enemy_memory = (point, tick)
         yaw, pitch = self.aim_error(m, point, gun)
         if self.fire_slot != action["weapon_slot"]:
@@ -532,7 +684,7 @@ class Player:
         semi = action["weapon_slot"] == 1
         trigger = (not self.last_fire if semi else
                    self.burst_start is None or tick - self.burst_start < 24)
-        fire = bool(ready and trigger and m["grounded"]
+        fire = bool(ready and trigger and self.target_ready(enemy, tick) and m["grounded"]
                     and math.hypot(m.get("vx", 0.0), m.get("vy", 0.0)) < 0.25
                     and abs(yaw) < 0.025 and abs(pitch) < 0.025)
         if fire and not semi and self.burst_start is None:
@@ -540,7 +692,8 @@ class Player:
         self.last_fire = fire
         action.update(counterstop(m))
         action.update(yaw_rate=clip(yaw / 0.15),
-                      pitch_rate=clip(pitch / 0.1), crouch=True,
+                      pitch_rate=clip(pitch / 0.1),
+                      crouch=bool(m["crouch"]) if fire else True,
                       fire=fire)
         return action
 
@@ -557,7 +710,7 @@ class Player:
             action["use"] = use
         return action
 
-    def move(self, o, goal, action):
+    def move(self, o, goal, action, stop_at_goal=True):
         m = o["me"]
         pos = [m["x"], m["y"], m["z"]]
         tick = o["match_tick"]
@@ -567,31 +720,85 @@ class Player:
         if self.last_move_tick is None or tick - self.last_move_tick > 6:
             self.anchor, self.anchor_tick = pos, tick
             self.leg_target = None
+            if self.recovery_trace and self.recovery_edge is not None:
+                self.return_failures.add(self.recovery_edge)
+                self.retry_node = self.recovery_edge[1]
+                self.path = []
+            self.nav_trace, self.recovery_trace = [], []
         self.last_move_tick = tick
+        self.track_ground(m, pos)
+        if self.recovery_trace:
+            # Follow the observed corridor before restarting the graph search;
+            # selecting an anchor never teleports us across a corner or floor.
+            while self.recovery_trace and distance(pos, self.recovery_trace[0]) < 0.18:
+                self.recovery_trace.pop(0)
+            if self.recovery_trace:
+                point = self.recovery_trace[0]
+                if (tick >= self.recovery_until or not m["grounded"] or distance(pos, point) > 1.0
+                        or abs(pos[2]-point[2]) > 0.6):
+                    self.recovery_trace = []
+                    # A failed return is not permission to replace the walked
+                    # corridor with a straight line to its starting anchor.
+                    if self.recovery_edge is not None:
+                        self.return_failures.add(self.recovery_edge)
+                        self.retry_node = self.recovery_edge[1]
+                    self.nav_trace = []
+                    self.path = []
+                else:
+                    yaw = angle(math.atan2(-(point[1]-pos[1]), point[0]-pos[0])-m["yaw"])
+                    self.anchor, self.anchor_tick = pos, tick
+                    return dict(action, move_forward=0.65*math.cos(yaw),
+                                move_right=-0.65*math.sin(yaw), yaw_rate=clip(yaw/0.15),
+                                pitch_rate=clip(-m["pitch"]/0.1), walk=False, jump=False)
         if tick < self.escape_until:
             yaw = angle(self.escape_yaw - m["yaw"])
             return dict(action, move_forward=0.9 * math.cos(yaw),
                         move_right=-0.9 * math.sin(yaw),
                         yaw_rate=clip(yaw / 0.15),
                         pitch_rate=clip(-m["pitch"] / 0.1), walk=False,
-                        jump=bool(m["grounded"] and tick % 30 == 0))
+                        jump=False)
         if self.goal != goal or not self.path:
             self.path, self.goal = self.route(pos, goal), list(goal)
             self.leg_target = None
-        # Navmesh samples can be above the actual foot position on a slope.
-        while (len(self.path) > 1 and
+        # Nearby XY while airborne/below a box is not a completed traversal.
+        # The tolerance accommodates sampled ground, not another floor.
+        while (len(self.path) > 1 and m["grounded"] and
                math.dist(pos[:2], self.path[0][:2]) < 1.0 and
-               abs(pos[2] - self.path[0][2]) < 2.0):
+               abs(pos[2] - self.path[0][2]) <= 0.6):
             self.path.pop(0)
             if self.path_nodes:
                 reached = self.path_nodes.pop(0)
                 if reached is not None:
                     self.nav_from = reached
+                    self.pending_leg = None
+                    self.nav_trace = [list(pos)]
                     if reached == self.retry_node:
                         self.retry_node = None
         point = self.path[0]
+        if (self.nav_from is not None and self.path_nodes
+                and self.path_nodes[0] is not None
+                and self.path_nodes[0] != self.nav_from):
+            self.pending_leg = (self.nav_from, self.path_nodes[0])
         dx, dy = point[0]-pos[0], point[1]-pos[1]
         leg_distance = distance(pos, point)
+        # Only the final destination gets arrival handling. A nearby goal across
+        # a wall/floor, an intermediate corner or a failed-route recovery anchor
+        # must still follow the published path. Hysteresis avoids repeatedly
+        # powering through the same point after a small inertial displacement.
+        final_leg = all(distance(p, goal) < 0.25 for p in self.path)
+        goal_distance = distance(pos, goal)
+        if self.arrival_goal != tuple(goal):
+            self.arrival_goal = None
+        if (stop_at_goal and final_leg and m["grounded"]
+                and goal_distance < (1.2 if self.arrival_goal else 0.65)):
+            self.arrival_goal = tuple(goal)
+            self.last_move_tick, self.leg_target = None, None
+            self.last_position, self.stuck = pos, 0
+            self.anchor, self.anchor_tick = pos, tick
+            return dict(action, move_forward=0.0, move_right=0.0,
+                        yaw_rate=0.15, pitch_rate=clip(-m["pitch"] / 0.1),
+                        walk=False, jump=False)
+        self.arrival_goal = None
         if self.leg_target != point:
             self.leg_target, self.leg_best = list(point), leg_distance
             self.leg_progress_tick = tick
@@ -602,13 +809,16 @@ class Player:
                  or distance(pos, self.last_position) > 0.01)
         self.stuck = 0 if moved else self.stuck + 1
         self.last_position = pos
-        action.update(move_forward=0.75 * math.cos(yaw),
-                      move_right=-0.75 * math.sin(yaw),
+        # A small terminal taper reduces overshoot without slowing intermediate
+        # route legs or changing the measured-speed gate for plant/defuse.
+        throttle = 0.75 * min(1.0, max(0.2, goal_distance / 1.5)) if final_leg else 0.75
+        action.update(move_forward=throttle * math.cos(yaw),
+                      move_right=-throttle * math.sin(yaw),
                       yaw_rate=clip(yaw / 0.15),
                       pitch_rate=clip(-m["pitch"] / 0.1), walk=False)
         if self.anchor is None or math.dist(pos[:2], self.anchor[:2]) > 0.6:
             self.anchor, self.anchor_tick = pos, tick
-        if (tick >= self.escape_until and leg_distance >= 1.0
+        if (tick >= self.escape_until and leg_distance >= 0.65
                 and (tick - self.anchor_tick > 60
                      or tick - self.leg_progress_tick > 240)):
             # Commit to leaving a blocked corner; small sidesteps must not
@@ -617,7 +827,7 @@ class Player:
             self.penalize_leg()
             turn = (1 if (o["seat"] + self.escapes) % 2 else -1)
             self.escape_yaw = m["yaw"] + turn * (1.2 + 0.4 * (self.escapes % 3))
-            self.escape_until = tick + 45
+            self.escape_until = tick if self.recovery_trace else tick + 45
             self.anchor, self.anchor_tick = pos, self.escape_until
             self.path = []
             self.leg_target = None
@@ -626,9 +836,19 @@ class Player:
             action.update(move_forward=0.9 * math.cos(yaw),
                           move_right=-0.9 * math.sin(yaw),
                           yaw_rate=clip(yaw / 0.15),
-                          jump=bool(m["grounded"] and tick % 30 == 0))
+                          jump=False)
         elif point[2] - pos[2] > 0.45 and math.hypot(dx, dy) < 1.8:
-            action["jump"] = bool(m["grounded"] and tick % 24 == 0)
+            target = self.path_nodes[0] if self.path_nodes else None
+            # Key the allowance by destination too: replanning a connector
+            # cannot make an already-failed box appear to be a new attempt.
+            key = target if target is not None else tuple(point)
+            attempts = self.jump_attempts.get(key, 0)
+            jump = (m["grounded"] and attempts < 2
+                    and tick-self.last_jump_tick >= 60 and not self.recovery_trace)
+            action["jump"] = bool(jump)
+            if jump:
+                self.jump_attempts[key] = attempts + 1
+                self.last_jump_tick = tick
         return action
 
     def act(self, o):
@@ -639,6 +859,7 @@ class Player:
             self.clear_route_history()
             self.nodes, self.edges, self.sites = {}, {}, []
             self.walk_edges = set()
+            self.source_edges = set()
             self.pending_map = None
             self.path, self.goal = [], None
             self.last_position, self.stuck = None, 0
@@ -678,12 +899,16 @@ class Player:
             return self.buy(o)
         tick = o["match_tick"]
         visible = bool(o["visible"] and not m["blind_ticks"])
+        self.observe_targets(o)
         damaged = self.observe_safety(o)
         if visible:
             self.contact_until = tick + 90
         slot = self.weapon_slot(m, contact=tick < self.contact_until, tick=tick)
         gun = m["weapons"][slot]
         enemies = self.reachable_enemies(o, gun)
+        self.bound_head_wait(o, enemies)
+        confirmed = [e for e in enemies if self.target_ready(e, tick)]
+        engage_enemies = confirmed or enemies
         pos = [m["x"], m["y"], m["z"]]
         bomb = o["bomb"]
         planted = bomb["state"] == "planted"
@@ -695,13 +920,13 @@ class Player:
         bomb_position = self.known_bomb if planted else bomb.get("position")
         # Objective requests are independent of route selection. Preserve the
         # active slot and sustain use even when an enemy appears or ammo is empty.
-        if (o["side"] == "defend" and planted
-                and bomb_position is not None
-                and distance(pos, bomb_position) < 2.0):
+        defusing = (o["side"] == "defend" and planted
+                    and bomb_position is not None)
+        planting = o["side"] == "attack" and m["carrying_bomb"] and not planted
+        if defusing and distance(pos, bomb_position) < 2.0:
             return self.objective_action(m, slot, "defuse")
-        if (o["side"] == "attack" and m["carrying_bomb"] and not planted
-                and any(distance(pos, site["center"]) < site["radius"] * 0.5
-                        for site in self.sites)):
+        if (planting and any(distance(pos, site["center"]) < site["radius"] * 0.5
+                             for site in self.sites)):
             return self.objective_action(m, slot, "plant")
         action = {"weapon_slot": slot}
         escape = self.unseen_damage_escape(o, action, damaged)
@@ -717,7 +942,7 @@ class Player:
         if not self.sites:
             # Missing static data cannot justify inventing a navigation target.
             if enemies:
-                return self.combat(o, action, gun, enemies)
+                return self.combat(o, action, gun, engage_enemies)
             return self.quiet_action(o, action)
         # Attackers rally on a shared site; defenders cover sites by team seat.
         index = (o["round_index"] if o["side"] == "attack"
@@ -733,8 +958,13 @@ class Player:
             if distance(pos, goal) < 1.2:
                 return self.quiet_action(
                     o, dict(action, use="pickup", pickup_id=bomb["id"]))
-        if self.should_engage(o, enemies, goal):
-            return self.combat(o, action, gun, enemies)
+        if self.should_engage(o, engage_enemies, goal):
+            # Prefer a confirmed shootable target over an unconfirmed nearer
+            # glimpse. Engagement urgency and actual selection use the same set.
+            return self.combat(o, action, gun, engage_enemies)
+        hold = self.lost_contact_hold(o, action)
+        if hold is not None:
+            return hold
         if visible:
             # An unshootable target or an objective deadline must not keep the
             # policy crouched in place or override the next route heading.
@@ -745,7 +975,8 @@ class Player:
                 and distance(pos, goal) < 8):
             return self.quiet_action(o, dict(action, yaw_rate=0.15, walk=True))
         # Buy already gates movement; do not delay later seats after live starts.
-        return self.quiet_action(o, self.move(o, goal, action))
+        return self.quiet_action(o, self.move(o, goal, action,
+                                             stop_at_goal=not (planting or defusing)))
 
 
 _player = Player()
