@@ -1,0 +1,66 @@
+{
+  "match_id": "96696aa2-e160-4e60-a7f2-b133ac91775c",
+  "seat": 6,
+  "recorded_bundle_sha256": "4add5462a81b39cded1fd19aa2a07e398b51d91f360cde6fc6398fb5608d4333",
+  "recorded_version_id": "0d5d43bd-546e-4309-a2ae-ca1dcc0278e1",
+  "export_complete": {
+    "type": "export_complete",
+    "complete": true,
+    "rows": 2,
+    "raw_bytes": 495041,
+    "sha256": "3ec4a72e7f58ae1791ff6d1a2987efd65aaa4d9ebfdb7f7a5a6e218615d6ef5a",
+    "seat_calls": {
+      "6": 2
+    }
+  },
+  "export_file_sha256": "9ebff7165a796f35eeb9e41f48e9775238c380ffb4107bc01c60b6cb42f10986",
+  "actual_policy_input_bot_waypoints_is_null": true,
+  "recorded_fault_tick": 3,
+  "results": {
+    "v10": {
+      "source_sha256": "e83b4c1fb3bbd4ccd91ddf14747760332d6b33ad8006008dfc7e87249f7cd1b1",
+      "callbacks": [
+        {
+          "tick": 0,
+          "action": {
+            "buy": "armor"
+          },
+          "validation_errors": [],
+          "local_callback_ms_including_json": 2.0019999999999967
+        },
+        {
+          "tick": 3,
+          "error_type": "AttributeError",
+          "error": "'NoneType' object has no attribute 'get'",
+          "traceback": "Traceback (most recent call last):\n  File \"/Users/ken/Documents/ChatGPT/AGX ass/agx-fps-agent/scripts/verify_9669_fault.py\", line 44, in main\n    action = module.act(json.loads(wire))\n  File \"/Users/ken/Documents/ChatGPT/AGX ass/agx-fps-agent/data/private/agx-v10-agent.py\", line 1581, in act\n    return _player.act(observation)\n           ~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/Users/ken/Documents/ChatGPT/AGX ass/agx-fps-agent/data/private/agx-v10-agent.py\", line 1416, in act\n    self.load_map(self.pending_map)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/Users/ken/Documents/ChatGPT/AGX ass/agx-fps-agent/data/private/agx-v10-agent.py\", line 921, in load_map\n    self.build_guard_plans(row)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/Users/ken/Documents/ChatGPT/AGX ass/agx-fps-agent/data/private/agx-v10-agent.py\", line 484, in build_guard_plans\n    published = hints.get(\"hold\" + name, [])\n                ^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'get'\n",
+          "local_callback_ms_including_json": 7.668999999999995
+        }
+      ]
+    },
+    "v11": {
+      "source_sha256": "e044b26e3de850493d231a753df71d4435277030468ebb43b00fa8c0d97f7163",
+      "callbacks": [
+        {
+          "tick": 0,
+          "action": {
+            "buy": "armor"
+          },
+          "validation_errors": [],
+          "local_callback_ms_including_json": 11.900999999999994
+        },
+        {
+          "tick": 3,
+          "action": {},
+          "validation_errors": [],
+          "local_callback_ms_including_json": 0.04800000000000637
+        }
+      ]
+    }
+  },
+  "conclusion": "V10 raises AttributeError on the actual second callback; published V11 accepts both original callbacks.",
+  "limitations": [
+    "Export records fault=true but no server exception text or fault subtype.",
+    "Only two original callbacks exist; this is not a full V11 match replay.",
+    "CPU timing is local, not server CPU."
+  ]
+}

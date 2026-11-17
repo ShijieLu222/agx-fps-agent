@@ -2,7 +2,7 @@
 
 修复可选地图字段为 null 时初始化失败的风险，并把建图与守点计划放到首次回调的 1 秒预算内，避免推迟到第二次回调的 50 毫秒预算。缺失或空的 bot_waypoints、单独守点/观察点列表、boxes、route_landmarks、出生点组均有回归覆盖。地图缓存继续复用，换图重建。
 
-本场 9669 的准确 fault code 和冻结版本仍待本人日志核验。公开 Mirage 地图可以复现空值异常，但不等于真实策略输入包含该空值；不宣称此候选已经根治本场故障。
+发布后已取得 9669 的本人完整原始日志并校验导出指纹：冻结版本确为 V10，真实策略输入包含 `bot_waypoints: null`。已归档 V10 对第二次原始输入在 `hints.get(...)` 复现 AttributeError；已发布 V11 对相同两次输入均无异常、动作合法。该空值故障已修复。导出只有 `fault: true`，没有服务器异常文本或子类型；两次输入复现也不等于 V11 整场实战通过。见 [真实输入故障复现](../experiments/v11-9669-fault-reproduction.json)。
 
 ## 已完成验证
 
@@ -17,6 +17,7 @@
 ```bash
 python3 -B -m unittest discover -s tests -v
 python3 -B scripts/verify_v11_startup.py
+python3 -B scripts/verify_9669_fault.py
 python3 -B scripts/pack.py --output dist/agx-fps-agent-v11.zip
 ```
 
@@ -26,4 +27,4 @@ python3 -B scripts/pack.py --output dist/agx-fps-agent-v11.zip
 
 ZIP SHA256：`adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de`，20447 字节，根目录仅 agent.py，包内源码与受测文件一致。
 
-发布状态：本地包已完成。浏览器恢复后页面显示“登录后报名”，等待用户恢复 AGX 登录；未提交成功、未取得平台准入回执。
+发布状态：2026-11-16 17:23:12（北京时间）平台收到提交，准入 passed。刷新赛事页面确认当前代码版本为 `v11 · adcccc500476`；包和源码指纹均与本地受测候选一致。发布回执见 [platform-v11.json](../experiments/platform-v11.json)。

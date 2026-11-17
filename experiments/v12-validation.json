@@ -1,0 +1,641 @@
+{
+  "format": "agx-fps-v12-validation.v1",
+  "source_sha256": "0c495731606811c3973f69de5e2579a83c85181fb2104c89eb31289612077888",
+  "status": "local_checks_passed_not_published",
+  "recent_comparisons": [
+    {
+      "prefix": "11dd",
+      "job_id": "11dd39fa-11de-4520-8163-cf4e864f94f9",
+      "seat": 7,
+      "baseline_source_sha256": "e044b26e3de850493d231a753df71d4435277030468ebb43b00fa8c0d97f7163",
+      "candidate_source_sha256": "0c495731606811c3973f69de5e2579a83c85181fb2104c89eb31289612077888",
+      "recorded_bundle_sha256": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "verified_training": {
+        "rows": 28094,
+        "raw_bytes": 94312153,
+        "sha256": "b3db4087b3eb04aa4f4a11cc179c797bfb2aaba344a904d42fc981ea68567f11"
+      },
+      "totals": {
+        "decisions": 28094,
+        "recorded_faults": 0,
+        "baseline_mismatches": 0,
+        "changed_actions": 3476
+      },
+      "changed_fields": {
+        "pitch_rate": 7,
+        "move_forward": 3475,
+        "yaw_rate": 123,
+        "walk": 3319,
+        "move_right": 3149,
+        "jump": 19
+      },
+      "movement_requests": {
+        "defend": {
+          "old_move_calls": 9455,
+          "old_walk_calls": 3423,
+          "new_move_calls": 9455,
+          "new_walk_calls": 1949,
+          "both_move_calls": 9455
+        },
+        "attack": {
+          "old_move_calls": 5958,
+          "old_walk_calls": 2870,
+          "new_move_calls": 5958,
+          "new_walk_calls": 2257,
+          "both_move_calls": 5958
+        },
+        "postplant_attack": {
+          "old_move_calls": 1747,
+          "old_walk_calls": 751,
+          "new_move_calls": 1747,
+          "new_walk_calls": 0,
+          "both_move_calls": 1747
+        },
+        "carrier": {
+          "old_move_calls": 924,
+          "old_walk_calls": 451,
+          "new_move_calls": 924,
+          "new_walk_calls": 0,
+          "both_move_calls": 924
+        }
+      },
+      "preserved_retargets": [
+        {
+          "round": 9,
+          "tick": 31431,
+          "side": "defend"
+        },
+        {
+          "round": 13,
+          "tick": 46317,
+          "side": "attack"
+        },
+        {
+          "round": 16,
+          "tick": 57483,
+          "side": "attack"
+        },
+        {
+          "round": 19,
+          "tick": 74193,
+          "side": "attack"
+        }
+      ]
+    },
+    {
+      "prefix": "5538",
+      "job_id": "5538fabd-981f-4594-aaf8-136a9133f92d",
+      "seat": 2,
+      "baseline_source_sha256": "e044b26e3de850493d231a753df71d4435277030468ebb43b00fa8c0d97f7163",
+      "candidate_source_sha256": "0c495731606811c3973f69de5e2579a83c85181fb2104c89eb31289612077888",
+      "recorded_bundle_sha256": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "verified_training": {
+        "rows": 31916,
+        "raw_bytes": 108640415,
+        "sha256": "a93facd8d5d521e3deb42ab1185174bb1fe8886f303b7c69b891400f1bbf40d5"
+      },
+      "totals": {
+        "decisions": 31916,
+        "recorded_faults": 0,
+        "baseline_mismatches": 0,
+        "changed_actions": 684
+      },
+      "changed_fields": {
+        "move_forward": 684,
+        "walk": 684,
+        "move_right": 684
+      },
+      "movement_requests": {
+        "defend": {
+          "old_move_calls": 19074,
+          "old_walk_calls": 12412,
+          "new_move_calls": 19074,
+          "new_walk_calls": 11999,
+          "both_move_calls": 19074
+        },
+        "attack": {
+          "old_move_calls": 2022,
+          "old_walk_calls": 1035,
+          "new_move_calls": 2022,
+          "new_walk_calls": 1017,
+          "both_move_calls": 2022
+        },
+        "postplant_attack": {
+          "old_move_calls": 1362,
+          "old_walk_calls": 253,
+          "new_move_calls": 1362,
+          "new_walk_calls": 0,
+          "both_move_calls": 1362
+        }
+      },
+      "preserved_retargets": []
+    },
+    {
+      "prefix": "eb98",
+      "job_id": "eb985148-1b3c-4bb0-b07c-e1a03ffb5eee",
+      "seat": 7,
+      "baseline_source_sha256": "e044b26e3de850493d231a753df71d4435277030468ebb43b00fa8c0d97f7163",
+      "candidate_source_sha256": "0c495731606811c3973f69de5e2579a83c85181fb2104c89eb31289612077888",
+      "recorded_bundle_sha256": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "verified_training": {
+        "rows": 24960,
+        "raw_bytes": 85539948,
+        "sha256": "95028e06897d128e3f405bc25d73641b4d5e412db5dd5271da3b1bb96e1ef1b0"
+      },
+      "totals": {
+        "decisions": 24960,
+        "recorded_faults": 0,
+        "baseline_mismatches": 0,
+        "changed_actions": 2591
+      },
+      "changed_fields": {
+        "pitch_rate": 23,
+        "move_forward": 2591,
+        "yaw_rate": 84,
+        "walk": 2426,
+        "move_right": 2471,
+        "jump": 32
+      },
+      "movement_requests": {
+        "defend": {
+          "old_move_calls": 12657,
+          "old_walk_calls": 5275,
+          "new_move_calls": 12657,
+          "new_walk_calls": 3925,
+          "both_move_calls": 12657
+        },
+        "carrier": {
+          "old_move_calls": 1835,
+          "old_walk_calls": 627,
+          "new_move_calls": 1835,
+          "new_walk_calls": 0,
+          "both_move_calls": 1835
+        },
+        "attack": {
+          "old_move_calls": 2204,
+          "old_walk_calls": 916,
+          "new_move_calls": 2204,
+          "new_walk_calls": 778,
+          "both_move_calls": 2204
+        },
+        "postplant_attack": {
+          "old_move_calls": 802,
+          "old_walk_calls": 311,
+          "new_move_calls": 802,
+          "new_walk_calls": 0,
+          "both_move_calls": 802
+        }
+      },
+      "preserved_retargets": [
+        {
+          "round": 1,
+          "tick": 3651,
+          "side": "defend"
+        },
+        {
+          "round": 8,
+          "tick": 30684,
+          "side": "defend"
+        },
+        {
+          "round": 8,
+          "tick": 30687,
+          "side": "defend"
+        },
+        {
+          "round": 11,
+          "tick": 42591,
+          "side": "defend"
+        },
+        {
+          "round": 12,
+          "tick": 48666,
+          "side": "defend"
+        },
+        {
+          "round": 14,
+          "tick": 57108,
+          "side": "attack"
+        },
+        {
+          "round": 16,
+          "tick": 65625,
+          "side": "attack"
+        },
+        {
+          "round": 17,
+          "tick": 69039,
+          "side": "attack"
+        },
+        {
+          "round": 17,
+          "tick": 69045,
+          "side": "attack"
+        }
+      ]
+    }
+  ],
+  "historical_audits": [
+    {
+      "prefix": "11dd",
+      "seat": 7,
+      "cpu": {
+        "import_and_init_seconds": 0.007782000000000622,
+        "act_seconds": 0.275586999999879,
+        "json_row_decode_seconds": 0.527381000000215,
+        "action_encode_seconds": 0.0708290000002183,
+        "local_total_seconds": 0.881579000000313,
+        "local_callback_max_ms_including_json": 0.8079999999992538,
+        "act_max_ms": 0.6359999999983046,
+        "act_p99_ms": 0.023999999999801958,
+        "act_median_ms": 0.011999999999900979,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 28094
+    },
+    {
+      "prefix": "5538",
+      "seat": 2,
+      "cpu": {
+        "import_and_init_seconds": 0.007500000000000284,
+        "act_seconds": 0.5330229999998526,
+        "json_row_decode_seconds": 0.6079630000000833,
+        "action_encode_seconds": 0.08445100000015238,
+        "local_total_seconds": 1.2329370000000885,
+        "local_callback_max_ms_including_json": 10.801999999999978,
+        "act_max_ms": 8.917999999999537,
+        "act_p99_ms": 0.026000000000081513,
+        "act_median_ms": 0.012999999999152578,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 31916
+    },
+    {
+      "prefix": "eb98",
+      "seat": 7,
+      "cpu": {
+        "import_and_init_seconds": 0.007974000000000814,
+        "act_seconds": 0.2631419999999647,
+        "json_row_decode_seconds": 0.4863010000002106,
+        "action_encode_seconds": 0.06484199999973406,
+        "local_total_seconds": 0.8222589999999101,
+        "local_callback_max_ms_including_json": 0.6560000000011001,
+        "act_max_ms": 0.4939999999997724,
+        "act_p99_ms": 0.024999999999053557,
+        "act_median_ms": 0.012999999999152578,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 24960
+    },
+    {
+      "prefix": "385f",
+      "seat": 9,
+      "cpu": {
+        "import_and_init_seconds": 0.008129999999999526,
+        "act_seconds": 0.386326000000178,
+        "json_row_decode_seconds": 0.7663559999999023,
+        "action_encode_seconds": 0.10070899999957561,
+        "local_total_seconds": 1.2615209999996555,
+        "local_callback_max_ms_including_json": 0.9280000000018163,
+        "act_max_ms": 0.7250000000009749,
+        "act_p99_ms": 0.023000000000550358,
+        "act_median_ms": 0.011999999999900979,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 41010
+    },
+    {
+      "prefix": "e2e4",
+      "seat": 6,
+      "cpu": {
+        "import_and_init_seconds": 0.007573000000000718,
+        "act_seconds": 0.40839300000022405,
+        "json_row_decode_seconds": 0.32922599999993096,
+        "action_encode_seconds": 0.04303099999968296,
+        "local_total_seconds": 0.7882229999998387,
+        "local_callback_max_ms_including_json": 10.714000000003665,
+        "act_max_ms": 8.818000000001547,
+        "act_p99_ms": 0.3109999999999502,
+        "act_median_ms": 0.012999999999152578,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 18887
+    },
+    {
+      "prefix": "e144",
+      "seat": 3,
+      "cpu": {
+        "import_and_init_seconds": 0.007560999999999041,
+        "act_seconds": 0.17766900000004426,
+        "json_row_decode_seconds": 0.3776410000001391,
+        "action_encode_seconds": 0.04762999999973516,
+        "local_total_seconds": 0.6105009999999176,
+        "local_callback_max_ms_including_json": 0.8209999999984063,
+        "act_max_ms": 0.636000000000081,
+        "act_p99_ms": 0.021999999997746045,
+        "act_median_ms": 0.01100000000064938,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 20435
+    },
+    {
+      "prefix": "c76",
+      "seat": 1,
+      "cpu": {
+        "import_and_init_seconds": 0.007508999999998878,
+        "act_seconds": 0.19367400000028923,
+        "json_row_decode_seconds": 0.44764700000026636,
+        "action_encode_seconds": 0.05434499999984865,
+        "local_total_seconds": 0.7031750000004031,
+        "local_callback_max_ms_including_json": 0.5899999999989802,
+        "act_max_ms": 0.44199999999960937,
+        "act_p99_ms": 0.023000000002326715,
+        "act_median_ms": 0.004999999998034355,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 25825
+    },
+    {
+      "prefix": "9e35",
+      "seat": 1,
+      "cpu": {
+        "import_and_init_seconds": 0.007647999999999655,
+        "act_seconds": 0.19720700000039315,
+        "json_row_decode_seconds": 0.41345100000013346,
+        "action_encode_seconds": 0.0519549999999569,
+        "local_total_seconds": 0.6702610000004832,
+        "local_callback_max_ms_including_json": 0.5910000000000082,
+        "act_max_ms": 0.4400000000011062,
+        "act_p99_ms": 0.02200000000129876,
+        "act_median_ms": 0.011999999998124622,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 22549
+    },
+    {
+      "prefix": "c630",
+      "seat": 1,
+      "cpu": {
+        "import_and_init_seconds": 0.007667999999998898,
+        "act_seconds": 0.2932040000001592,
+        "json_row_decode_seconds": 0.6929340000002497,
+        "action_encode_seconds": 0.08712699999987095,
+        "local_total_seconds": 1.0809330000002788,
+        "local_callback_max_ms_including_json": 0.6729999999990355,
+        "act_max_ms": 0.512000000000512,
+        "act_p99_ms": 0.02099999999671809,
+        "act_median_ms": 0.0020000000020559128,
+        "callbacks_over_local_budget_including_json": 0,
+        "local_total_over_64_seconds": false,
+        "import_and_init_over_2_seconds": false
+      },
+      "decisions_checked": 41201
+    }
+  ],
+  "startup": [
+    {
+      "map": "nevaio-r3-v54",
+      "side": "attack",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        0.7800000000000029,
+        0.022999999999995246,
+        0.08099999999999774,
+        0.04499999999999643
+      ]
+    },
+    {
+      "map": "nevaio-r3-v54",
+      "side": "attack",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        0.7179999999999964,
+        0.016000000000002124,
+        0.059000000000003494,
+        0.03200000000000425
+      ]
+    },
+    {
+      "map": "nevaio-r3-v54",
+      "side": "defend",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        0.7319999999999965,
+        0.016000000000002124,
+        0.05000000000000143,
+        0.03200000000000425
+      ]
+    },
+    {
+      "map": "nevaio-r3-v54",
+      "side": "defend",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        0.7230000000000014,
+        0.016999999999996185,
+        0.05100000000000243,
+        0.03199999999999731
+      ]
+    },
+    {
+      "map": "dust2-cs2-v54",
+      "side": "attack",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        10.921,
+        0.029000000000001247,
+        1.792000000000002,
+        0.03599999999999437
+      ]
+    },
+    {
+      "map": "dust2-cs2-v54",
+      "side": "attack",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        10.846999999999996,
+        0.024000000000010124,
+        2.2109999999999905,
+        0.04399999999998849
+      ]
+    },
+    {
+      "map": "dust2-cs2-v54",
+      "side": "defend",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        10.796,
+        0.030000000000002247,
+        0.7639999999999869,
+        0.03899999999998349
+      ]
+    },
+    {
+      "map": "dust2-cs2-v54",
+      "side": "defend",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        11.050000000000004,
+        0.020999999999993246,
+        0.8009999999999962,
+        0.03200000000000425
+      ]
+    },
+    {
+      "map": "mirage-cs2-v54",
+      "side": "attack",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        12.269000000000002,
+        0.031000000000003247,
+        1.1489999999999834,
+        0.03600000000000825
+      ]
+    },
+    {
+      "map": "mirage-cs2-v54",
+      "side": "attack",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        12.082999999999982,
+        0.029000000000001247,
+        0.9219999999999784,
+        0.03300000000000525
+      ]
+    },
+    {
+      "map": "mirage-cs2-v54",
+      "side": "defend",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        12.022999999999978,
+        0.024000000000024002,
+        0.7100000000000439,
+        0.036000000000036
+      ]
+    },
+    {
+      "map": "mirage-cs2-v54",
+      "side": "defend",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        12.095999999999997,
+        0.022000000000022002,
+        0.7090000000000152,
+        0.034000000000034
+      ]
+    },
+    {
+      "map": "borgo-r3-v54",
+      "side": "attack",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        0.6420000000000314,
+        0.020000000000020002,
+        0.06499999999998174,
+        0.03300000000000525
+      ]
+    },
+    {
+      "map": "borgo-r3-v54",
+      "side": "attack",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        0.6399999999999739,
+        0.024000000000024002,
+        0.05099999999996774,
+        0.029000000000001247
+      ]
+    },
+    {
+      "map": "borgo-r3-v54",
+      "side": "defend",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        0.6240000000000134,
+        0.016999999999989246,
+        0.053999999999998494,
+        0.031000000000003247
+      ]
+    },
+    {
+      "map": "borgo-r3-v54",
+      "side": "defend",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        0.6269999999999887,
+        0.016000000000016,
+        0.051999999999996493,
+        0.02799999999997249
+      ]
+    },
+    {
+      "map": "molo-r3-v54",
+      "side": "attack",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        0.5049999999999777,
+        0.020000000000020002,
+        0.05999999999994898,
+        0.031000000000003247
+      ]
+    },
+    {
+      "map": "molo-r3-v54",
+      "side": "attack",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        0.5830000000000002,
+        0.023000000000050758,
+        0.06500000000003725,
+        0.034000000000034
+      ]
+    },
+    {
+      "map": "molo-r3-v54",
+      "side": "defend",
+      "null_hints": false,
+      "callback_ms_including_json": [
+        0.5020000000000024,
+        0.018000000000018,
+        0.051999999999996493,
+        0.030000000000030003
+      ]
+    },
+    {
+      "map": "molo-r3-v54",
+      "side": "defend",
+      "null_hints": true,
+      "callback_ms_including_json": [
+        0.4989999999999717,
+        0.016000000000016,
+        0.04699999999996374,
+        0.031000000000003247
+      ]
+    }
+  ],
+  "limitations": [
+    "Fixed historical observations do not measure future match results or saved travel time.",
+    "Startup cases combine verified public maps with synthetic own observations.",
+    "Local CPU checks are not server admission or server execution timings.",
+    "8342, f490 and dde6 own training exports returned training_trace_unavailable (503)."
+  ],
+  "unit_tests_passed": 172,
+  "total_historical_decisions": 254877
+}

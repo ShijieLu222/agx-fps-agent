@@ -1,0 +1,15 @@
+{
+  "version": "v12",
+  "status": "local_candidate_not_uploaded",
+  "source_sha256": "0c495731606811c3973f69de5e2579a83c85181fb2104c89eb31289612077888",
+  "bundle_sha256": "29c81f91ca6a65f8854dee14cffb888928b9114e6f6e0f32fc6dd38ba88afbf9",
+  "source_bytes": 81355,
+  "bundle_bytes": 20804,
+  "contents": [
+    "agent.py"
+  ],
+  "unit_tests_passed": 172,
+  "historical_decisions_checked": 254877,
+  "startup_cases": 20,
+  "baseline_regressions": 6
+}

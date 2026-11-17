@@ -1,0 +1,102 @@
+{
+  "matches": [
+    {
+      "job_id": "f49079b6-76da-413f-b911-8bc8ea7b7fbb",
+      "created_at_beijing": "2026-11-17T00:00:03.205434+08:00",
+      "map": "molo-r3-v54",
+      "own_seat": 6,
+      "version": 11,
+      "score": "11:13",
+      "won": false,
+      "kills": 17,
+      "deaths": 18,
+      "damage": 2147.995849156961,
+      "training_available": false
+    },
+    {
+      "job_id": "dde6ca78-df9e-4588-8df7-8c7bf756d5f2",
+      "created_at_beijing": "2026-11-17T02:00:03.044668+08:00",
+      "map": "molo-r3-v54",
+      "own_seat": 6,
+      "version": 11,
+      "score": "13:4",
+      "won": true,
+      "kills": 13,
+      "deaths": 6,
+      "damage": 1927.5710398190204,
+      "training_available": false
+    },
+    {
+      "job_id": "eb985148-1b3c-4bb0-b07c-e1a03ffb5eee",
+      "created_at_beijing": "2026-11-17T04:00:03.043078+08:00",
+      "map": "borgo-r3-v54",
+      "own_seat": 7,
+      "version": 11,
+      "score": "13:4",
+      "won": true,
+      "kills": 13,
+      "deaths": 4,
+      "damage": 1125.6726239575137,
+      "training_available": true
+    },
+    {
+      "job_id": "8342d181-6723-407e-aa70-a5e76fe0b8ee",
+      "created_at_beijing": "2026-11-17T06:00:02.609808+08:00",
+      "map": "mirage-cs2-v54",
+      "own_seat": 5,
+      "version": 11,
+      "score": "2:13",
+      "won": false,
+      "kills": 8,
+      "deaths": 10,
+      "damage": 932.9510255710924,
+      "training_available": false
+    },
+    {
+      "job_id": "5538fabd-981f-4594-aaf8-136a9133f92d",
+      "created_at_beijing": "2026-11-17T08:18:20.172978+08:00",
+      "map": "dust2-cs2-v54",
+      "own_seat": 2,
+      "version": 11,
+      "score": "13:1",
+      "won": true,
+      "kills": 13,
+      "deaths": 4,
+      "damage": 1719.7110177864402,
+      "training_available": true
+    },
+    {
+      "job_id": "11dd39fa-11de-4520-8163-cf4e864f94f9",
+      "created_at_beijing": "2026-11-17T10:13:27.172750+08:00",
+      "map": "nevaio-r3-v54",
+      "own_seat": 7,
+      "version": 11,
+      "score": "13:8",
+      "won": true,
+      "kills": 14,
+      "deaths": 13,
+      "damage": 2067.6678940002466,
+      "training_available": true
+    }
+  ],
+  "own_training_unavailable": {
+    "8342": "503 training_trace_unavailable, retried twice",
+    "f490": "503 training_trace_unavailable, retried twice",
+    "dde6": "503 training_trace_unavailable"
+  },
+  "current_candidate": {
+    "version": "v12",
+    "status": "local_candidate_not_uploaded",
+    "source_sha256": "0c495731606811c3973f69de5e2579a83c85181fb2104c89eb31289612077888",
+    "bundle_sha256": "29c81f91ca6a65f8854dee14cffb888928b9114e6f6e0f32fc6dd38ba88afbf9",
+    "source_bytes": 81355,
+    "bundle_bytes": 20804,
+    "contents": [
+      "agent.py"
+    ],
+    "unit_tests_passed": 172,
+    "historical_decisions_checked": 254877,
+    "startup_cases": 20,
+    "baseline_regressions": 6
+  }
+}

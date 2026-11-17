@@ -1,4 +1,4 @@
-"""AGX FPS v11 candidate adapted from the official public starter.
+"""AGX FPS v12 candidate adapted from the official public starter.
 
 Source: https://agx.cool/docs/schema/fps.example.agent.py
 Retrieved: 2026-11-15. Contract: rsi-fps-5.5.
@@ -23,6 +23,8 @@ v10 commits support by region, searches planted sites by navigation cost and
 bounds out-of-sight slowdown during retakes. No win-rate gain is assumed.
 v11 tolerates null optional map hints and builds the graph on the first
 callback, using its larger CPU budget instead of the second-call limit.
+v12 preserves route prefixes when an objective moves within the same graph
+destination and bounds anonymous-sound slowing during objective travel.
 """
 import math
 import gc
@@ -276,6 +278,7 @@ class Player:
         self.damage_watch_start = None
         self.damage_watch_yaw, self.damage_watch_sign = 0.0, 1.0
         self.sound_yaw, self.sound_until = None, 0
+        self.sound_slow_until, self.sound_last_cue = 0, -10000
         self.head_targets = set()
         self.guard_site, self.guard_choice = None, 0
         self.guard_bad = set()
@@ -443,13 +446,20 @@ class Player:
         if o["me"]["blind_ticks"] or o["visible"]:
             self.sound_yaw, self.sound_until = None, 0
             return
-        if o["match_tick"] < self.sound_until:
-            return  # Do not chase a moving relative bearing on every callback.
-        self.sound_yaw = None
         cues = [s for s in o.get("sounds", [])
                 if s.get("type") in ("footstep", "fire", "shot", "reload", "plant", "defuse")
                 and s.get("direction") in ("left", "right", "center")
                 and s.get("distance_band") in ("near", "mid")]
+        tick = o["match_tick"]
+        if cues:
+            # Anonymous sounds may be teammates. Repeated cues keep the gaze
+            # alert, but cannot renew a movement penalty indefinitely.
+            if tick - self.sound_last_cue >= 180:
+                self.sound_slow_until = tick + 36
+            self.sound_last_cue = tick
+        if tick < self.sound_until:
+            return  # Do not chase a moving relative bearing on every callback.
+        self.sound_yaw = None
         if cues:
             cue = min(cues, key=lambda s: s["distance_band"] != "near")
             offset = {"left": math.pi/3, "right": -math.pi/3, "center": 0.}[cue["direction"]]
@@ -640,18 +650,22 @@ class Player:
                 or self.recovery_trace):
             return action
         corner = False
+        objective_travel = (self.retake or o["me"]["carrying_bomb"]
+                            or (o["side"] == "attack"
+                                and o["bomb"]["state"] == "planted"))
         if len(self.path) >= 2:
             m = o["me"]
             p, q = self.path[:2]
             dx, dy = p[0]-m["x"], p[1]-m["y"]
             ax, ay = q[0]-p[0], q[1]-p[1]
-            if 1. <= math.hypot(dx, dy) <= (2. if self.retake else 5.) and math.hypot(ax, ay) > 1.:
+            if 1. <= math.hypot(dx, dy) <= (2. if objective_travel else 5.) and math.hypot(ax, ay) > 1.:
                 turn = angle(math.atan2(ay, ax)-math.atan2(dy, dx))
                 corner = abs(turn) >= .65
-        sound = self.sound_yaw is not None and o["match_tick"] < self.sound_until
-        if self.retake:
-            # The fuse keeps running while anonymous (possibly friendly) sounds
-            # recur. Keep looking at cues, but do not crawl the whole approach.
+        sound = (self.sound_yaw is not None and o["match_tick"] < self.sound_until
+                 and o["match_tick"] < self.sound_slow_until)
+        if objective_travel:
+            # The round/fuse keeps running while anonymous sounds recur.
+            # Keep looking at cues; clear visible threats in the combat branch.
             if corner:
                 action = dict(action)
                 for key in ("move_forward", "move_right"):
@@ -1296,6 +1310,17 @@ class Player:
                         yaw_rate=clip(yaw / 0.15),
                         pitch_rate=clip(-m["pitch"] / 0.1), walk=False,
                         jump=False)
+        if self.goal != goal and self.path and len(self.path_nodes) >= 2:
+            # A newly precise bomb coordinate often only changes the last
+            # connector inside the same site. Keep the in-progress corridor;
+            # restarting at the nearest node can send us back to its origin.
+            last_node = self.path_nodes[-2]
+            if (self.path_nodes[-1] is None and self.path[-1] == self.goal
+                    and last_node in self.nodes
+                    and last_node == min(self.nodes,
+                        key=lambda n: distance(goal, self.nodes[n]))):
+                self.path[-1], self.goal = list(goal), list(goal)
+                self.arrival_goal = None
         if self.goal != goal or not self.path:
             self.path, self.goal = self.route(pos, goal), list(goal)
             self.leg_target = None

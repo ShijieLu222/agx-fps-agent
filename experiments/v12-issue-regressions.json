@@ -1,0 +1,14 @@
+{
+  "baseline": "v11",
+  "tests": 9,
+  "expected_failures": [
+    "test_v12_objective_travel.AcousticPaceTests.test_carrier_and_postplant_travel_keep_speed_and_local_corner_control",
+    "test_v12_objective_travel.AcousticPaceTests.test_quiet_interval_rearms_caution_but_one_missing_cue_does_not",
+    "test_v12_objective_travel.AcousticPaceTests.test_repeated_anonymous_sounds_allow_only_short_slow_window",
+    "test_v12_objective_travel.AcousticPaceTests.test_round_reset_restores_first_cue_caution",
+    "test_v12_objective_travel.RouteContinuityTests.test_new_bomb_coordinate_keeps_forward_corridor_and_corner",
+    "test_v12_objective_travel.RouteContinuityTests.test_repeated_coordinate_updates_do_not_reset_progress_clock"
+  ],
+  "errors": 0,
+  "candidate_total_tests_passed": 172
+}
