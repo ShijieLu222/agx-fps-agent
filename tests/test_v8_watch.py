@@ -22,7 +22,7 @@ class WatchTests(unittest.TestCase):
         p = agent.Player()
         watched = p.act(row)
         baseline_map = copy.deepcopy(row)
-        del baseline_map['map']['spawns']
+        del baseline_map['map']['spawns']['CT']
         normal = agent.Player().act(baseline_map)
         for key in ('move_forward', 'move_right', 'weapon_slot', 'jump', 'fire', 'reload', 'use'):
             self.assertEqual(watched.get(key), normal.get(key))

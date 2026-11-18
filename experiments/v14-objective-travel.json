@@ -1,0 +1,1225 @@
+{
+  "source_sha256": {
+    "v13": "583a2cfb01c95416dd0b53114a3e592f9459320cc603aaf7bdb448b384976ff1",
+    "candidate": "bcb5f1c0ad45d37ffdc488a335f32503b47f359b2486181f2647cd14a407e2ca"
+  },
+  "map_kit_sha256": "98e6d977efcfb2a51683c555c96c7d25061c73531d13effe3c4f77d34297de5c",
+  "witness_training": {
+    "job_id": "17ebefad-b185-4318-a4bf-e1b91ade1076",
+    "rows": 50582,
+    "sha256": "ee9174e02eb8dea20bda3ece91484ddde28fd7bb7e45fc91bc26071cb3e901c2"
+  },
+  "limitations": [
+    "Independent runs from public spawns, with an explicitly known objective and no opponents.",
+    "A horizontal point moves over public 1 m floor samples and cover outlines. Native collision, player radius and inertia are omitted. Yaw response, speed, jump height and airtime are calibrated from the 17eb own-seat trace.",
+    "Default step limit is 0.48 m. The sensitivity run uses a 0.16 m limit within 2 m of three recorded stalls on Mirage, bracketing observed ~0.20 m risers.",
+    "The optional Mirage B check accepts a step rejected by the coarse terrain only within 0.35 m horizontally and vertically of a same-direction grounded segment from the independent trace; observations remain private to the evaluator.",
+    "Stalled seconds are callbacks that travel under 20% of requested motion. Completion requires continuous use inside the public plant zone or within 2.8 m of the bomb for the game duration. Travel times and outcomes apply only to this exercise."
+  ],
+  "cases": [
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "attack",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 56.85,
+        "stalled_s": 55.55
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 56.85,
+        "stalled_s": 55.55
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "attack",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 56.85,
+        "stalled_s": 55.55
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 56.85,
+        "stalled_s": 55.55
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "attack",
+      "site": "A",
+      "spawn": 7,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 55.45,
+        "stalled_s": 53.15
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 55.45,
+        "stalled_s": 53.15
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "attack",
+      "site": "A",
+      "spawn": 7,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 55.45,
+        "stalled_s": 53.15
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 55.45,
+        "stalled_s": 53.15
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "attack",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 102.45
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 102.45
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "attack",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 102.45
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 102.45
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "attack",
+      "site": "B",
+      "spawn": 7,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 103.75
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 103.75
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "attack",
+      "site": "B",
+      "spawn": 7,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 103.75
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 58.68,
+        "stalled_s": 103.75
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "defend",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 11.1,
+        "completion_s": 21.1,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.91,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 10.9,
+        "completion_s": 20.9,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.59,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "defend",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 16.68,
+        "stalled_s": 17.45
+      },
+      "candidate": {
+        "interaction_s": 14.75,
+        "completion_s": 24.75,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.57,
+        "stalled_s": 1.5
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "defend",
+      "site": "A",
+      "spawn": 7,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 9.45,
+        "completion_s": 19.45,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.99,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 9.3,
+        "completion_s": 19.3,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.5,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "defend",
+      "site": "A",
+      "spawn": 7,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 16.65,
+        "stalled_s": 19.25
+      },
+      "candidate": {
+        "interaction_s": 12.9,
+        "completion_s": 22.9,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.57,
+        "stalled_s": 1.4
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "defend",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 34.02,
+        "stalled_s": 32.05
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 27.71,
+        "stalled_s": 14.75
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "defend",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 34.02,
+        "stalled_s": 32.05
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 27.71,
+        "stalled_s": 14.75
+      }
+    },
+    {
+      "model": "held_out_ground_segments",
+      "map": "mirage",
+      "side": "defend",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 14.62,
+        "stalled_s": 26.75,
+        "steps_verified_by_trace": 6
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 14.63,
+        "stalled_s": 27.6,
+        "steps_verified_by_trace": 7
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "mirage",
+      "side": "defend",
+      "site": "B",
+      "spawn": 7,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 34.02,
+        "stalled_s": 31.3
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 27.71,
+        "stalled_s": 14.25
+      }
+    },
+    {
+      "model": "recorded_riser_neighborhoods",
+      "map": "mirage",
+      "side": "defend",
+      "site": "B",
+      "spawn": 7,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 34.02,
+        "stalled_s": 31.3
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 27.71,
+        "stalled_s": 14.25
+      }
+    },
+    {
+      "model": "held_out_ground_segments",
+      "map": "mirage",
+      "side": "defend",
+      "site": "B",
+      "spawn": 7,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 14.62,
+        "stalled_s": 26.0,
+        "steps_verified_by_trace": 6
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 14.52,
+        "stalled_s": 26.05,
+        "steps_verified_by_trace": 6
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "attack",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 29.8,
+        "stalled_s": 51.85
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 29.8,
+        "stalled_s": 51.85
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "attack",
+      "site": "A",
+      "spawn": 7,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 30.64,
+        "stalled_s": 9.5
+      },
+      "candidate": {
+        "interaction_s": null,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 30.64,
+        "stalled_s": 9.5
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "attack",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 64.45,
+        "completion_s": 67.45,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 3.02,
+        "stalled_s": 16.5
+      },
+      "candidate": {
+        "interaction_s": 64.45,
+        "completion_s": 67.45,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 3.02,
+        "stalled_s": 16.5
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "attack",
+      "site": "B",
+      "spawn": 7,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 63.3,
+        "completion_s": 66.3,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 3.02,
+        "stalled_s": 16.35
+      },
+      "candidate": {
+        "interaction_s": 63.3,
+        "completion_s": 66.3,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 3.02,
+        "stalled_s": 16.35
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "defend",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 31.0,
+        "completion_s": null,
+        "interaction_site": null,
+        "time_for_interaction": false,
+        "closest_m": 1.97,
+        "stalled_s": 10.25
+      },
+      "candidate": {
+        "interaction_s": 23.6,
+        "completion_s": 33.6,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.28,
+        "stalled_s": 6.3
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "defend",
+      "site": "A",
+      "spawn": 7,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 29.7,
+        "completion_s": 39.7,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.97,
+        "stalled_s": 10.25
+      },
+      "candidate": {
+        "interaction_s": 22.3,
+        "completion_s": 32.3,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.28,
+        "stalled_s": 6.3
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "defend",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 17.6,
+        "completion_s": 27.6,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.96,
+        "stalled_s": 1.0
+      },
+      "candidate": {
+        "interaction_s": 17.45,
+        "completion_s": 27.45,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.58,
+        "stalled_s": 1.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "dust2",
+      "side": "defend",
+      "site": "B",
+      "spawn": 7,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 18.4,
+        "completion_s": 28.4,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.96,
+        "stalled_s": 0.9
+      },
+      "candidate": {
+        "interaction_s": 18.25,
+        "completion_s": 28.25,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.58,
+        "stalled_s": 0.9
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "attack",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 28.2,
+        "completion_s": 31.2,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 28.2,
+        "completion_s": 31.2,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "attack",
+      "site": "A",
+      "spawn": 4,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 28.25,
+        "completion_s": 31.25,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 28.25,
+        "completion_s": 31.25,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "attack",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 22.0,
+        "completion_s": 25.0,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.97,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 22.0,
+        "completion_s": 25.0,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.97,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "attack",
+      "site": "B",
+      "spawn": 4,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 21.7,
+        "completion_s": 24.7,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.97,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 21.7,
+        "completion_s": 24.7,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.97,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "defend",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 17.85,
+        "completion_s": 27.85,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.87,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 17.7,
+        "completion_s": 27.7,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.49,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "defend",
+      "site": "A",
+      "spawn": 4,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 18.15,
+        "completion_s": 28.15,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.86,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 18.0,
+        "completion_s": 28.0,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.49,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "defend",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 15.95,
+        "completion_s": 25.95,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.93,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 15.8,
+        "completion_s": 25.8,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.55,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "molo",
+      "side": "defend",
+      "site": "B",
+      "spawn": 4,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 16.2,
+        "completion_s": 26.2,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.93,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 16.05,
+        "completion_s": 26.05,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.56,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "attack",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 26.75,
+        "completion_s": 29.75,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.83,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 26.75,
+        "completion_s": 29.75,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.83,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "attack",
+      "site": "A",
+      "spawn": 4,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 26.75,
+        "completion_s": 29.75,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.83,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 26.75,
+        "completion_s": 29.75,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.83,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "attack",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 22.9,
+        "completion_s": 25.9,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 22.9,
+        "completion_s": 25.9,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "attack",
+      "site": "B",
+      "spawn": 4,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 23.35,
+        "completion_s": 26.35,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 23.35,
+        "completion_s": 26.35,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "defend",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 16.65,
+        "completion_s": 26.65,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.91,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 16.5,
+        "completion_s": 26.5,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.54,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "defend",
+      "site": "A",
+      "spawn": 4,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 16.65,
+        "completion_s": 26.65,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.91,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 16.5,
+        "completion_s": 26.5,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.54,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "defend",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 15.35,
+        "completion_s": 25.35,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.84,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 15.2,
+        "completion_s": 25.2,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.46,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "nevaio",
+      "side": "defend",
+      "site": "B",
+      "spawn": 4,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 15.45,
+        "completion_s": 25.45,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.81,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 15.25,
+        "completion_s": 25.25,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.65,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "attack",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 26.1,
+        "completion_s": 29.1,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.9,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 26.1,
+        "completion_s": 29.1,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.9,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "attack",
+      "site": "A",
+      "spawn": 4,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 25.8,
+        "completion_s": 28.8,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.9,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 25.8,
+        "completion_s": 28.8,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.9,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "attack",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 24.3,
+        "completion_s": 27.3,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.96,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 24.3,
+        "completion_s": 27.3,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.96,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "attack",
+      "site": "B",
+      "spawn": 4,
+      "limit_s": 115,
+      "v13": {
+        "interaction_s": 24.0,
+        "completion_s": 27.0,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.96,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 24.0,
+        "completion_s": 27.0,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.96,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "defend",
+      "site": "A",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 16.8,
+        "completion_s": 26.8,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.87,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 16.65,
+        "completion_s": 26.65,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.49,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "defend",
+      "site": "A",
+      "spawn": 4,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 16.5,
+        "completion_s": 26.5,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 1.87,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 16.35,
+        "completion_s": 26.35,
+        "interaction_site": "A",
+        "time_for_interaction": true,
+        "closest_m": 2.49,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "defend",
+      "site": "B",
+      "spawn": 0,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 14.35,
+        "completion_s": 24.35,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.86,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 14.2,
+        "completion_s": 24.2,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.49,
+        "stalled_s": 0.0
+      }
+    },
+    {
+      "model": "public_floor",
+      "map": "borgo",
+      "side": "defend",
+      "site": "B",
+      "spawn": 4,
+      "limit_s": 40,
+      "v13": {
+        "interaction_s": 14.65,
+        "completion_s": 24.65,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 1.86,
+        "stalled_s": 0.0
+      },
+      "candidate": {
+        "interaction_s": 14.5,
+        "completion_s": 24.5,
+        "interaction_site": "B",
+        "time_for_interaction": true,
+        "closest_m": 2.49,
+        "stalled_s": 0.0
+      }
+    }
+  ]
+}

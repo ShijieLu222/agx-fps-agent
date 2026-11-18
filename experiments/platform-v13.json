@@ -1,0 +1,137 @@
+{
+  "competition_id": "2a97f94f-816a-52b7-b4b8-5925db160245",
+  "platform_version": 13,
+  "platform_upload_time_displayed": "2026/11/18 10:08:30",
+  "registered": true,
+  "admission": "passed",
+  "current_version_after_reload": "v13 · 522cc2b51c40",
+  "previous_active_bundle": "b67d75f9e42a4567598bd0c1f1426c8c87c905a82b63401ce9854c98fbdc84be",
+  "bundle_path": "dist/agx-fps-agent-v13.zip",
+  "bundle_bytes": 22509,
+  "bundle_sha256": "522cc2b51c406fedf4c5083c93ca8cc87cd256c7f2f03ff025e90bacc3d89d8c",
+  "source_sha256": "583a2cfb01c95416dd0b53114a3e592f9459320cc603aaf7bdb448b384976ff1",
+  "unit_tests": 186,
+  "five_map_startup_checks": 20,
+  "fixed_observation_checks": [
+    {
+      "match": "11dd",
+      "decisions": 28094,
+      "local_cpu_seconds": 0.908
+    },
+    {
+      "match": "1b08",
+      "decisions": 49417,
+      "local_cpu_seconds": 1.984
+    },
+    {
+      "match": "37eb",
+      "decisions": 48964,
+      "local_cpu_seconds": 2.068
+    },
+    {
+      "match": "385f",
+      "decisions": 41010,
+      "local_cpu_seconds": 1.311
+    },
+    {
+      "match": "5538",
+      "decisions": 31916,
+      "local_cpu_seconds": 1.271
+    },
+    {
+      "match": "9e35",
+      "decisions": 22549,
+      "local_cpu_seconds": 0.682
+    },
+    {
+      "match": "c630",
+      "decisions": 41201,
+      "local_cpu_seconds": 1.075
+    },
+    {
+      "match": "c76",
+      "decisions": 25825,
+      "local_cpu_seconds": 0.709
+    },
+    {
+      "match": "e144",
+      "decisions": 20435,
+      "local_cpu_seconds": 0.62
+    },
+    {
+      "match": "e2e4",
+      "decisions": 18887,
+      "local_cpu_seconds": 0.791
+    },
+    {
+      "match": "eb98",
+      "decisions": 24960,
+      "local_cpu_seconds": 0.833
+    }
+  ],
+  "errors": 0,
+  "warnings": 0,
+  "local_callbacks_over_budget": 0,
+  "comparison_by_match": {
+    "11dd": {
+      "decisions": 28094,
+      "opening_ticks": 4200,
+      "v12_opening_walk": 1509,
+      "v12_opening_input_sum": 2695.0124999999384,
+      "v13_opening_walk": 0,
+      "v13_opening_input_sum": 3546.9999999999923,
+      "carrier_moving_without_sight": 916,
+      "v12_carrier_crouch": 29,
+      "v13_carrier_crouch": 0,
+      "additional_head_selections": 1
+    },
+    "1b08": {
+      "decisions": 49417,
+      "opening_ticks": 4200,
+      "v12_opening_walk": 2592,
+      "v12_opening_input_sum": 2231.2999999998974,
+      "v13_opening_walk": 0,
+      "v13_opening_input_sum": 2915.299999999924,
+      "carrier_moving_without_sight": 4247,
+      "v12_carrier_crouch": 58,
+      "v13_carrier_crouch": 0,
+      "smoke_purchase_requests": 6,
+      "inventory_sim_prime": 2,
+      "inventory_sim_release": 2
+    },
+    "37eb": {
+      "decisions": 48964,
+      "opening_ticks": 4200,
+      "v12_opening_walk": 2664,
+      "v12_opening_input_sum": 2236.599999999858,
+      "v13_opening_walk": 0,
+      "v13_opening_input_sum": 2942.0499999999242,
+      "additional_head_selections": 13,
+      "smoke_purchase_requests": 6,
+      "inventory_sim_prime": 2,
+      "inventory_sim_cancel": 1,
+      "carrier_moving_without_sight": 1126,
+      "v12_carrier_crouch": 0,
+      "v13_carrier_crouch": 0,
+      "inventory_sim_release": 1
+    },
+    "385f": {
+      "decisions": 41010,
+      "opening_ticks": 4800,
+      "v12_opening_walk": 900,
+      "v12_opening_input_sum": 3373.649999999983,
+      "v13_opening_walk": 0,
+      "v13_opening_input_sum": 4213.050000000005,
+      "additional_head_selections": 4,
+      "carrier_moving_without_sight": 5001,
+      "v12_carrier_crouch": 286,
+      "v13_carrier_crouch": 0
+    }
+  },
+  "comparison_notes": [
+    "Identical historical own-seat observations given to published v12 and v13. Counts describe requests, not new game outcomes or observed movement speed.",
+    "Opening covers the first 600 live ticks while alive. The carrier comparison requires a nonzero v12 movement request and no visible opponents.",
+    "Additional head selections count decision callbacks, not confirmed hits. First-shot protections are exercised by unit tests.",
+    "Inventory simulation on the two Mirage exports supplies a smoke after a candidate purchase request until release or end of round. Purchase, release, cancellation and effects were not executed by the server in these historical games."
+  ]
+}

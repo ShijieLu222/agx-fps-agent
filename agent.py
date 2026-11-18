@@ -1,4 +1,4 @@
-"""AGX FPS v12 candidate adapted from the official public starter.
+"""AGX FPS agent adapted from the official public starter.
 
 Source: https://agx.cool/docs/schema/fps.example.agent.py
 Retrieved: 2026-11-15. Contract: rsi-fps-5.5.
@@ -25,6 +25,8 @@ v11 tolerates null optional map hints and builds the graph on the first
 callback, using its larger CPU budget instead of the second-call limit.
 v12 preserves route prefixes when an objective moves within the same graph
 destination and bounds anonymous-sound slowing during objective travel.
+The next revision retries blocked ascents and uses audible bomb distance
+bands when searching public sites.
 """
 import math
 import gc
@@ -42,6 +44,8 @@ WEAPON_RANGE = {
     "mac10": 91.44, "mp9": 91.44, "mp7": 91.44, "bizon": 91.44,
     "nova": 76.2, "xm1014": 76.2, "sawedoff": 35.56, "mag7": 35.56,
 }
+
+BEEP_RANGES = {"near": (0., 8.), "mid": (8., 20.), "far": (20., math.inf)}
 
 
 def clip(value):
@@ -89,14 +93,17 @@ def counterstop(me):
 class Player:
     def __init__(self):
         self.nodes, self.edges, self.sites = {}, {}, []
+        self.public_nodes = ()
         self.spawn_views = {}
         self.guard_plans = {}
         self.pressure_points, self.zone_points = {}, {}
         self.walk_edges = set()
         self.source_edges = set()
         self.map_identity = None
+        self.confirmed_enemy_plants = {}
         self.path, self.goal = [], None
         self.round = None
+        self.smoke_buy_key = None
         self.last_position, self.stuck = None, 0
         self.anchor, self.anchor_tick = None, 0
         self.escape_until, self.escape_yaw, self.escapes = 0, 0.0, 0
@@ -106,6 +113,8 @@ class Player:
 
     def clear_route_history(self):
         self.route_threats = {}
+        self.mirage_corridor = False
+        self.corridor_jumps = set()
         self.nav_side, self.nav_round = None, 0
 
     def remember_threat(self, o):
@@ -251,6 +260,8 @@ class Player:
 
     def reset_tactics(self):
         self.contact_until = 0
+        self.smoke_prime_tick = None
+        self.smoke_attempted = False
         self.enemy_memory = None
         self.target_seat = None
         self.last_fire = False
@@ -262,6 +273,8 @@ class Player:
         self.search_site = None
         self.search_arrival = None
         self.searched_sites = set()
+        self.beep_samples = None
+        self.beep_masks = None
         self.last_hp = None
         self.last_safety_tick = None
         self.last_legal_visible = False
@@ -271,6 +284,8 @@ class Player:
         self.damage_cooldown = 0
         self.sight_tracks = {}
         self.last_combat_tick = None
+        self.combat_target = None
+        self.combat_target_since = None
         self.last_visible_tick = None
         self.lost_hold_used, self.hold_last_tick = 0, None
         self.peek_advance_until = 0
@@ -285,7 +300,10 @@ class Player:
         self.guard_started, self.guard_best = None, math.inf
         self.guard_escape_count = 0
         self.attack_site = None
+        self.escort_carrier, self.carrier_origin = None, None
+        self.escort_goal, self.escort_tick = None, 0
         self.team_status = {}
+        self.fallen_zones = {}
         self.support_zone, self.support_until = None, 0
         self.defend_site = None
         self.support_started, self.support_event_tick = -10000, -10000
@@ -315,6 +333,7 @@ class Player:
                 zone = zone if zone in self.zone_points else old[1]
                 if zone in self.zone_points and o["side"] == "defend":
                     self.support_alerts[zone] = tick
+                    self.fallen_zones[seat] = (zone, tick)
                     new_alert = True
             self.team_status[seat] = (mate.get("alive"), zone)
         if o["side"] != "defend" or self.retake or not self.sites:
@@ -371,16 +390,17 @@ class Player:
         # Preserve failed-edge penalties; urgency only discounts soft danger.
         return length + (failure[1] if failure[0] > tick else 0.) + risk
 
-    def site_travel_costs(self, o, pos):
-        """Pure Dijkstra estimate on the same graph/costs used by movement.
+    def site_travel_costs(self, o, pos, search=False):
+        """Estimate distances to reachable sites without changing the route.
 
         Does not touch the active route or infer collision clearance. Missing
         graphs fall back to distance; disconnected graph targets remain inf.
         """
         if not self.nodes:
             return [distance(pos, s["center"]) for s in self.sites]
-        first = min(self.nodes, key=lambda n: distance(pos, self.nodes[n]))
-        goals = [min(self.nodes, key=lambda n: distance(s["center"], self.nodes[n])) for s in self.sites]
+        anchors = self.public_nodes or self.nodes
+        first = min(anchors, key=lambda n: distance(pos, self.nodes[n]))
+        goals = [min(anchors, key=lambda n: distance(s["center"], self.nodes[n])) for s in self.sites]
         remaining = set(goals)
         order = count()
         best = {first: distance(pos, self.nodes[first])}
@@ -391,13 +411,66 @@ class Player:
                 continue
             remaining.discard(here)
             for there, length in self.edges[here]:
-                candidate = cost + self.edge_cost(here, there, length, o["side"],
-                    o["match_tick"], o["round_index"], self.retake)
+                leg = self.edge_cost(here, there, length, o["side"],
+                                     o["match_tick"], o["round_index"], self.retake)
+                # Movement may assign an edge a large retry penalty. Counting
+                # that penalty as metres can send a site search across the map.
+                if search:
+                    leg = min(leg, 1.5*length)
+                candidate = cost + leg
                 if candidate < best.get(there, math.inf):
                     best[there] = candidate
                     heapq.heappush(queue, (candidate, next(order), there))
         return [best.get(n, math.inf)+distance(self.nodes[n], s["center"])
                 for n, s in zip(goals, self.sites)]
+
+    def attack_support_goal(self, o, index, pos):
+        """Commit to a site from observed carrier progress and regroup if separated."""
+        bomb = o["bomb"]
+        carrier = bomb.get("carrier") if bomb["state"] == "held" else None
+        point = bomb.get("position")
+        if carrier is None or carrier == o["seat"] or point is None:
+            self.escort_goal, self.escort_carrier = None, None
+            return (self.attack_site if self.attack_site is not None else index), None
+
+        if self.escort_carrier != carrier:
+            self.escort_carrier, self.carrier_origin = carrier, list(point)
+            self.escort_goal = None
+        distances = [distance(point, s["center"]) for s in self.sites]
+        near = min(range(len(distances)), key=distances.__getitem__)
+        other = min((d for i, d in enumerate(distances) if i != near), default=math.inf)
+        progress = distance(self.carrier_origin, self.sites[near]["center"]) - distances[near]
+        # An early commitment needs actual travel toward this site. For a
+        # handoff already near a site, the current position suffices.
+        if (distances[near] < 30 or (distances[near] < 48 and progress >= 8
+                                    and other-distances[near] >= 10)):
+            if (self.attack_site is None or near == self.attack_site
+                    or distances[self.attack_site]-distances[near] >= 10):
+                self.attack_site = near
+        if self.attack_site is not None:
+            index = self.attack_site
+
+        gap = distance(pos, point)
+        spawn = self.spawn_views.get("T")
+        left_spawn = (distance(point, spawn) >= 15 if spawn is not None
+                      else distance(point, self.carrier_origin) >= 12)
+        site = self.sites[index]["center"]
+        own_site_distance = distance(pos, site)
+        lead = distances[index] - own_site_distance
+        # Do not turn back for a stationary spawn carrier or converge on a
+        # teammate who is already at the site. Resume normal spacing on reunion.
+        if not left_spawn or gap <= 12 or distances[index] <= 13 or lead > 15:
+            self.escort_goal = None
+        else:
+            if self.escort_goal is None:
+                alignment = sum((point[i]-pos[i]) * (site[i]-pos[i]) for i in range(3))
+                if gap < 32 or lead > 5 or alignment >= .75 * gap * own_site_distance:
+                    return index, None  # A shared direction already leads toward the carrier.
+            tick = o["match_tick"]
+            if (self.escort_goal is None or (tick-self.escort_tick >= 240
+                                            and distance(point, self.escort_goal) >= 16)):
+                self.escort_goal, self.escort_tick = list(point), tick
+        return index, self.escort_goal
 
     def pressure_goal(self, o, index, base):
         """Short entrance check, then push connected public approach nodes.
@@ -649,6 +722,11 @@ class Player:
                 or not o["me"]["grounded"] or o["match_tick"] < self.escape_until
                 or self.recovery_trace):
             return action
+        m, tick = o["me"], o["match_tick"]
+        spawn = self.spawn_views.get("T" if o["side"] == "attack" else "CT")
+        departure = (spawn is not None and 360 <= o["round_tick"] < 960
+                     and self.last_visible_tick is None and self.damage_watch_start is None
+                     and math.hypot(m["x"]-spawn[0], m["y"]-spawn[1]) < 32)
         corner = False
         objective_travel = (self.retake or o["me"]["carrying_bomb"]
                             or (o["side"] == "attack"
@@ -658,12 +736,12 @@ class Player:
             p, q = self.path[:2]
             dx, dy = p[0]-m["x"], p[1]-m["y"]
             ax, ay = q[0]-p[0], q[1]-p[1]
-            if 1. <= math.hypot(dx, dy) <= (2. if objective_travel else 5.) and math.hypot(ax, ay) > 1.:
+            if 1. <= math.hypot(dx, dy) <= (2. if objective_travel or departure else 5.) and math.hypot(ax, ay) > 1.:
                 turn = angle(math.atan2(ay, ax)-math.atan2(dy, dx))
                 corner = abs(turn) >= .65
         sound = (self.sound_yaw is not None and o["match_tick"] < self.sound_until
                  and o["match_tick"] < self.sound_slow_until)
-        if objective_travel:
+        if objective_travel or departure:
             # The round/fuse keeps running while anonymous sounds recur.
             # Keep looking at cues; clear visible threats in the combat branch.
             if corner:
@@ -671,6 +749,15 @@ class Player:
                 for key in ("move_forward", "move_right"):
                     if key in action:
                         action[key] *= .8
+            elif ((departure or m["carrying_bomb"]) and self.path and not m["blind_ticks"]
+                  and tick >= self.contact_until and self.stuck < 4
+                  and abs(self.path[0][2]-m["z"]) <= .4
+                  and math.hypot(self.path[0][0]-m["x"], self.path[0][1]-m["y"]) >= 6):
+                forward, right = action.get("move_forward", 0.), action.get("move_right", 0.)
+                speed = math.hypot(forward, right)
+                if .74 <= speed <= .76:
+                    action = dict(action, move_forward=clip(forward/speed),
+                                  move_right=clip(right/speed))
             return dict(action, walk=False)
         if corner or sound:
             action = dict(action)
@@ -933,7 +1020,32 @@ class Player:
                     self.walk_edges.add((edge["from"], edge["to"]))
                     self.walk_edges.add((edge["to"], edge["from"]))
 
+        self.public_nodes = tuple(self.nodes)
         self.build_guard_plans(row)
+        if (row.get("id") == "mirage-cs2-v54"
+                and row.get("geometry_hash") == "ef9384945046620f3f61ac579ae91f0beac8d5541c871e1996faf7a36f2e39db"
+                and all(k in self.nodes for k in ("2126", "2089", "1720", "1724"))):
+            self.mirage_corridor = True
+            # The directed corridor and takeoffs were sampled from our own
+            # successful B rotation in match 1b08, then simplified at 23 cm.
+            # The official source mesh samples the steps as adjacent centers.
+            samples = [
+                (59.07,60.61,13.30), (64.12,60.89,13.40), (66.61,60.10,13.30),
+                (69.08,60.62,13.40), (70.55,59.86,13.70), (72.58,60.11,14.14),
+                (73.11,58.75,14.26), (74.82,57.64,14.81), (75.05,59.23,14.79),
+                (75.42,59.48,14.90), (77.66,58.94,15.52), (77.80,58.21,15.56),
+                (78.58,57.93,15.76), (81.23,58.92,15.73), (83.03,58.54,15.73),
+                (84.26,55.01,15.73), (89.56,51.04,15.73)]
+            for i, point in enumerate(samples, 1):
+                self.nodes[-i] = list(point)
+                self.edges[-i] = []
+                if i > 1:
+                    self.edges[1-i].append((-i, distance(samples[i-2], point)))
+            self.corridor_jumps = {(-5,-6), (-7,-8), (-10,-11)}
+            for start in ("2126", "2089"):
+                self.edges[start].append((-1, distance(self.nodes[start], samples[0])))
+            for end in ("1720", "1724"):
+                self.edges[-len(samples)].append((end, distance(samples[-1], self.nodes[end])))
 
     def route(self, start, goal):
         self.nav_from = None
@@ -944,9 +1056,13 @@ class Player:
         if not self.nodes:
             self.path_nodes = [None]
             return [goal]
+        # A one-way witnessed corridor is an optional leg. Attaching arbitrary
+        # start/end coordinates to its interior can force travel toward B even
+        # when the requested goal is back toward A.
+        anchors = self.public_nodes or self.nodes
         first = (self.retry_node if self.retry_node in self.nodes else
-                 min(self.nodes, key=lambda k: distance(start, self.nodes[k])))
-        last = min(self.nodes,
+                 min(anchors, key=lambda k: distance(start, self.nodes[k])))
+        last = min(anchors,
                    key=lambda k: distance(goal, self.nodes[k]))
         # Euclidean distance is admissible for these geometric edge lengths.
         # A counter keeps heap ties independent of int/string node ID types.
@@ -1008,6 +1124,13 @@ class Player:
         if (o["side"] == "defend" and not m["has_kit"]
                 and m["cash"] >= 400):
             return {"buy": "defusekit"}
+        buy_key = (self.map_identity, o["round_index"])
+        if (o["side"] == "attack" and str(o.get("map_id", "")).startswith("mirage-")
+                and m["weapons"][0] and m["armor"] >= 50 and m["cash"] >= 600
+                and isinstance(m.get("throwable_kinds"), list)
+                and "smokegrenade" not in m["throwable_kinds"] and self.smoke_buy_key != buy_key):
+            self.smoke_buy_key = buy_key
+            return {"buy": "smokegrenade"}
         return {}
 
     def weapon_slot(self, me, contact=False, tick=None):
@@ -1059,6 +1182,27 @@ class Player:
                 if any(p in e.get("parts", []) for p in ("head", "chest", "abdomen"))
                 and distance(eye, self.aim_point(e)) < reach]
 
+    def audible_bomb_site(self, sounds, pos):
+        # A beep describes a distance band, and the bomb may be anywhere
+        # inside the public site. Allow margin for height and sampled motion.
+        if not sounds:
+            return None
+        heard = {s.get("distance_band") for s in sounds
+                 if s.get("type") in ("bomb_beep", "bomb_beep_fast")}
+        if len(heard) != 1:
+            return None
+        band = BEEP_RANGES.get(heard.pop())
+        if band is None:
+            return None
+        low, high = band
+        possible = []
+        for i, site in enumerate(self.sites):
+            d = distance(pos, site["center"])
+            span = site["radius"] + 3.
+            if d + span >= low and d - span <= high:
+                possible.append(i)
+        return possible[0] if len(possible) == 1 else None
+
     def unknown_bomb_goal(self, o, pos):
         """Search public sites; never infer the hidden bomb coordinate."""
         announced = next((i for i, site in enumerate(self.sites)
@@ -1067,6 +1211,15 @@ class Player:
         if announced is not None:
             return list(self.sites[announced]["center"])
         tick = o["match_tick"]
+        heard_site = self.audible_bomb_site(o.get("sounds", []), pos)
+        evidence_site = self.compare_beep_areas(o.get("sounds", []), pos, tick)
+        if heard_site is None:
+            heard_site = evidence_site
+        if (heard_site is not None and heard_site != self.search_site
+                and heard_site not in self.searched_sites):
+            # Search only reachable sites. An ambiguous cue keeps our route.
+            if math.isfinite(self.site_travel_costs(o, pos)[heard_site]):
+                self.search_site, self.search_arrival = heard_site, None
         if self.search_site is not None:
             site = self.sites[self.search_site]
             if distance(pos, site["center"]) < 2.0:
@@ -1083,7 +1236,7 @@ class Player:
             if not available:
                 self.searched_sites.clear()
                 available = list(range(len(self.sites)))
-            costs = self.site_travel_costs(o, pos)
+            costs = self.site_travel_costs(o, pos, search=True)
             reachable = [i for i in available if math.isfinite(costs[i])]
             if reachable:
                 available = reachable
@@ -1102,10 +1255,62 @@ class Player:
                 alert = self.support_alerts.get(zone, -10000)
                 if self.defend_site == i:
                     alert = max(alert, self.support_event_tick)
-                bonus += max(0., 8.*(1-(tick-alert)/900.))
+                bonus += max(0., 24.*(1-(tick-alert)/1800.))
+                witnesses = sum(1 for z, when in self.fallen_zones.values()
+                                if zone == z and tick-when <= 2700)
+                bonus += min(12., 5.*max(0, witnesses-1))
+                # Use a previous round only when this seat actually observed
+                # the planted position or site. Recent evidence breaks close
+                # travel-cost ties before a conclusive current-round cue.
+                age = o["round_index"] - self.confirmed_enemy_plants.get(i, -100)
+                if 1 <= age <= 4:
+                    history_weight = 18. if tick-alert < 1800 else 9.
+                    bonus += history_weight * (.58 ** (age-1))
                 return costs[i]-bonus
             self.search_site = min(available, key=score)
         return list(self.sites[self.search_site]["center"])
+
+    def compare_beep_areas(self, sounds, pos, tick=None):
+        """Intersect public distance bands over the plantable area of each site."""
+        bands = {s.get("distance_band") for s in sounds
+                 if s.get("type") in ("bomb_beep", "bomb_beep_fast")}
+        if len(bands) != 1 or len(self.sites) < 2:
+            return None
+        limits = BEEP_RANGES.get(bands.pop())
+        if limits is None:
+            return None
+        if self.beep_samples is None:
+            offsets = [(x/3., y/3.) for x in range(-3, 4) for y in range(-3, 4)
+                       if x*x+y*y <= 9]
+            self.beep_samples = []
+            for site in self.sites:
+                x, y, z = site["center"]
+                self.beep_samples.append([(x+dx*site["radius"], y+dy*site["radius"], z)
+                                          for dx, dy in offsets])
+            self.beep_masks = [(1 << len(points))-1 for points in self.beep_samples]
+        # Allow for the interval between audio emission and decision and for
+        # elevation within a site. Samples only score sites for navigation.
+        low, high = max(0., limits[0]-1.25), limits[1]+1.25
+        masks = []
+        for points, previous in zip(self.beep_samples, self.beep_masks):
+            mask = previous
+            for i, point in enumerate(points):
+                if mask & (1 << i) and not low <= math.dist(pos, point) <= high:
+                    mask &= ~(1 << i)
+            masks.append(mask)
+        if not any(masks):
+            return None
+        self.beep_masks = masks
+        weights = [mask.bit_count()/len(points) for mask, points in zip(masks, self.beep_samples)]
+        best = max(range(len(weights)), key=weights.__getitem__)
+        second = max(w for i, w in enumerate(weights) if i != best)
+        if weights[best] >= .70 and second <= .40:
+            return best
+        if tick is not None and weights[best] >= .95 and second <= .80 and self.fallen_zones:
+            recent_zone, when = max(self.fallen_zones.values(), key=lambda z: z[1])
+            if tick-when <= 1200 and recent_zone == self.sites[best].get("id"):
+                return best
+        return None
 
     def should_engage(self, o, enemies, goal):
         """Retakers clear visible threats first; carriers bound distant duels."""
@@ -1157,9 +1362,17 @@ class Player:
                              [enemy[k] for k in ("x", "y", "z")])
             speed = math.hypot(me.get("vx", 0), me.get("vy", 0))
             inaccuracy = gun.get("inaccuracy", 0.0)
-            eligible = (gun.get("id") in ("ak47", "m4a1", "m4a4", "galilar", "sg553")
-                        and stable and me["grounded"] and speed < .25)
-            if eligible and dist <= 30 and inaccuracy <= .012:
+            rifle = gun.get("id") in ("ak47", "m4a1", "m4a4", "galilar", "sg553")
+            last_shot = gun.get("last_shot")
+            follow_up = (stable and type(last_shot) in (int, float)
+                         and track[2] <= last_shot <= tick and tick-track[2] >= 12
+                         and self.combat_target == (key, gun.get("id"))
+                         and self.combat_target_since is not None and last_shot > self.combat_target_since)
+            sidearm = gun.get("id") in ("usp", "pistol") and follow_up and dist <= 20
+            eligible = (rifle or sidearm) and stable and me["grounded"] and speed < .25
+            head_range = 38 if rifle and follow_up else 30
+            accuracy_limit = .02 if follow_up else .012
+            if eligible and dist <= head_range and inaccuracy <= accuracy_limit:
                 self.head_targets.add(key)
             elif not eligible or dist > 40 or inaccuracy > .03:
                 self.head_targets.discard(key)
@@ -1197,9 +1410,10 @@ class Player:
                 action["crouch"] = bool(slow)
                 if slow:
                     self.retake_slow_used += 3
-            elif tick < self.contact_until:
+            elif tick < self.contact_until and not m["carrying_bomb"]:
                 action["crouch"] = True
             if (self.enemy_memory is not None and not m["blind_ticks"]
+                    and not m["carrying_bomb"]
                     and tick >= self.escape_until):
                 yaw, pitch = self.aim_error(m, self.enemy_memory[0])
                 action.update(yaw_rate=clip(yaw / 0.15),
@@ -1211,6 +1425,10 @@ class Player:
         tick = o["match_tick"]
         self.observe_targets(o)
         enemy = self.select_enemy(o, enemies)
+        target = (enemy.get("seat"), gun.get("id") if gun else None)
+        if (target != self.combat_target or self.last_combat_tick is None
+                or tick-self.last_combat_tick > 3):
+            self.combat_target, self.combat_target_since = target, tick
         point = self.aim_point(enemy, m, gun, tick)
         self.last_combat_tick, self.hold_last_tick = tick, tick
         self.enemy_memory = (point, tick)
@@ -1317,7 +1535,7 @@ class Player:
             last_node = self.path_nodes[-2]
             if (self.path_nodes[-1] is None and self.path[-1] == self.goal
                     and last_node in self.nodes
-                    and last_node == min(self.nodes,
+                    and last_node == min(self.public_nodes or self.nodes,
                         key=lambda n: distance(goal, self.nodes[n]))):
                 self.path[-1], self.goal = list(goal), list(goal)
                 self.arrival_goal = None
@@ -1401,13 +1619,32 @@ class Player:
                           move_right=-0.9 * math.sin(yaw),
                           yaw_rate=clip(yaw / 0.15),
                           jump=False)
-        elif point[2] - pos[2] > 0.45 and math.hypot(dx, dy) < 1.8:
+        elif (self.path_nodes and (self.nav_from, self.path_nodes[0]) in self.corridor_jumps
+              and m["grounded"] and tick-self.last_jump_tick >= 45
+              and distance(pos, self.nodes[self.nav_from]) < 1.15
+              and self.jump_attempts.get(self.path_nodes[0], 0) < 2):
+            self.jump_attempts[self.path_nodes[0]] = self.jump_attempts.get(self.path_nodes[0], 0) + 1
+            action["jump"] = True
+            self.last_jump_tick = tick
+        elif point[2] - pos[2] > .45 or (
+                self.mirage_corridor and .12 <= point[2]-pos[2] <= .45 and self.stuck >= 4
+                and tick-self.anchor_tick >= 24 and 1. <= math.hypot(dx, dy) <= 3.
+                and self.path_nodes and (self.nav_from, self.path_nodes[0]) in self.source_edges):
             target = self.path_nodes[0] if self.path_nodes else None
+            horizontal = math.hypot(dx, dy)
+            # A ledge can begin well before the next nav sample. Try once at
+            # the obstruction before abandoning a short published uphill leg.
+            blocked_ascent = (self.stuck >= 5 and tick - self.anchor_tick >= 18
+                              and horizontal < 4.5 and point[2] - pos[2] <= 1.2
+                              and (self.nav_from, target) in self.source_edges
+                              and point[2] > self.nodes[self.nav_from][2])
+            if horizontal >= 1.8 and not blocked_ascent:
+                return action
             # Key the allowance by destination too: replanning a connector
             # cannot make an already-failed box appear to be a new attempt.
             key = target if target is not None else tuple(point)
             attempts = self.jump_attempts.get(key, 0)
-            jump = (m["grounded"] and attempts < 2
+            jump = (m["grounded"] and attempts < (1 if horizontal >= 1.8 else 2)
                     and tick-self.last_jump_tick >= 60 and not self.recovery_trace)
             action["jump"] = bool(jump)
             if jump:
@@ -1416,10 +1653,46 @@ class Player:
         return action
 
     def act(self, o):
+        action = self.decide(o)
+        m, tick = o["me"], o["match_tick"]
+        if (self.smoke_attempted and self.smoke_prime_tick is None
+                or o["phase"] != "live" or o["side"] != "attack"
+                or not m["alive"] or (self.smoke_prime_tick is None
+                                     and "smokegrenade" not in (m.get("throwable_kinds") or []))
+                or not str(o.get("map_id", "")).startswith("mirage-")):
+            self.smoke_prime_tick = None
+            return action
+        # Only request the game utility on an active route toward a public site.
+        # The original action keeps its movement, interaction and fire priority.
+        travel = (o["bomb"]["state"] == "held" and o["round_tick"] >= 720
+                  and o.get("phase_remaining_ticks", 7260-o["round_tick"]) >= 600
+                  and not o["visible"] and not m["blind_ticks"] and m["grounded"]
+                  and tick >= max(self.contact_until, self.escape_until, self.retreat_until)
+                  and not self.recovery_trace and not action.get("jump") and not action.get("reload")
+                  and not action.get("use") and action.get("move_forward", 0.) > .5
+                  and abs(action.get("yaw_rate", 0.)) < .5 and abs(m["pitch"]) < .25
+                  and current_slot(m, None) == action.get("weapon_slot")
+                  and clock_ready(m.get("switch_until"), tick) and self.goal is not None
+                  and any(distance(self.goal, s["center"]) <= s["radius"] for s in self.sites)
+                  and 10 <= distance([m["x"], m["y"], m["z"]], self.goal) <= 30)
+        if self.smoke_prime_tick is not None:
+            if travel and tick == self.smoke_prime_tick:
+                return action
+            state = "release" if travel and 0 < tick-self.smoke_prime_tick <= 6 else "cancel"
+            self.smoke_prime_tick = None
+        elif travel and clock_ready(m.get("throw_ready"), tick):
+            state = "prime"
+            self.smoke_prime_tick, self.smoke_attempted = tick, True
+        else:
+            return action
+        return dict(action, throw="smokegrenade", throw_state=state, throw_mode="lob")
+
+    def decide(self, o):
         identity = (o.get("map_id"), o.get("static_schema_hash"))
         if identity != self.map_identity:
             # Never navigate using geometry from another map or schema revision.
             self.map_identity = identity
+            self.confirmed_enemy_plants = {}
             self.clear_route_history()
             self.nodes, self.edges, self.sites = {}, {}, []
             self.spawn_views = {}
@@ -1489,7 +1762,14 @@ class Player:
         if planted and bomb.get("position") is not None:
             # This coordinate came from this player's legal observation only.
             self.known_bomb = list(bomb["position"])
-        elif bomb["state"] in ("defused", "exploded"):
+        if self.retake and self.sites and (bomb.get("site") is not None or bomb.get("position") is not None):
+            observed = next((i for i, s in enumerate(self.sites)
+                             if s.get("id") is not None and s["id"] == bomb.get("site")), None)
+            if observed is None and bomb.get("position") is not None:
+                observed = min(range(len(self.sites)), key=lambda i: distance(bomb["position"], self.sites[i]["center"]))
+            if observed is not None:
+                self.confirmed_enemy_plants[observed] = o["round_index"]
+        if bomb["state"] in ("defused", "exploded"):
             self.known_bomb = None
         bomb_position = self.known_bomb if planted else bomb.get("position")
         # Clear a visible threat before defusing, including at the bomb itself.
@@ -1497,7 +1777,7 @@ class Player:
         defusing = (o["side"] == "defend" and planted
                     and bomb_position is not None)
         planting = o["side"] == "attack" and m["carrying_bomb"] and not planted
-        if defusing and distance(pos, bomb_position) < 2.0 and not visible:
+        if defusing and distance(pos, bomb_position) < 2.65 and not visible:
             return self.objective_action(m, slot, "defuse")
         if (planting and any(distance(pos, site["center"]) < site["radius"] * 0.5
                              for site in self.sites)):
@@ -1528,14 +1808,9 @@ class Player:
         if supporting:
             support = self.zone_points[self.support_zone]
             index = min(range(len(self.sites)), key=lambda i: distance(support, self.sites[i]["center"]))
+        escort = None
         if o["side"] == "attack" and not m["carrying_bomb"] and not planted:
-            carrier_pos = bomb.get("position") if bomb.get("state") == "held" else None
-            if carrier_pos is not None and bomb.get("carrier") != o["seat"]:
-                near = min(range(len(self.sites)), key=lambda i: distance(carrier_pos, self.sites[i]["center"]))
-                if distance(carrier_pos, self.sites[near]["center"]) < 30:
-                    self.attack_site = near
-            if self.attack_site is not None:
-                index = self.attack_site
+            index, escort = self.attack_support_goal(o, index, pos)
         site = self.sites[index]
         guard_plan = self.guard_plans.get(index) if o["side"] == "defend" and not planted else None
         goal = self.guard_goal(o, index, guard_plan) if guard_plan else list(site["center"])
@@ -1545,7 +1820,9 @@ class Player:
             if not guard_plan or distance(support, site["center"]) > site["radius"] * 2:
                 goal = list(support)
                 guard_plan = None
-        if not planted and not planting:
+        if escort is not None:
+            goal = list(escort)
+        elif not planted and not planting:
             goal = self.pressure_goal(o, index, goal)
             if self.pressure_index >= 0 and self.approach_view(o) is not None:
                 guard_plan = {"watch": [self.approach_view(o)]}
@@ -1555,7 +1832,7 @@ class Player:
             goal = self.unknown_bomb_goal(o, pos)
         if o["side"] == "attack" and bomb["state"] == "world" and bomb.get("position"):
             goal = list(bomb["position"])
-            if distance(pos, goal) < 1.2:
+            if distance(pos, goal) < 2.15:
                 return self.quiet_action(
                     o, dict(action, use="pickup", pickup_id=bomb["id"]))
         if self.should_engage(o, engage_enemies, goal):

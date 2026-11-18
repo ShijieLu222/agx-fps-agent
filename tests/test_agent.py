@@ -63,7 +63,8 @@ class AgentTests(unittest.TestCase):
         self.assertIsInstance(action, dict)
         analog = {"move_forward", "move_right", "yaw_rate", "pitch_rate"}
         boolean = {"jump", "crouch", "walk", "fire", "reload"}
-        allowed = analog | boolean | {"weapon_slot", "buy", "use", "pickup_id"}
+        allowed = analog | boolean | {"weapon_slot", "buy", "use", "pickup_id",
+                                      "throw", "throw_state", "throw_mode"}
         self.assertFalse(set(action) - allowed)
         for key, value in action.items():
             if key in analog:
@@ -76,7 +77,11 @@ class AgentTests(unittest.TestCase):
                 self.assertIs(type(value), int)
                 self.assertIn(value, (0, 1, 2))
             elif key == "buy":
-                self.assertIn(value, ("ak47", "m4a1", "galilar", "mp9", "armor", "helmet", "defusekit"))
+                self.assertIn(value, ("ak47", "m4a1", "galilar", "mp9", "armor", "helmet",
+                                      "defusekit", "smokegrenade"))
+            elif key in ("throw", "throw_mode", "throw_state"):
+                self.assertIn(value, {"throw": ("smokegrenade",), "throw_mode": ("lob",),
+                                      "throw_state": ("prime", "release", "cancel")}[key])
             elif key == "use":
                 self.assertIn(value, ("plant", "defuse", "pickup"))
             elif key == "pickup_id":

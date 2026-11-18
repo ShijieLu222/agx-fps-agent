@@ -1,0 +1,289 @@
+{
+  "competition_id": "2a97f94f-816a-52b7-b4b8-5925db160245",
+  "published_version": 14,
+  "platform_upload_time_shanghai": "2026-11-18 15:18:03",
+  "registered": true,
+  "admission": "passed",
+  "current_after_reload": "v14 · acc17b4803c2",
+  "archive": "dist/agx-fps-agent-v14.zip",
+  "source_sha256": "bcb5f1c0ad45d37ffdc488a335f32503b47f359b2486181f2647cd14a407e2ca",
+  "bundle_sha256": "acc17b4803c2377a439ebc09c485a15d8eb56d2ad55a335502fe236f0846bb4a",
+  "bytes": 25366,
+  "tests_passed": 204,
+  "five_map_startups": 20,
+  "fixed_observation_counts": {
+    "decisions": 403840,
+    "recorded_faults": 0,
+    "v13_unknown": 16033,
+    "v13_wrong": 4393,
+    "v14_unknown": 16033,
+    "v14_wrong": 1344,
+    "recorded_v13_action_mismatches": 0
+  },
+  "fixed_observation_by_match": {
+    "11dd": {
+      "match": "11dd39fa-11de-4520-8163-cf4e864f94f9",
+      "recorded_bundle": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "seat": 7,
+      "observations": {
+        "decisions": 28094,
+        "recorded_faults": 0,
+        "v13_unknown": 797,
+        "v13_wrong": 0,
+        "v14_unknown": 797,
+        "v14_wrong": 0
+      },
+      "local_cpu_s": 1.853,
+      "verified_decision_stream": "b3db4087b3eb04aa4f4a11cc179c797bfb2aaba344a904d42fc981ea68567f11"
+    },
+    "17eb": {
+      "match": "17ebefad-b185-4318-a4bf-e1b91ade1076",
+      "recorded_bundle": "522cc2b51c406fedf4c5083c93ca8cc87cd256c7f2f03ff025e90bacc3d89d8c",
+      "seat": 9,
+      "observations": {
+        "decisions": 50582,
+        "recorded_faults": 0,
+        "recorded_v13_action_mismatches": 0,
+        "v13_unknown": 3719,
+        "v13_wrong": 2180,
+        "v14_unknown": 3719,
+        "v14_wrong": 279
+      },
+      "local_cpu_s": 5.593,
+      "verified_decision_stream": "ee9174e02eb8dea20bda3ece91484ddde28fd7bb7e45fc91bc26071cb3e901c2"
+    },
+    "1b08": {
+      "match": "1b08ffe7-a6d4-436f-985e-addee7b0fe34",
+      "recorded_bundle": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "seat": 2,
+      "observations": {
+        "decisions": 49417,
+        "recorded_faults": 0,
+        "v13_unknown": 4395,
+        "v13_wrong": 1079,
+        "v14_unknown": 4395,
+        "v14_wrong": 241
+      },
+      "local_cpu_s": 5.049,
+      "verified_decision_stream": "6be39164cdcb342ab951eabec4453d6aea9cee1749403eb35f94e153fb568d09"
+    },
+    "37eb": {
+      "match": "37ebd1eb-c679-41c0-b8a2-4665d71ddbc9",
+      "recorded_bundle": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "seat": 2,
+      "observations": {
+        "decisions": 48964,
+        "recorded_faults": 0,
+        "v13_unknown": 2798,
+        "v13_wrong": 241,
+        "v14_unknown": 2798,
+        "v14_wrong": 0
+      },
+      "local_cpu_s": 4.218,
+      "verified_decision_stream": "9d77c02f626aebdd172190fe10b9d7c8ab79ac4626ae8f2ebb964c9ac4f296fb"
+    },
+    "385f": {
+      "match": "385ff542-e882-46e6-91e5-b46e6fdffb79",
+      "recorded_bundle": "1abc777347a92c602519c68c1b4942e77a64f346ea57f180cbf6e6274c8792db",
+      "seat": 9,
+      "observations": {
+        "decisions": 41010,
+        "recorded_faults": 0,
+        "v13_unknown": 2291,
+        "v13_wrong": 96,
+        "v14_unknown": 2291,
+        "v14_wrong": 92
+      },
+      "local_cpu_s": 3.633,
+      "verified_decision_stream": "bf4b6785bc62fde06abedc7693b8f4f829ef690d25406e17c32e67d5e4055c11"
+    },
+    "5538": {
+      "match": "5538fabd-981f-4594-aaf8-136a9133f92d",
+      "recorded_bundle": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "seat": 2,
+      "observations": {
+        "decisions": 31916,
+        "recorded_faults": 0
+      },
+      "local_cpu_s": 3.528,
+      "verified_decision_stream": "a93facd8d5d521e3deb42ab1185174bb1fe8886f303b7c69b891400f1bbf40d5"
+    },
+    "9e35": {
+      "match": "9e35b0a8-1d78-479a-b4a0-f95787d5aed3",
+      "recorded_bundle": "40f274d9609053ac370a19d439e49fd4b4f7ed2cedd5269497f7ed2f861a2d9d",
+      "seat": 1,
+      "observations": {
+        "decisions": 22549,
+        "recorded_faults": 0
+      },
+      "local_cpu_s": 1.742,
+      "verified_decision_stream": "3341b24895873493348026d908ec841b5ebb2940ba55e6cbbc8e5cc759bdd022"
+    },
+    "c630": {
+      "match": "c6309922-3a77-45cf-930a-70d5c0823cb4",
+      "recorded_bundle": "40f274d9609053ac370a19d439e49fd4b4f7ed2cedd5269497f7ed2f861a2d9d",
+      "seat": 1,
+      "observations": {
+        "decisions": 41201,
+        "recorded_faults": 0
+      },
+      "local_cpu_s": 2.689,
+      "verified_decision_stream": "f7655ab857633fd02ed30177a8164db7ed090b4c39d32f524001fa27392093eb"
+    },
+    "c76": {
+      "match": "c76a4d00-4dd7-48db-97c9-e5893635f26a",
+      "recorded_bundle": "40f274d9609053ac370a19d439e49fd4b4f7ed2cedd5269497f7ed2f861a2d9d",
+      "seat": 1,
+      "observations": {
+        "decisions": 25825,
+        "recorded_faults": 0,
+        "v13_unknown": 264,
+        "v13_wrong": 196,
+        "v14_unknown": 264,
+        "v14_wrong": 131
+      },
+      "local_cpu_s": 1.921,
+      "verified_decision_stream": "71529fb0a1109d20c0e7f57df09d08bed13a84c454fb2fe78a90e70b424e2ae7"
+    },
+    "e144": {
+      "match": "e144283c-bc52-4c66-b44c-537241f571fb",
+      "recorded_bundle": "40f274d9609053ac370a19d439e49fd4b4f7ed2cedd5269497f7ed2f861a2d9d",
+      "seat": 3,
+      "observations": {
+        "decisions": 20435,
+        "recorded_faults": 0,
+        "v13_unknown": 534,
+        "v13_wrong": 0,
+        "v14_unknown": 534,
+        "v14_wrong": 0
+      },
+      "local_cpu_s": 1.749,
+      "verified_decision_stream": "4d32270e75849b533e6459fc2a218a00b5176d0bb2ac5323fc251c81e26b7484"
+    },
+    "e2e4": {
+      "match": "e2e40a26-1715-4a31-946a-3787284c5a52",
+      "recorded_bundle": "d948b68705b72dc4c3931d1e4fd36b3bffeb683ebd6b9f85abf75dfbe5fc5fa0",
+      "seat": 6,
+      "observations": {
+        "decisions": 18887,
+        "recorded_faults": 0
+      },
+      "local_cpu_s": 2.186,
+      "verified_decision_stream": "7dffb222e3fc299d8f763c0735275265dbc43423c342ba0dcbec0805fe87596f"
+    },
+    "eb98": {
+      "match": "eb985148-1b3c-4bb0-b07c-e1a03ffb5eee",
+      "recorded_bundle": "adcccc500476286c4fda1ab6187dcb7d35b878ef330ec7bb5bd09beeb08657de",
+      "seat": 7,
+      "observations": {
+        "decisions": 24960,
+        "recorded_faults": 0,
+        "v13_unknown": 1235,
+        "v13_wrong": 601,
+        "v14_unknown": 1235,
+        "v14_wrong": 601
+      },
+      "local_cpu_s": 2.38,
+      "verified_decision_stream": "95028e06897d128e3f405bc25d73641b4d5e412db5dd5271da3b1bb96e1ef1b0"
+    }
+  },
+  "target_retake_by_round": {
+    "16": {
+      "v13_wrong": 643,
+      "v13_initial_wrong": 1,
+      "v13_last_wrong_s": 32.1,
+      "v14_wrong": 131,
+      "v14_initial_wrong": 1,
+      "v14_last_wrong_s": 6.5
+    },
+    "18": {
+      "v13_wrong": 0,
+      "v13_initial_wrong": 0,
+      "v14_wrong": 0,
+      "v14_initial_wrong": 0
+    },
+    "19": {
+      "v13_wrong": 241,
+      "v13_initial_wrong": 1,
+      "v13_last_wrong_s": 12.0,
+      "v14_wrong": 0,
+      "v14_initial_wrong": 0
+    },
+    "20": {
+      "v13_wrong": 320,
+      "v13_initial_wrong": 1,
+      "v13_last_wrong_s": 15.95,
+      "v14_wrong": 0,
+      "v14_initial_wrong": 0
+    },
+    "21": {
+      "v13_wrong": 241,
+      "v13_initial_wrong": 1,
+      "v13_last_wrong_s": 12.0,
+      "v14_wrong": 0,
+      "v14_initial_wrong": 0
+    },
+    "22": {
+      "v13_wrong": 735,
+      "v13_initial_wrong": 1,
+      "v13_last_wrong_s": 36.7,
+      "v14_wrong": 148,
+      "v14_initial_wrong": 1,
+      "v14_last_wrong_s": 7.35
+    }
+  },
+  "closed_loop_model_results": {
+    "public_floor": {
+      "cases": 40,
+      "v13_completed": 31,
+      "v14_completed": 32
+    },
+    "recorded_riser_neighborhoods": {
+      "cases": 8,
+      "v13_completed": 0,
+      "v14_completed": 2
+    },
+    "held_out_ground_segments": {
+      "cases": 2,
+      "v13_completed": 0,
+      "v14_completed": 0
+    }
+  },
+  "closed_loop_cases": "v14-objective-travel.json",
+  "attack_site_commitment": {
+    "17ebefad": {
+      "paired_planted_rounds": 4,
+      "earlier_site_assignment_seconds": [
+        3.9,
+        7.8,
+        8.85,
+        53.3
+      ],
+      "separated_movement_calls": 4321,
+      "v13_moving_towards_carrier": 2322,
+      "v14_moving_towards_carrier": 2651
+    },
+    "1b08ffe7": {
+      "paired_planted_rounds": 2,
+      "earlier_site_assignment_seconds": [
+        3.9,
+        21.65
+      ],
+      "separated_movement_calls": 6320,
+      "v13_moving_towards_carrier": 3537,
+      "v14_moving_towards_carrier": 3514
+    },
+    "37ebd1eb": {
+      "paired_planted_rounds": 2,
+      "earlier_site_assignment_seconds": [
+        6.6,
+        8.75
+      ],
+      "separated_movement_calls": 6382,
+      "v13_moving_towards_carrier": 2527,
+      "v14_moving_towards_carrier": 2577
+    }
+  },
+  "median_earlier_commitment_seconds": 8.28,
+  "interpretation": "Fixed observations describe decisions on past games. Closed-loop results use approximate geometry with no opponents. B retake in the independent witness variant timed out for both policies. No v14 ranked outcome is measured here."
+}
