@@ -86,6 +86,19 @@ class RankedTests(unittest.TestCase):
             else:
                 self.assertIn("fire", a)
 
+    def test_interrupted_smoke_can_be_retried_after_contact_clears(self):
+        row, p = route_row(), agent.Player()
+        row["me"]["throwable_kinds"] = ["smokegrenade"]
+        self.assertEqual(p.act(row).get("throw_state"), "prime")
+        row.pop("map")
+        row["visible"] = [enemy()]
+        self.assertEqual(p.act(advance(row)).get("throw_state"), "cancel")
+        row["visible"] = []
+        self.assertNotIn("throw_state", p.act(advance(row)))
+        self.assertEqual(p.act(advance(row, 183)).get("throw_state"), "prime")
+        self.assertEqual(p.act(advance(row)).get("throw_state"), "release")
+        self.assertNotIn("throw_state", p.act(advance(row, 60)))
+
     def test_late_arrival_can_use_smoke_but_last_seconds_preserve_objective(self):
         row, p = route_row(), agent.Player()
         row.update(round_tick=4800, match_tick=4800, phase_remaining_ticks=1600)
@@ -103,7 +116,8 @@ class RankedTests(unittest.TestCase):
     def test_smoke_limits_and_essential_purchases(self):
         for side, level, cash, armor, expected in [
                 ("attack", "mirage-cs2-v54", 900, 0, "armor"),
-                ("attack", "mirage-cs2-v54", 599, 100, None),
+                ("attack", "mirage-cs2-v54", 299, 100, None),
+                ("attack", "mirage-cs2-v54", 300, 100, "smokegrenade"),
                 ("defend", "mirage-cs2-v54", 1500, 100, "defusekit"),
                 ("attack", "other", 1500, 100, None)]:
             row = route_row()

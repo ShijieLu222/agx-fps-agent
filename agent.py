@@ -114,6 +114,7 @@ class Player:
     def clear_route_history(self):
         self.route_threats = {}
         self.mirage_corridor = False
+        self.mirage_spawn_exit = None
         self.corridor_jumps = set()
         self.nav_side, self.nav_round = None, 0
 
@@ -262,6 +263,7 @@ class Player:
         self.contact_until = 0
         self.smoke_prime_tick = None
         self.smoke_attempted = False
+        self.smoke_retry_tick = 0
         self.enemy_memory = None
         self.target_seat = None
         self.last_fire = False
@@ -302,6 +304,8 @@ class Player:
         self.attack_site = None
         self.escort_carrier, self.carrier_origin = None, None
         self.escort_goal, self.escort_tick = None, 0
+        self.spawn_progress = None
+        self.spawn_escape_until = 0
         self.team_status = {}
         self.fallen_zones = {}
         self.support_zone, self.support_until = None, 0
@@ -471,6 +475,38 @@ class Player:
                                             and distance(point, self.escort_goal) >= 16)):
                 self.escort_goal, self.escort_tick = list(point), tick
         return index, self.escort_goal
+
+    def attack_spawn_escape(self, o, pos):
+        """Leave the Mirage spawn plateau by its east descent after a stall."""
+        if self.mirage_spawn_exit is None or o["side"] != "attack":
+            return None
+        tick = o["match_tick"]
+        if self.spawn_escape_until:
+            if tick < self.spawn_escape_until and distance(pos, self.mirage_spawn_exit) > 2.0:
+                return self.mirage_spawn_exit
+            self.spawn_escape_until = min(tick, self.spawn_escape_until)
+            return None
+        # Neither waiting out contact nor already moving out of spawn is a stall.
+        x, y, z = pos
+        if (not 360 <= o["round_tick"] < 1860 or o["visible"]
+                or tick < self.contact_until or o["me"]["blind_ticks"] or not o["me"]["grounded"]
+                or not (87 <= x <= 104 and 127.5 <= y <= 138 and 15.2 <= z <= 16.4)):
+            self.spawn_progress = None
+            return None
+        if (self.spawn_progress is None or self.last_move_tick is None
+                or tick-self.last_move_tick > 6 or distance(pos, self.spawn_progress[0]) >= 2.2):
+            self.spawn_progress = (pos, tick)
+        if tick-self.spawn_progress[1] < 150 and o["round_tick"] < 1080:
+            return None
+
+        # A previous recovery may be committed to an inaccessible connector.
+        # Start the alternate route from the observed position and retain it
+        # through the descent, even if the carrier's estimated site changes.
+        self.spawn_escape_until = tick + 900
+        self.path = []
+        self.reset_navigation()
+        self.escape_until = 0
+        return self.mirage_spawn_exit
 
     def pressure_goal(self, o, index, base):
         """Short entrance check, then push connected public approach nodes.
@@ -727,6 +763,8 @@ class Player:
         departure = (spawn is not None and 360 <= o["round_tick"] < 960
                      and self.last_visible_tick is None and self.damage_watch_start is None
                      and math.hypot(m["x"]-spawn[0], m["y"]-spawn[1]) < 32)
+        departure = departure or (tick < self.spawn_escape_until
+                                  and self.goal == self.mirage_spawn_exit)
         corner = False
         objective_travel = (self.retake or o["me"]["carrying_bomb"]
                             or (o["side"] == "attack"
@@ -1022,9 +1060,13 @@ class Player:
 
         self.public_nodes = tuple(self.nodes)
         self.build_guard_plans(row)
-        if (row.get("id") == "mirage-cs2-v54"
-                and row.get("geometry_hash") == "ef9384945046620f3f61ac579ae91f0beac8d5541c871e1996faf7a36f2e39db"
-                and all(k in self.nodes for k in ("2126", "2089", "1720", "1724"))):
+        mirage_geometry = (row.get("id") == "mirage-cs2-v54"
+                           and row.get("geometry_hash") == "ef9384945046620f3f61ac579ae91f0beac8d5541c871e1996faf7a36f2e39db")
+        if mirage_geometry and "755" in self.nodes:
+            # The existing nav anchor is below the east descent witnessed in
+            # the owner's 629a round 18, beyond the obstructed spawn plateau.
+            self.mirage_spawn_exit = self.nodes["755"]
+        if mirage_geometry and all(k in self.nodes for k in ("2126", "2089", "1720", "1724")):
             self.mirage_corridor = True
             # The directed corridor and takeoffs were sampled from our own
             # successful B rotation in match 1b08, then simplified at 23 cm.
@@ -1126,7 +1168,7 @@ class Player:
             return {"buy": "defusekit"}
         buy_key = (self.map_identity, o["round_index"])
         if (o["side"] == "attack" and str(o.get("map_id", "")).startswith("mirage-")
-                and m["weapons"][0] and m["armor"] >= 50 and m["cash"] >= 600
+                and m["weapons"][0] and m["armor"] >= 50 and m["cash"] >= 300
                 and isinstance(m.get("throwable_kinds"), list)
                 and "smokegrenade" not in m["throwable_kinds"] and self.smoke_buy_key != buy_key):
             self.smoke_buy_key = buy_key
@@ -1418,7 +1460,8 @@ class Player:
                 yaw, pitch = self.aim_error(m, self.enemy_memory[0])
                 action.update(yaw_rate=clip(yaw / 0.15),
                               pitch_rate=clip(pitch / 0.1))
-        return self.watch_navigation(o, action)
+        spawn_escape = tick < self.spawn_escape_until and self.goal == self.mirage_spawn_exit
+        return self.watch_navigation(o, action, recovering=spawn_escape)
 
     def combat(self, o, action, gun, enemies=None):
         m = o["me"]
@@ -1664,27 +1707,36 @@ class Player:
             return action
         # Only request the game utility on an active route toward a public site.
         # The original action keeps its movement, interaction and fire priority.
+        site_index = self.attack_site if self.attack_site is not None else (
+            o["round_index"] % len(self.sites) if self.sites else None)
+        site = self.sites[site_index] if site_index is not None else None
+        distance_to_site = distance([m["x"], m["y"], m["z"]], site["center"]) if site else math.inf
         travel = (o["bomb"]["state"] == "held" and o["round_tick"] >= 720
                   and o.get("phase_remaining_ticks", 7260-o["round_tick"]) >= 600
                   and not o["visible"] and not m["blind_ticks"] and m["grounded"]
                   and tick >= max(self.contact_until, self.escape_until, self.retreat_until)
                   and not self.recovery_trace and not action.get("jump") and not action.get("reload")
                   and not action.get("use") and action.get("move_forward", 0.) > .5
-                  and abs(action.get("yaw_rate", 0.)) < .5 and abs(m["pitch"]) < .25
+                  and not action.get("fire") and abs(m["pitch"]) < .25
                   and current_slot(m, None) == action.get("weapon_slot")
                   and clock_ready(m.get("switch_until"), tick) and self.goal is not None
-                  and any(distance(self.goal, s["center"]) <= s["radius"] for s in self.sites)
-                  and 10 <= distance([m["x"], m["y"], m["z"]], self.goal) <= 30)
+                  and 10 <= distance_to_site <= 30
+                  and distance(self.goal, site["center"]) <= max(12, site["radius"])
+                  and abs(self.aim_error(m, site["center"])[0]) < .15)
         if self.smoke_prime_tick is not None:
             if travel and tick == self.smoke_prime_tick:
                 return action
             state = "release" if travel and 0 < tick-self.smoke_prime_tick <= 6 else "cancel"
             self.smoke_prime_tick = None
-        elif travel and clock_ready(m.get("throw_ready"), tick):
+            self.smoke_attempted = state == "release"
+            self.smoke_retry_tick = tick + 45
+        elif travel and tick >= self.smoke_retry_tick and clock_ready(m.get("throw_ready"), tick):
             state = "prime"
-            self.smoke_prime_tick, self.smoke_attempted = tick, True
+            self.smoke_prime_tick = tick
         else:
             return action
+        if state != "cancel":
+            action["yaw_rate"] = clip(self.aim_error(m, site["center"])[0] / .15)
         return dict(action, throw="smokegrenade", throw_state=state, throw_mode="lob")
 
     def decide(self, o):
@@ -1857,6 +1909,10 @@ class Player:
         if (guard_plan and distance(pos, goal) < 1.2 and m["grounded"]
                 and abs(pos[2]-goal[2]) < .6):
             return self.guard_action(o, action, guard_plan)
+        if o["bomb"]["state"] == "held":
+            spawn_exit = self.attack_spawn_escape(o, pos)
+            if spawn_exit is not None:
+                goal = spawn_exit
         # Buy already gates movement; do not delay later seats after live starts.
         action = self.move(o, goal, action, stop_at_goal=not (planting or defusing))
         if (guard_plan and distance(pos, goal) < 8 and not action.get("jump")

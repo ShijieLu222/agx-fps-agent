@@ -83,3 +83,46 @@ class MirageNavigationTests(unittest.TestCase):
                 break
         self.assertTrue(jumped)
         self.assertLess(math.dist([m["x"], 0., m["z"]], p.nodes["end"]), .65)
+
+    def test_stalled_attack_leaves_spawn_and_resumes_site_route(self):
+        # Round 19 stayed around this plateau. Use a small graph with a
+        # blocked west route and the east descent reached in round 18.
+        nodes = {"spawn": [92.6, 132.4, 15.8], "west": [86., 133., 15.8],
+                 "east": [103., 130., 15.8], "755": [111.8, 127.7, 13.4],
+                 "site": [72., 119., 13.4]}
+        edges = [("spawn", "west"), ("west", "site"), ("spawn", "east"),
+                 ("east", "755"), ("755", "site")]
+        arena = {"id": "mirage-cs2-v54", "geometry_hash": GEOMETRY,
+                 "sites": [{"id": "A", "center": nodes["site"], "radius": 4.}],
+                 "nav": {"nodes": [{"id": k, "position": v} for k, v in nodes.items()],
+                         "edges": [{"from": a, "to": b, "kind": "source-adjacency"}
+                                   for a, b in edges]}}
+        row = observation(map=arena, map_id=arena["id"], match_tick=360, round_tick=360,
+                          bomb={"state": "held", "carrier": 2})
+        player, me = agent.Player(), row["me"]
+        me.update(zip("xyz", nodes["spawn"]))
+        self.assertLess(player.act(row)["move_forward"], 0)
+        row.pop("map")
+        for tick in range(363, 513, 3):
+            row.update(match_tick=tick, round_tick=tick)
+            me["x"] = 92.6 + .4 * math.sin(tick / 12)
+            player.act(row)
+        self.assertEqual(player.goal, nodes["755"])
+        self.assertIn("east", player.path_nodes)
+        self.assertFalse(player.act(row)["walk"])
+
+        for tick in range(513, 1014, 3):
+            row.update(match_tick=tick, round_tick=tick)
+            action = player.act(row)
+            if player.goal == nodes["site"]:
+                break
+            forward, right = action.get("move_forward", 0.), action.get("move_right", 0.)
+            me["x"] += .25 * forward
+            me["y"] += .25 * right
+            if me["x"] >= 105:
+                me["z"] = 13.4
+        else:
+            self.fail("The alternate route did not reach the east descent")
+        self.assertEqual(player.goal, nodes["site"])
+        self.assertGreater(me["x"], 109.)
+        self.assertEqual(player.spawn_escape_until, tick)
